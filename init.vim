@@ -1,4 +1,3 @@
-"
 "Enable line numbers
 set number
 
@@ -78,7 +77,6 @@ Plug 'saadparwaiz1/cmp_luasnip'
 " GitHub Copilot
 Plug 'github/copilot.vim'
 
-
 " Finish plugin installation
 call plug#end()
 
@@ -96,10 +94,10 @@ let g:airline_theme='base16'
 colorscheme kanagawa
 
 " Mappings
+
 " File explorer shortcut
 let mapleader = ","
 
-" General Mappings
 " Tab Mappings
 nnoremap <leader>1 1gt
 nnoremap <leader>2 2gt
@@ -138,8 +136,6 @@ nnoremap <leader>fb :Telescope current_buffer_fuzzy_find<CR>
 " Split panels
 nnoremap <leader>vs :vsplit<CR>
 nnoremap <leader>hs :split<CR>
-
-
 
 " Enable nvim-cmp for autocompletion
 let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
