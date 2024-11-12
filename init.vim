@@ -52,7 +52,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Main plugins
 Plug 'tpope/vim-sensible'              " A sensible default configuration for Vim
 Plug 'neovim/nvim-lspconfig'          " LSP (Language Server Protocol) configuration
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'hrsh7th/nvim-compe'             " Autocompletion plugin
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'  }  " Syntax highlighting via Treesitter
 Plug 'tpope/vim-fugitive'             " Git integration
@@ -158,8 +158,14 @@ let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
 let g:copilot_enabled = 1          " Enable Copilot by default
 let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
 
-" Set up prettier to format on save every file
+" Prettier Configuration
 autocmd BufWritePre * :Prettier
+let g:prettier#config#print_width = 120
+let g:prettier#config#tab_width = 4
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#bracket_spacing = 1
+
 
 lua << EOF
     local cmp = require('cmp')
