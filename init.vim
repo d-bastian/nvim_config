@@ -133,7 +133,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Telescope mappings
-nnoremap <C-p> :Telescope find_files<CR>
+nnoremap <C-p> :Telescope find_files hidden=true<CR>
+" Telescope enable hidden files
+
 nnoremap <leader>ff :Telescope live_grep<CR>
 
 " Find text in current buffer
