@@ -141,6 +141,12 @@ nnoremap <leader>ff :Telescope live_grep<CR>
 " Find text in current buffer
 nnoremap <leader>fb :Telescope current_buffer_fuzzy_find<CR>
 
+" Split panels
+nnoremap <leader>vs :vsplit<CR>
+nnoremap <leader>hs :split<CR>
+
+
+
 " Enable nvim-cmp for autocompletion
 let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
 
