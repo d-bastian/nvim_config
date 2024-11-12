@@ -58,9 +58,13 @@ Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'junegunn/fzf.vim'               " Fuzzy file search
 Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
-Plug 'vim-airline/vim-airline'        " Status line plugin
-Plug 'daltonmenezes/aura-theme', { 'rtp': 'packages/neovim' }
 Plug 'nvim-tree/nvim-tree.lua'
+
+" Airline
+Plug 'vim-airline/vim-airline'        " Status line plugin
+Plug 'vim-airline/vim-airline-themes'
+
+" Theme
 Plug 'rebelot/kanagawa.nvim'
 
 " AutoCompletion
@@ -69,6 +73,10 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'saadparwaiz1/cmp_luasnip'
+
+" Formatter
+Plug 'mhartington/formatter.nvim'
+
 
 " GitHub Copilot
 Plug 'github/copilot.vim'
@@ -82,12 +90,18 @@ Plug 'sbdchd/neoformat'
 call plug#end()
 
 " Configurations
-autocmd BufWritePre * Neoformat " Autoformat on save
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost * FormatWrite
+augroup END
 
 " Enable airline extensions
 let g:airline#extensions#tabline#enabled = 1  " Show tab line
 let g:airline#extensions#fugitiveline#enabled = 1  " Git branch in status line
 let g:airline#extensions#whitespace#enabled = 1  " Show whitespace characters
+
+" Set the colorscheme for airline
+let g:airline_theme='base16'
 
 " Theme
 colorscheme kanagawa
@@ -127,6 +141,9 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-p> :Telescope find_files<CR>
 nnoremap <leader>ff :Telescope live_grep<CR>
 
+" Find text in current buffer
+nnoremap <leader>fb :Telescope current_buffer_fuzzy_find<CR>
+
 " Enable nvim-cmp for autocompletion
 let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
 
@@ -135,53 +152,93 @@ let g:copilot_enabled = 1          " Enable Copilot by default
 let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
 
 lua << EOF
-  local cmp = require('cmp')
+    local cmp = require('cmp')
 
-  cmp.setup({
-    snippet = {
-      expand = function(args)
-        -- Use Vim's expand function or LuaSnip (if installed)
-        vim.fn['vsnip#expand'](args.body)  -- Or replace with 'luasnip.expand()' if using LuaSnip
-      end,
-    },
-    mapping = {
-      ['<C-p>'] = cmp.mapping.select_prev_item(),    -- Select previous item
-      ['<C-n>'] = cmp.mapping.select_next_item(),    -- Select next item
-      ['<Tab>'] = cmp.mapping.select_next_item(),    -- Same as <C-n>
-      ['<S-Tab>'] = cmp.mapping.select_prev_item(),  -- Same as <C-p>
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),  -- Confirm selection
+    cmp.setup({
+        snippet = {
+          expand = function(args)
+            -- Use Vim's expand function or LuaSnip (if installed)
+            vim.fn['vsnip#expand'](args.body)  -- Or replace with 'luasnip.expand()' if using LuaSnip
+          end,
+        },
+        mapping = {
+          ['<C-p>'] = cmp.mapping.select_prev_item(),    -- Select previous item
+          ['<C-n>'] = cmp.mapping.select_next_item(),    -- Select next item
+          ['<Tab>'] = cmp.mapping.select_next_item(),    -- Same as <C-n>
+          ['<S-Tab>'] = cmp.mapping.select_prev_item(),  -- Same as <C-p>
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),  -- Confirm selection
 
-    },
-    sources = {
-      { name = 'nvim_lsp' },   -- LSP completion
-      { name = 'buffer' },     -- Buffer completion
-      { name = 'path' },       -- Path completion
-    },
-  })
+        },
+        sources = {
+          { name = 'nvim_lsp' },   -- LSP completion
+          { name = 'buffer' },     -- Buffer completion
+          { name = 'path' },       -- Path completion
+        },
+    })
 
-  require'nvim-tree'.setup {
-    -- Configuration options go here
-    view = {
-      width = 30,                  -- Width of the file explorer window
-      side = 'left',               -- Position of the file explorer (left or right)
-    },
-    renderer = {
-      highlight_opened_files = "all",  -- Highlight files that are currently open in Neovim
-    },
-    diagnostics = {
-      enable = true,                -- Enable diagnostics (e.g., error or warning indicators)
-      icons = {
-        hint = "",                 -- Hint icon
-        info = "",                 -- Info icon
-        warning = "",              -- Warning icon
-        error = "",                -- Error icon
-      },
-    },
-  }
+    require'nvim-tree'.setup {
+        -- Configuration options go here
+        view = {
+          width = 30,                  -- Width of the file explorer window
+          side = 'left',               -- Position of the file explorer (left or right)
+        },
+        renderer = {
+          highlight_opened_files = "all",  -- Highlight files that are currently open in Neovim
+        },
+        diagnostics = {
+          enable = true,                -- Enable diagnostics (e.g., error or warning indicators)
+          icons = {
+            hint = "",                 -- Hint icon
+            info = "",                 -- Info icon
+            warning = "",              -- Warning icon
+            error = "",                -- Error icon
+          },
+        },
+    }
 
     require'lspconfig'.gopls.setup{}
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
+
+    require('formatter').setup({
+        logging = false,
+        filetype = {
+        -- General formatter (for all file types that aren't explicitly set)
+            ["*"] = {
+              function()
+                return {
+                  exe = "prettier",  -- Replace with your preferred formatter (e.g., prettier, clang-format, etc.)
+                  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+                  stdin = true,
+                }
+              end
+            },
+
+            -- Python formatter
+            python = {
+              function()
+                return {
+                  exe = "black",   -- You can use black or another Python formatter
+                  args = {"-"},
+                  stdin = true,
+                }
+              end
+            },
+
+            -- JavaScript/TypeScript formatter
+            javascript = {
+              function()
+                return {
+                  exe = "prettier",
+                  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
+                  stdin = true,
+                }
+              end
+            },
+
+        }
+    })
+
 EOF
 
 
