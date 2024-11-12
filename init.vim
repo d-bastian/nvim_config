@@ -1,4 +1,5 @@
-" Enable line numbers
+"
+"Enable line numbers
 set number
 
 set encoding=utf-8
@@ -74,9 +75,6 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'saadparwaiz1/cmp_luasnip'
 
-" Formatter
-Plug 'mhartington/formatter.nvim'
-
 " GitHub Copilot
 Plug 'github/copilot.vim'
 
@@ -85,10 +83,6 @@ Plug 'github/copilot.vim'
 call plug#end()
 
 " Configurations
-augroup FormatAutogroup
-  autocmd!
-  autocmd BufWritePost * FormatWrite
-augroup END
 
 " Enable airline extensions
 let g:airline#extensions#tabline#enabled = 1  " Show tab line
@@ -202,45 +196,6 @@ lua << EOF
     require'lspconfig'.gopls.setup{}
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
-
-    require('formatter').setup({
-        logging = false,
-        filetype = {
-        -- General formatter (for all file types that aren't explicitly set)
-            ["*"] = {
-              function()
-                return {
-                  exe = "prettier",  -- Replace with your preferred formatter (e.g., prettier, clang-format, etc.)
-                  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-                  stdin = true,
-                }
-              end
-            },
-
-            -- Python formatter
-            python = {
-              function()
-                return {
-                  exe = "black",   -- You can use black or another Python formatter
-                  args = {"-"},
-                  stdin = true,
-                }
-              end
-            },
-
-            -- JavaScript/TypeScript formatter
-            javascript = {
-              function()
-                return {
-                  exe = "prettier",
-                  args = {"--stdin-filepath", vim.api.nvim_buf_get_name(0)},
-                  stdin = true,
-                }
-              end
-            },
-
-        }
-    })
 
 EOF
 
