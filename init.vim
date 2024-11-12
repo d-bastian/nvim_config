@@ -106,7 +106,6 @@ colorscheme kanagawa
 
 " Mappings
 
-" File explorer shortcut
 let mapleader = ","
 
 " Tab Mappings
