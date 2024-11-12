@@ -49,10 +49,10 @@ set numberwidth=4
 " Initialize vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Example plugins
+" Main plugins
 Plug 'tpope/vim-sensible'              " A sensible default configuration for Vim
 Plug 'neovim/nvim-lspconfig'          " LSP (Language Server Protocol) configuration
-Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'hrsh7th/nvim-compe'             " Autocompletion plugin
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'  }  " Syntax highlighting via Treesitter
 Plug 'tpope/vim-fugitive'             " Git integration
@@ -153,6 +153,9 @@ let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
 let g:copilot_enabled = 1          " Enable Copilot by default
 let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
 
+" Set up prettier to format on save every file
+autocmd BufWritePre * :Prettier
+
 lua << EOF
     local cmp = require('cmp')
 
@@ -182,22 +185,6 @@ lua << EOF
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
     require'lspconfig'.powershell_es.setup{}
-
-    local null_ls = require("null-ls")
-
-    null_ls.setup({
-        sources = {
-            null_ls.builtins.formatting.prettier, -- Add your preferred formatter here
-            null_ls.builtins.formatting.black,    -- Example for Python
-        },
-    })
-
-    vim.api.nvim_create_autocmd("BufWritePre", {
-        pattern = "*",
-        callback = function()
-            vim.lsp.buf.format({ async = false })
-        end,
-    })
 
     require'nvim-treesitter.configs'.setup {
         highlight = {
