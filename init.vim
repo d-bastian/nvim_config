@@ -199,6 +199,9 @@ lua << EOF
         end,
     })
 
-
-
+    require'nvim-treesitter.configs'.setup {
+        highlight = {
+            enable = true,
+        },
+    }
 EOF
