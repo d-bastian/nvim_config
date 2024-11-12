@@ -77,13 +77,8 @@ Plug 'saadparwaiz1/cmp_luasnip'
 " Formatter
 Plug 'mhartington/formatter.nvim'
 
-
 " GitHub Copilot
 Plug 'github/copilot.vim'
-
-" Autoformat
-Plug 'sbdchd/neoformat'
-
 
 
 " Finish plugin installation
