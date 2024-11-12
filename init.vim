@@ -58,7 +58,11 @@ Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'junegunn/fzf.vim'               " Fuzzy file search
 Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
-Plug 'nvim-tree/nvim-tree.lua'
+
+" NerdTree
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Airline
 Plug 'vim-airline/vim-airline'        " Status line plugin
@@ -116,7 +120,11 @@ nnoremap <leader>t :tabnew<CR>
 nnoremap <leader>q :tabclose<CR>
 
 " Nvim Tree Settings
-noremap <leader>n :NvimTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
+
+let g:NERDTreeDirArrowExpandable = '>'
+let g:NERDTreeDirArrowCollapsible = 'v'
 
 " Map Ctrl + h/j/k/l to navigate between windows
 nnoremap <C-h> <C-w>h
@@ -168,26 +176,6 @@ lua << EOF
           { name = 'path' },       -- Path completion
         },
     })
-
-    require'nvim-tree'.setup {
-        -- Configuration options go here
-        view = {
-          width = 30,                  -- Width of the file explorer window
-          side = 'left',               -- Position of the file explorer (left or right)
-        },
-        renderer = {
-          highlight_opened_files = "all",  -- Highlight files that are currently open in Neovim
-        },
-        diagnostics = {
-          enable = true,                -- Enable diagnostics (e.g., error or warning indicators)
-          icons = {
-            hint = "",                 -- Hint icon
-            info = "",                 -- Info icon
-            warning = "",              -- Warning icon
-            error = "",                -- Error icon
-          },
-        },
-    }
 
     require'lspconfig'.gopls.setup{}
     require'lspconfig'.pyright.setup{}
