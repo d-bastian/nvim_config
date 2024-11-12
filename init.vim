@@ -196,6 +196,12 @@ lua << EOF
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
     require'lspconfig'.powershell_es.setup{}
+    require'lspconfig'.jsonls.setup{}
+    require'lspconfig'.html.setup{}
+    require'lspconfig'.cssls.setup{}
+    require'lspconfig'.yamlls.setup{}
+    require'lspconfig'.vimls.setup{}
+
 
     require'nvim-treesitter.configs'.setup {
         highlight = {
