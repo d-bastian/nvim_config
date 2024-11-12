@@ -82,6 +82,12 @@ Plug 'saadparwaiz1/cmp_luasnip'
 " GitHub Copilot
 Plug 'github/copilot.vim'
 
+" Auto pair
+Plug 'windwp/nvim-autopairs'
+
+" Treesitter plugins
+Plug 'hiphish/rainbow-delimiters.nvim'
+
 " Finish plugin installation
 call plug#end()
 
@@ -191,4 +197,8 @@ lua << EOF
             enable = true,
         },
     }
+
+    -- Autopairs configs
+    require('nvim-autopairs').setup{}
+
 EOF
