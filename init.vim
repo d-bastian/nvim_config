@@ -153,7 +153,6 @@ let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
 let g:copilot_enabled = 1          " Enable Copilot by default
 let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
 
-
 lua << EOF
     local cmp = require('cmp')
 
@@ -182,7 +181,7 @@ lua << EOF
     require'lspconfig'.gopls.setup{}
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
-    require'lspconfig'.null_ls.setup{}
+    require'lspconfig'.powershell_es.setup{}
 
     local null_ls = require("null-ls")
 
