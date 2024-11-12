@@ -182,6 +182,7 @@ lua << EOF
     require'lspconfig'.gopls.setup{}
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
+    require'lspconfig'.null_ls.setup{}
 
     local null_ls = require("null-ls")
 
@@ -200,6 +201,5 @@ lua << EOF
     })
 
 
-    require'lspconfig'.null_ls.setup{}
 
 EOF
