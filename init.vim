@@ -45,7 +45,6 @@ set number relativenumber
 " Enable line number column width
 set numberwidth=4
 
-
 " Initialize vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -160,7 +159,7 @@ let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Se
 
 " Prettier Configuration
 autocmd BufWritePre * :Prettier
-let g:prettier#config#print_width = 120
+let g:prettier#config#print_width = 80
 let g:prettier#config#tab_width = 4
 let g:prettier#config#use_tabs = 'false'
 let g:prettier#config#trailing_comma = 'all'
