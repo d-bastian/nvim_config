@@ -60,9 +60,9 @@ Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
 
 " NerdTree
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'preservim/nerdtree'            " File system explorer
+Plug 'ryanoasis/vim-devicons'       " Icons for NERDTree
+Plug 'Xuyuanp/nerdtree-git-plugin' " Git integration for NERDTree
 
 " Airline
 Plug 'vim-airline/vim-airline'        " Status line plugin
@@ -141,6 +141,7 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-p> :Telescope find_files hidden=true<CR>
 " Telescope enable hidden files
 
+" Find text in files
 nnoremap <leader>ff :Telescope live_grep<CR>
 
 " Find text in current buffer
@@ -166,6 +167,8 @@ let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#bracket_spacing = 1
 
 lua << EOF
+
+    -- CMP Configurations
     local cmp = require('cmp')
 
     cmp.setup({
@@ -190,15 +193,33 @@ lua << EOF
         },
     })
 
+    --  LSP Configurations
     require'lspconfig'.gopls.setup{}
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
     require'lspconfig'.powershell_es.setup{
       bundle_path = 'c:/lspservices/PowerShellEditorServices',
     }
-    require'lspconfig'.jsonls.setup{}
-    require'lspconfig'.html.setup{}
-    require'lspconfig'.cssls.setup{}
+    require'lspconfig'.jsonls.setup {
+        commands = {
+          Format = {
+            function()
+              vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
+            end
+          }
+        }
+    }
+
+    -- HTML, CSS, YAML, VIM LSP
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+    require'lspconfig'.html.setup {
+      capabilities = capabilities,
+    }
+    require'lspconfig'.cssls.setup{
+        capabilities = capabilities,
+    }
     require'lspconfig'.yamlls.setup{}
     require'lspconfig'.vimls.setup{}
 
@@ -216,6 +237,4 @@ lua << EOF
 
     -- Autopairs configs
     require('nvim-autopairs').setup{}
-
-
 EOF
