@@ -165,7 +165,6 @@ let g:prettier#config#use_tabs = 'false'
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#bracket_spacing = 1
 
-
 lua << EOF
     local cmp = require('cmp')
 
@@ -194,13 +193,20 @@ lua << EOF
     require'lspconfig'.gopls.setup{}
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
-    require'lspconfig'.powershell_es.setup{}
+    require'lspconfig'.powershell_es.setup{
+      bundle_path = 'c:/lspservices/PowerShellEditorServices',
+    }
     require'lspconfig'.jsonls.setup{}
     require'lspconfig'.html.setup{}
     require'lspconfig'.cssls.setup{}
     require'lspconfig'.yamlls.setup{}
     require'lspconfig'.vimls.setup{}
 
+    -- Csharp LSP
+    local omnisharp_bin = 'c:/lspservices/omnisharp-win-x64/OmniSharp.exe'
+    require'lspconfig'.omnisharp.setup{
+        cmd = { omnisharp_bin , '--languageserver', '--hostPID', tostring(vim.fn.getpid()) },
+    }
 
     require'nvim-treesitter.configs'.setup {
         highlight = {
@@ -210,5 +216,6 @@ lua << EOF
 
     -- Autopairs configs
     require('nvim-autopairs').setup{}
+
 
 EOF
