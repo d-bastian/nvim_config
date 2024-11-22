@@ -109,7 +109,7 @@ colorscheme bamboo
 let mapleader = ","
 
 " Tab Mappings
-nnoremap <leader>1 :bn<CR>
+nnoremap <leader>b :bn<CR>
 
 " New Tab
 nnoremap <leader>t :tabnew<CR>
