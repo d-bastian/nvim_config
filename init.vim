@@ -68,8 +68,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin' " Git integration for NERDTree
 Plug 'vim-airline/vim-airline'        " Status line plugin
 Plug 'vim-airline/vim-airline-themes'
 
-" Theme
+" Themes
 Plug 'rebelot/kanagawa.nvim'
+Plug 'ribru17/bamboo.nvim'
 
 " AutoCompletion
 Plug 'hrsh7th/nvim-cmp'
@@ -101,22 +102,14 @@ let g:airline#extensions#whitespace#enabled = 1  " Show whitespace characters
 let g:airline_theme='base16'
 
 " Theme
-colorscheme kanagawa
+colorscheme bamboo
 
 " Mappings
 
 let mapleader = ","
 
 " Tab Mappings
-nnoremap <leader>1 1gt
-nnoremap <leader>2 2gt
-nnoremap <leader>3 3gt
-nnoremap <leader>4 4gt
-nnoremap <leader>5 5gt
-nnoremap <leader>6 6gt
-nnoremap <leader>7 7gt
-nnoremap <leader>8 8gt
-nnoremap <leader>9 9gt
+nnoremap <leader>1 :bn<CR>
 
 " New Tab
 nnoremap <leader>t :tabnew<CR>
