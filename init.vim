@@ -1,6 +1,9 @@
 "Enable line numbers
 set number
 
+" Line Comments
+filetype plugin on
+
 set encoding=utf-8
 set fileencodings=utf-8,utf-8bom,latin1
 
@@ -58,6 +61,7 @@ Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'junegunn/fzf.vim'               " Fuzzy file search
 Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
+Plug 'preservim/nerdcommenter'
 
 " NerdTree
 Plug 'preservim/nerdtree'            " File system explorer
@@ -231,3 +235,4 @@ lua << EOF
     -- Autopairs configs
     require('nvim-autopairs').setup{}
 EOF
+
