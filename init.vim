@@ -61,7 +61,7 @@ Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'junegunn/fzf.vim'               " Fuzzy file search
 Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
-Plug 'preservim/nerdcommenter'
+Plug 'preservim/nerdcommenter'       " Commenting plugin
 
 " NerdTree
 Plug 'preservim/nerdtree'            " File system explorer
@@ -75,6 +75,7 @@ Plug 'vim-airline/vim-airline-themes'
 " Themes
 Plug 'rebelot/kanagawa.nvim'
 Plug 'ribru17/bamboo.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 
 " AutoCompletion
 Plug 'hrsh7th/nvim-cmp'
@@ -106,7 +107,7 @@ let g:airline#extensions#whitespace#enabled = 1  " Show whitespace characters
 let g:airline_theme='base16'
 
 " Theme
-colorscheme bamboo
+colorscheme gruvbox
 
 " Mappings
 
@@ -194,9 +195,13 @@ lua << EOF
     require'lspconfig'.gopls.setup{}
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
+
+    -- Powershell LSP
     require'lspconfig'.powershell_es.setup{
-      bundle_path = 'c:/lspservices/PowerShellEditorServices',
+        cmd = { 'powershell_es', '-lsp' },
+        bundle_path = 'c:/lspservices/PowerShellEditorServices',
     }
+
     require'lspconfig'.jsonls.setup {
         commands = {
           Format = {
