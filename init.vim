@@ -53,20 +53,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Main plugins
 Plug 'tpope/vim-sensible'              " A sensible default configuration for Vim
-Plug 'neovim/nvim-lspconfig'          " LSP (Language Server Protocol) configuration
 Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
-Plug 'hrsh7th/nvim-compe'             " Autocompletion plugin
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'  }  " Syntax highlighting via Treesitter
 Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'junegunn/fzf.vim'               " Fuzzy file search
 Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
 Plug 'preservim/nerdcommenter'       " Commenting plugin
-
-" NerdTree
-Plug 'preservim/nerdtree'            " File system explorer
-Plug 'ryanoasis/vim-devicons'       " Icons for NERDTree
-Plug 'Xuyuanp/nerdtree-git-plugin' " Git integration for NERDTree
 
 " Airline
 Plug 'vim-airline/vim-airline'        " Status line plugin
@@ -76,13 +69,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'ribru17/bamboo.nvim'
 Plug 'ellisonleao/gruvbox.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 " AutoCompletion
-Plug 'hrsh7th/nvim-cmp'
+Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
-Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 " GitHub Copilot
 Plug 'github/copilot.vim'
@@ -107,7 +102,7 @@ let g:airline#extensions#whitespace#enabled = 1  " Show whitespace characters
 let g:airline_theme='base16'
 
 " Theme
-colorscheme gruvbox
+colorscheme catppuccin-mocha
 
 " Mappings
 
@@ -121,13 +116,6 @@ nnoremap <leader>t :tabnew<CR>
 
 " Close tab
 nnoremap <leader>q :tabclose<CR>
-
-" Nvim Tree Settings
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
-
-let g:NERDTreeDirArrowExpandable = '>'
-let g:NERDTreeDirArrowCollapsible = 'v'
 
 " Map Ctrl + h/j/k/l to navigate between windows
 nnoremap <C-h> <C-w>h
@@ -144,10 +132,6 @@ nnoremap <leader>ff :Telescope live_grep<CR>
 
 " Find text in current buffer
 nnoremap <leader>fb :Telescope current_buffer_fuzzy_find<CR>
-
-" Split panels
-nnoremap <leader>vs :vsplit<CR>
-nnoremap <leader>hs :split<CR>
 
 " Enable nvim-cmp for autocompletion
 let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
@@ -166,41 +150,46 @@ let g:prettier#config#bracket_spacing = 1
 
 lua << EOF
 
-    -- CMP Configurations
-    local cmp = require('cmp')
+    local cmp = require'cmp'
 
+    -- Global setup.
     cmp.setup({
-        snippet = {
-          expand = function(args)
-            -- Use Vim's expand function or LuaSnip (if installed)
-            vim.fn['vsnip#expand'](args.body)  -- Or replace with 'luasnip.expand()' if using LuaSnip
-          end,
-        },
-        mapping = {
-          ['<C-p>'] = cmp.mapping.select_prev_item(),    -- Select previous item
-          ['<C-n>'] = cmp.mapping.select_next_item(),    -- Select next item
-          ['<Tab>'] = cmp.mapping.select_next_item(),    -- Same as <C-n>
-          ['<S-Tab>'] = cmp.mapping.select_prev_item(),  -- Same as <C-p>
-          ['<CR>'] = cmp.mapping.confirm({ select = true }),  -- Confirm selection
-
-        },
-        sources = {
-          { name = 'nvim_lsp' },   -- LSP completion
-          { name = 'buffer' },     -- Buffer completion
-          { name = 'path' },       -- Path completion
-        },
+      snippet = {
+        expand = function(args)
+          vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+        end,
+      },
+      window = {
+        -- completion = cmp.config.window.bordered(),
+        -- documentation = cmp.config.window.bordered(),
+      },
+      mapping = cmp.mapping.preset.insert({
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      }),
+      sources = cmp.config.sources({
+        { name = 'nvim_lsp' },
+        { name = 'vsnip' }, -- For vsnip users.
+      }, {
+        { name = 'buffer' },
+      })
     })
 
     --  LSP Configurations
+    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
     require'lspconfig'.gopls.setup{}
     require'lspconfig'.pyright.setup{}
     require'lspconfig'.ts_ls.setup{}
 
     -- Powershell LSP
     require'lspconfig'.powershell_es.setup{
-        cmd = { 'powershell_es', '-lsp' },
-        bundle_path = 'c:/lspservices/PowerShellEditorServices',
+        bundle_path = 'C:/lspservices/PowerShellEditorServices',
+        shell = 'powershell.exe'
     }
+    
 
     require'lspconfig'.jsonls.setup {
         commands = {
@@ -213,8 +202,6 @@ lua << EOF
     }
 
     -- HTML, CSS, YAML, VIM LSP
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     require'lspconfig'.html.setup {
       capabilities = capabilities,
@@ -239,5 +226,6 @@ lua << EOF
 
     -- Autopairs configs
     require('nvim-autopairs').setup{}
+
 EOF
 
