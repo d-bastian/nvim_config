@@ -88,6 +88,9 @@ Plug 'windwp/nvim-autopairs'
 " Treesitter plugins
 Plug 'hiphish/rainbow-delimiters.nvim'
 
+" Plugins for testing
+Plug 'MeanderingProgrammer/render-markdown.nvim'
+
 " Finish plugin installation
 call plug#end()
 
@@ -102,8 +105,7 @@ let g:airline#extensions#whitespace#enabled = 1  " Show whitespace characters
 let g:airline_theme='base16'
 
 " Theme
-colorscheme catppuccin-mocha
-
+colorscheme kanagawa
 " Mappings
 
 let mapleader = ","
@@ -226,6 +228,12 @@ lua << EOF
 
     -- Autopairs configs
     require('nvim-autopairs').setup{}
+
+    -- Custom theme setup
+    require('kanagawa').load(dragon)
+
+    -- Custom
+    require('render-markdown').setup()
 
 EOF
 
