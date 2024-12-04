@@ -60,7 +60,7 @@ Plug 'junegunn/fzf.vim'               " Fuzzy file search
 Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
 Plug 'preservim/nerdcommenter'       " Commenting plugin
-Plug 'sindrets/diffview.nvim'
+Plug 'sindrets/diffview.nvim'     " Git diff viewer plug#begin
 
 " Airline
 Plug 'vim-airline/vim-airline'        " Status line plugin
