@@ -60,6 +60,7 @@ Plug 'junegunn/fzf.vim'               " Fuzzy file search
 Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
 Plug 'preservim/nerdcommenter'       " Commenting plugin
+Plug 'sindrets/diffview.nvim'
 
 " Airline
 Plug 'vim-airline/vim-airline'        " Status line plugin
@@ -118,6 +119,9 @@ nnoremap <leader>t :tabnew<CR>
 
 " Close tab
 nnoremap <leader>q :tabclose<CR>
+
+" diffview
+nnoremap <leader>dv :DiffviewOpen<CR>
 
 " Map Ctrl + h/j/k/l to navigate between windows
 nnoremap <C-h> <C-w>h
