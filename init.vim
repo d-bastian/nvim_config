@@ -122,6 +122,7 @@ nnoremap <leader>q :tabclose<CR>
 
 " diffview
 nnoremap <leader>dv :DiffviewOpen<CR>
+nnoremap <leader>fh :DiffviewFileHistory<CR>
 
 " Map Ctrl + h/j/k/l to navigate between windows
 nnoremap <C-h> <C-w>h
