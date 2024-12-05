@@ -61,6 +61,9 @@ Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
 Plug 'preservim/nerdcommenter'       " Commenting plugin
 Plug 'sindrets/diffview.nvim'     " Git diff viewer plug#begin
+" NerdTree
+Plug 'nvim-tree/nvim-tree.lua' " File explorer
+Plug 'nvim-tree/nvim-web-devicons' " Icons for file explorer
 
 " Airline
 Plug 'vim-airline/vim-airline'        " Status line plugin
@@ -155,6 +158,9 @@ let g:prettier#config#use_tabs = 'false'
 let g:prettier#config#trailing_comma = 'all'
 let g:prettier#config#bracket_spacing = 1
 
+" Nerd Tree mapping
+nnoremap <leader>n :NvimTreeToggle<CR>
+
 lua << EOF
 
     local cmp = require'cmp'
@@ -236,6 +242,30 @@ lua << EOF
 
     -- Custom Lua
     require('render-markdown').setup()
+
+    -- File Explorer
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+
+    -- OR setup with some options
+    require("nvim-tree").setup({
+      sort = {
+        sorter = "case_sensitive",
+      },
+      view = {
+        width = 30,
+      },
+      renderer = {
+        group_empty = true,
+      },
+      filters = {
+        dotfiles = true,
+      },
+      -- Important for larger directories 
+      git = {
+          enable = false
+          }
+    })
 
 EOF
 
