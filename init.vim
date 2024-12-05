@@ -106,7 +106,7 @@ let g:airline#extensions#whitespace#enabled = 1  " Show whitespace characters
 let g:airline_theme='base16'
 
 " Theme
-colorscheme kanagawa
+colorscheme kanagawa-dragon
 " Mappings
 
 let mapleader = ","
@@ -234,10 +234,7 @@ lua << EOF
     -- Autopairs configs
     require('nvim-autopairs').setup{}
 
-    -- Custom theme setup
-    require('kanagawa').load(dragon)
-
-    -- Custom
+    -- Custom Lua
     require('render-markdown').setup()
 
 EOF
