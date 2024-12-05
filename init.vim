@@ -61,6 +61,8 @@ Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
 Plug 'preservim/nerdcommenter'       " Commenting plugin
 Plug 'sindrets/diffview.nvim'     " Git diff viewer plug#begin
+Plug 'sbdchd/neoformat'
+
 " NerdTree
 Plug 'nvim-tree/nvim-tree.lua' " File explorer
 Plug 'nvim-tree/nvim-web-devicons' " Icons for file explorer
@@ -151,7 +153,6 @@ let g:copilot_enabled = 1          " Enable Copilot by default
 let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
 
 " Prettier Configuration
-autocmd BufWritePre * :Prettier
 let g:prettier#config#print_width = 80
 let g:prettier#config#tab_width = 4
 let g:prettier#config#use_tabs = 'false'
@@ -160,6 +161,12 @@ let g:prettier#config#bracket_spacing = 1
 
 " Nerd Tree mapping
 nnoremap <leader>n :NvimTreeToggle<CR>
+
+" Formatting on save 
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 lua << EOF
 
