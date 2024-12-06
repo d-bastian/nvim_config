@@ -198,6 +198,8 @@ lua << EOF
     })
 
     --  LSP Configurations
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+    vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
     vim.keymap.set('n', '<leader>r', vim.diagnostic.goto_next, opts)
 
     local capabilities = require('cmp_nvim_lsp').default_capabilities()
