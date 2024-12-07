@@ -1,54 +1,19 @@
-"Enable line numbers
-set number
-
-" Line Comments
-filetype plugin on
-
+set number relativenumber
 set encoding=utf-8
 set fileencodings=utf-8,utf-8bom,latin1
-
-" Enable relative line numbers
-set relativenumber
-
-" Enable line wrapping
 set wrap
-
-" Enable syntax highlighting
-syntax enable
-
-" Enable auto-indentation
-set smartindent
-set autoindent
-set tabstop=4
+set autoindent smartindent
 set shiftwidth=4
+set tabstop=4
 set expandtab
-
-" Enable searching and auto-highlighting
 set incsearch
 set hlsearch
-
-" Enable mouse support
 set mouse=a
-
-" Enable clipboard support
 set clipboard=unnamedplus
+set shell=powershell
+syntax enable
+filetype plugin on
 
-" Enable line and column display in status line
-set ruler
-
-" Enable status line
-set laststatus=2
-
-" Enable cursor line
-set cursorline
-
-" Enable background color for the line number column
-set number relativenumber
-
-" Enable line number column width
-set numberwidth=4
-
-" Initialize vim-plug
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Main plugins
@@ -61,21 +26,13 @@ Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
 Plug 'preservim/nerdcommenter'       " Commenting plugin
 Plug 'sindrets/diffview.nvim'     " Git diff viewer plug#begin
-Plug 'sbdchd/neoformat'
-
-" NerdTree
-Plug 'nvim-tree/nvim-tree.lua' " File explorer
+Plug 'sbdchd/neoformat'            " Code formatting
+Plug 'windwp/nvim-autopairs'    " Auto pairs
+Plug 'github/copilot.vim'   " GitHub Copilot
+Plug 'nvim-tree/nvim-tree.lua'  " File explorer
 Plug 'nvim-tree/nvim-web-devicons' " Icons for file explorer
-
-" Airline
 Plug 'vim-airline/vim-airline'        " Status line plugin
-Plug 'vim-airline/vim-airline-themes'
-
-" Themes
-Plug 'rebelot/kanagawa.nvim'
-Plug 'ribru17/bamboo.nvim'
-Plug 'ellisonleao/gruvbox.nvim'
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'vim-airline/vim-airline-themes' " Themes for airline
 
 " AutoCompletion
 Plug 'neovim/nvim-lspconfig'
@@ -84,82 +41,38 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
 
-" GitHub Copilot
-Plug 'github/copilot.vim'
+" Themes
+Plug 'bluz71/vim-moonfly-colors'
 
-" Auto pair
-Plug 'windwp/nvim-autopairs'
-
-" Treesitter plugins
-Plug 'hiphish/rainbow-delimiters.nvim'
-
-" Plugins for testing
-Plug 'MeanderingProgrammer/render-markdown.nvim'
-
-" Finish plugin installation
 call plug#end()
 
-" Configurations
 
-" Enable airline extensions
-let g:airline#extensions#tabline#enabled = 1  " Show tab line
-let g:airline#extensions#fugitiveline#enabled = 1  " Git branch in status line
-let g:airline#extensions#whitespace#enabled = 1  " Show whitespace characters
-
-" Set the colorscheme for airline
-let g:airline_theme='base16'
-
-" Theme
-colorscheme kanagawa-dragon
-" Mappings
-
+" Custom mappings 
 let mapleader = ","
 
-" Tab Mappings
-nnoremap <leader>b :bn<CR>
+tnoremap <Esc> <C-\><C-n>
 
-" New Tab
+nnoremap <leader>b :bn<CR> " Next Buffer
+
 nnoremap <leader>t :tabnew<CR>
-
-" Close tab
 nnoremap <leader>q :tabclose<CR>
+nnoremap <leader>pp :terminal<CR>
 
-" diffview
 nnoremap <leader>dv :DiffviewOpen<CR>
 nnoremap <leader>fh :DiffviewFileHistory<CR>
 
-" Map Ctrl + h/j/k/l to navigate between windows
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Telescope mappings
-nnoremap <C-p> :Telescope find_files hidden=true<CR>
-" Telescope enable hidden files
-
-" Find text in files
+nnoremap <leader>f :Telescope find_files hidden=true<CR>
 nnoremap <leader>ff :Telescope live_grep<CR>
-
-" Find text in current buffer
 nnoremap <leader>fb :Telescope current_buffer_fuzzy_find<CR>
 
-" Enable nvim-cmp for autocompletion
-let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
-
-" Enable GitHub Copilot
-let g:copilot_enabled = 1          " Enable Copilot by default
-let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
-
-" Prettier Configuration
-let g:prettier#config#print_width = 80
-let g:prettier#config#tab_width = 4
-let g:prettier#config#use_tabs = 'false'
-let g:prettier#config#trailing_comma = 'all'
-let g:prettier#config#bracket_spacing = 1
-
-" Nerd Tree mapping
 nnoremap <leader>n :NvimTreeToggle<CR>
 
 " Formatting on save 
@@ -168,36 +81,62 @@ augroup fmt
   autocmd BufWritePre * undojoin | Neoformat
 augroup END
 
+" Configurations
+let g:airline#extensions#tabline#enabled = 1  " Show tab line
+let g:airline#extensions#fugitiveline#enabled = 1  " Git branch in status line
+let g:airline#extensions#whitespace#enabled = 1  " Show whitespace characters
+let g:airline#extensions#tabline#formatter = 'default'  " Tab line formatter
+let g:airline#extensions#tabline#left_sep = ' '  " Left separator
+let g:airline#extensions#tabline#left_alt_sep = '|'  " Left alternative separator
+let g:airline#extensions#tabline#right_sep = ' '  " Right separator
+let g:airline#extensions#tabline#right_alt_sep = '|'  " Right alternative separator
+let g:airline_theme='base16'
+
+colorscheme moonfly
+
+" Nvim CMP
+let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
+
+" Github Copilot
+let g:copilot_enabled = 1          " Enable Copilot by default
+let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
+
+" Prettier
+let g:prettier#config#print_width = 80
+let g:prettier#config#tab_width = 4
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#trailing_comma = 'all'
+let g:prettier#config#bracket_spacing = 1
+
 lua << EOF
 
-    local cmp = require'cmp'
+      local cmp = require'cmp'
 
-    -- Global setup.
-    cmp.setup({
-      snippet = {
-        expand = function(args)
-          vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        end,
-      },
-      window = {
-        -- completion = cmp.config.window.bordered(),
-        -- documentation = cmp.config.window.bordered(),
-      },
-      mapping = cmp.mapping.preset.insert({
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      }),
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'vsnip' }, -- For vsnip users.
-      }, {
-        { name = 'buffer' },
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+          end,
+        },
+        window = {
+          completion = cmp.config.window.bordered(),
+        },
+        mapping = cmp.mapping.preset.insert({
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        }),
+        sources = cmp.config.sources({
+          { name = 'nvim_lsp' },
+          { name = 'vsnip' }, -- For vsnip users.
+        }, {
+          { name = 'buffer' },
+        })
       })
-    })
 
-    --  LSP Configurations
+    --  LSP 
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
     vim.keymap.set('n', '<leader>r', vim.diagnostic.goto_next, opts)
@@ -251,14 +190,10 @@ lua << EOF
     -- Autopairs configs
     require('nvim-autopairs').setup{}
 
-    -- Custom Lua
-    require('render-markdown').setup()
-
     -- File Explorer
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
-    -- OR setup with some options
     require("nvim-tree").setup({
       sort = {
         sorter = "case_sensitive",
