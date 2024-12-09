@@ -18,7 +18,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Main plugins
 Plug 'tpope/vim-sensible'              " A sensible default configuration for Vim
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'  }  " Syntax highlighting via Treesitter
 Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'junegunn/fzf.vim'               " Fuzzy file search
@@ -26,7 +25,6 @@ Plug 'nvim-lua/plenary.nvim'          " Utility functions for Neovim plugins
 Plug 'nvim-telescope/telescope.nvim', {'do': ':UpdateRemotePlugins'}  " Fuzzy finder and file search
 Plug 'preservim/nerdcommenter'       " Commenting plugin
 Plug 'sindrets/diffview.nvim'     " Git diff viewer plug#begin
-Plug 'sbdchd/neoformat'            " Code formatting
 Plug 'windwp/nvim-autopairs'    " Auto pairs
 Plug 'github/copilot.vim'   " GitHub Copilot
 Plug 'nvim-tree/nvim-tree.lua'  " File explorer
@@ -75,12 +73,6 @@ nnoremap <leader>fb :Telescope current_buffer_fuzzy_find<CR>
 
 nnoremap <leader>n :NvimTreeToggle<CR>
 
-" Formatting on save 
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
-
 " Configurations
 let g:airline#extensions#tabline#enabled = 1  " Show tab line
 let g:airline#extensions#fugitiveline#enabled = 1  " Git branch in status line
@@ -100,13 +92,6 @@ let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
 " Github Copilot
 let g:copilot_enabled = 1          " Enable Copilot by default
 let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
-
-" Prettier
-let g:prettier#config#print_width = 80
-let g:prettier#config#tab_width = 4
-let g:prettier#config#use_tabs = 'false'
-let g:prettier#config#trailing_comma = 'all'
-let g:prettier#config#bracket_spacing = 1
 
 lua << EOF
 
