@@ -31,6 +31,8 @@ Plug 'nvim-tree/nvim-tree.lua'  " File explorer
 Plug 'nvim-tree/nvim-web-devicons' " Icons for file explorer
 Plug 'vim-airline/vim-airline'        " Status line plugin
 Plug 'vim-airline/vim-airline-themes' " Themes for airline
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 
 " AutoCompletion
 Plug 'neovim/nvim-lspconfig'
@@ -94,83 +96,81 @@ let g:copilot_enabled = 1          " Enable Copilot by default
 let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
 
 lua << EOF
+    -- mason.nvim setup
+    require('mason').setup()
 
-      local cmp = require'cmp'
+    -- mason-lspconfig.nvim setup
+    require('mason-lspconfig').setup({
+      ensure_installed = { 
+          "pyright", 
+          "html-lsp", 
+          "gopls", 
+          "json-lsp",
+          "vim-language-server", 
+          "yaml-language-server", 
+          "typescript-language-server", 
+          "omnisharp", 
+          "lua-language-server", 
+          }, -- list your preferred lsp servers
+      automatic_installation = true, -- automatically install lsp servers
+    })
 
-      cmp.setup({
-        snippet = {
-          expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-          end,
-        },
-        window = {
-          completion = cmp.config.window.bordered(),
-        },
-        mapping = cmp.mapping.preset.insert({
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
-          ['<C-Space>'] = cmp.mapping.complete(),
-          ['<C-e>'] = cmp.mapping.abort(),
-          ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-        }),
-        sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
-          { name = 'vsnip' }, -- For vsnip users.
-        }, {
-          { name = 'buffer' },
-        })
-      })
+    -- lspconfig setup (with mason-lspconfig)
+    local lspconfig = require('lspconfig')
+    require('mason-lspconfig').setup_handlers({
+      function(server_name)  -- Default handler for all LSPs
+        lspconfig[server_name].setup{}
+      end,
+    })
 
-    --  LSP 
-    local bufopts = { noremap = true, silent = true, buffer = bufnr }
+        -- nvim-cmp setup
+    local cmp = require'cmp'
+
+    cmp.setup({
+      -- Snippet expansion
+      snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+        end,
+      },
+
+      -- Key mappings
+      mapping = {
+        ['<C-p>'] = cmp.mapping.select_prev_item(),
+        ['<C-n>'] = cmp.mapping.select_next_item(),
+        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-e>'] = cmp.mapping.abort(),
+        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      },
+
+      -- Completion sources
+      sources = cmp.config.sources({
+        { name = 'nvim_lsp' },       -- LSP source
+        { name = 'vsnip' },         
+      }, {
+        { name = 'buffer' },         -- Buffer source for current buffer text
+        { name = 'path' },           -- Path source for file paths
+      }),
+
+      -- Formatting
+      formatting = {
+        format = function(entry, vim_item)
+          vim_item.menu = ({
+            nvim_lsp = '[LSP]',
+            vsnip = '[Snippet]',
+            buffer = '[Buffer]',
+            path = '[Path]',
+          })[entry.source.name] or ''
+          return vim_item
+        end
+      },
+    })
+
+    -- Lua keymaps
     vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
     vim.keymap.set('n', '<leader>r', vim.diagnostic.goto_next, opts)
-
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-    require'lspconfig'.gopls.setup{}
-    require'lspconfig'.pyright.setup{}
-    require'lspconfig'.ts_ls.setup{}
-
-    -- Powershell LSP
-    require'lspconfig'.powershell_es.setup{
-        bundle_path = 'C:/lspservices/PowerShellEditorServices',
-        shell = 'powershell.exe'
-    }
-    
-
-    require'lspconfig'.jsonls.setup {
-        commands = {
-          Format = {
-            function()
-              vim.lsp.buf.range_formatting({},{0,0},{vim.fn.line("$"),0})
-            end
-          }
-        }
-    }
-
-    -- HTML, CSS, YAML, VIM LSP
-
-    require'lspconfig'.html.setup {
-      capabilities = capabilities,
-    }
-    require'lspconfig'.cssls.setup{
-        capabilities = capabilities,
-    }
-    require'lspconfig'.yamlls.setup{}
-    require'lspconfig'.vimls.setup{}
-
-    -- Csharp LSP
-    local omnisharp_bin = 'c:/lspservices/omnisharp-win-x64/OmniSharp.exe'
-    require'lspconfig'.omnisharp.setup{
-        cmd = { omnisharp_bin , '--languageserver', '--hostPID', tostring(vim.fn.getpid()) },
-    }
-
-    require'nvim-treesitter.configs'.setup {
-        highlight = {
-            enable = true,
-        },
-    }
 
     -- Autopairs configs
     require('nvim-autopairs').setup{}
@@ -197,6 +197,9 @@ lua << EOF
           enable = false
           }
     })
+
+    -- Auto format on save
+    vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
 
 EOF
 
