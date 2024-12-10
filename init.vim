@@ -103,14 +103,16 @@ lua << EOF
     require('mason-lspconfig').setup({
       ensure_installed = { 
           "pyright", 
-          "html-lsp", 
+          "html", 
           "gopls", 
-          "json-lsp",
-          "vim-language-server", 
-          "yaml-language-server", 
-          "typescript-language-server", 
+          "jsonls",
+          "vimls", 
+          "yamlls", 
           "omnisharp", 
-          "lua-language-server", 
+          "ts_ls",
+          "markdown_oxide",
+          "cssls",
+          "lua_ls"
           }, -- list your preferred lsp servers
       automatic_installation = true, -- automatically install lsp servers
     })
