@@ -10,7 +10,6 @@ set incsearch
 set hlsearch
 set mouse=a
 set clipboard=unnamedplus
-set shell=powershell
 syntax enable
 filetype plugin on
 
