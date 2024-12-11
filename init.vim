@@ -83,7 +83,7 @@ let g:airline#extensions#tabline#left_sep = ' '  " Left separator
 let g:airline#extensions#tabline#left_alt_sep = '|'  " Left alternative separator
 let g:airline#extensions#tabline#right_sep = ' '  " Right separator
 let g:airline#extensions#tabline#right_alt_sep = '|'  " Right alternative separator
-let g:airline_theme='base16'
+let g:airline_theme='distinguished'  " Airline theme
 
 colorscheme moonfly
 
