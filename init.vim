@@ -138,7 +138,6 @@ lua << EOF
       window = {
           completion = cmp.config.window.bordered("rounded")
           },
-      intro
 
       -- Key mappings
       mapping = {
