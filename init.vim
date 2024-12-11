@@ -135,6 +135,11 @@ lua << EOF
         end,
       },
 
+      window = {
+          completion = cmp.config.window.bordered("rounded")
+          },
+      intro
+
       -- Key mappings
       mapping = {
         ['<C-p>'] = cmp.mapping.select_prev_item(),
