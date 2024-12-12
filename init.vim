@@ -32,6 +32,7 @@ Plug 'vim-airline/vim-airline'        " Status line plugin
 Plug 'vim-airline/vim-airline-themes' " Themes for airline
 Plug 'williamboman/mason.nvim'
 Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 " AutoCompletion
 Plug 'neovim/nvim-lspconfig'
@@ -95,124 +96,107 @@ let g:copilot_enabled = 1          " Enable Copilot by default
 let g:copilot_no_tab_map = 0       " Disable Copilot's default <Tab> mapping" Set up cmp for completion
 
 lua << EOF
-    -- mason.nvim setup
-    require('mason').setup()
+-- Key mappings
+vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
+vim.keymap.set("n", "<leader>r", vim.diagnostic.goto_next, opts)
 
-    -- mason-lspconfig.nvim setup
-    require('mason-lspconfig').setup({
-      ensure_installed = { 
-          "pylsp", 
-          "html", 
-          "gopls", 
-          "jsonls",
-          "vimls", 
-          "yamlls", 
-          "omnisharp", 
-          "ts_ls",
-          "markdown_oxide",
-          "cssls",
-          "lua_ls"
-          }, -- list your preferred lsp servers
-      automatic_installation = true, -- automatically install lsp servers
-    })
+-- Mason setup
+require("mason").setup()
+require("mason-lspconfig").setup({
+    ensure_installed = { 
+        "pylsp", "html", "gopls", "jsonls", "vimls", 
+        "yamlls", "omnisharp", "ts_ls", "markdown_oxide", 
+        "cssls", "lua_ls"
+    },
+    automatic_installation = true, 
+})
 
-    -- lspconfig setup (with mason-lspconfig)
-    local lspconfig = require('lspconfig')
-    require('mason-lspconfig').setup_handlers({
-      function(server_name)  -- Default handler for all LSPs
+-- LSP setup
+local lspconfig = require("lspconfig")
+require("mason-lspconfig").setup_handlers({
+    function(server_name)
         lspconfig[server_name].setup{}
-      end,
-    })
+    end,
+})
 
-        -- nvim-cmp setup
-    local cmp = require'cmp'
+-- Completion setup
+local cmp = require("cmp")
 
-    cmp.setup({
-      -- Snippet expansion
-      snippet = {
+cmp.setup({
+    snippet = {
         expand = function(args)
             vim.fn["vsnip#anonymous"](args.body)
         end,
-      },
-
-      window = {
-        -- Documentation window options
+    },
+    window = {
         documentation = cmp.config.window.bordered(),
-        -- Completion menu window options
         completion = cmp.config.window.bordered({
             col_offset = -3,
             side_padding = 0,
             max_width = 80,
         }),
-      },
-
-      -- Key mappings
-      mapping = {
-        ['<C-p>'] = cmp.mapping.select_next_item(),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
-      },
-
-      -- Completion sources
-      sources = cmp.config.sources({
-        { name = 'nvim_lsp' },       -- LSP source
-        { name = 'vsnip' },         
-      }, {
-        { name = 'buffer' },         -- Buffer source for current buffer text
-        { name = 'path' },           -- Path source for file paths
-      }),
-
-      -- Formatting
-      formatting = {
+    },
+    mapping = {
+        ["<C-p>"] = cmp.mapping.select_next_item(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+    },
+    sources = cmp.config.sources({
+        { name = "nvim_lsp" },
+        { name = "vsnip" },
+    }, {
+        { name = "buffer" },
+        { name = "path" },
+    }),
+    formatting = {
         format = function(entry, vim_item)
-          vim_item.menu = ({
-            nvim_lsp = '[LSP]',
-            vsnip = '[Snippet]',
-            buffer = '[Buffer]',
-            path = '[Path]',
-          })[entry.source.name] or ''
-          return vim_item
+            vim_item.menu = ({
+                nvim_lsp = "[LSP]",
+                vsnip = "[Snippet]",
+                buffer = "[Buffer]",
+                path = "[Path]",
+            })[entry.source.name] or ""
+            return vim_item
         end
-      },
-    })
+    },
+})
 
-    -- Lua keymaps
-    vim.keymap.set("n", "<space>e", vim.diagnostic.open_float, bufopts)
-    vim.keymap.set('n', '<leader>r', vim.diagnostic.goto_next, opts)
+-- Autopairs setup
+require("nvim-autopairs").setup{}
 
-    -- Autopairs configs
-    require('nvim-autopairs').setup{}
-
-    -- File Explorer
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-
-    require("nvim-tree").setup({
-      sort = {
+-- Nvim-tree setup
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+require("nvim-tree").setup({
+    sort = {
         sorter = "case_sensitive",
-      },
-      view = {
+    },
+    view = {
         width = 30,
-      },
-      renderer = {
+    },
+    renderer = {
         group_empty = true,
-      },
-      filters = {
+    },
+    filters = {
         dotfiles = true,
-      },
-      -- Important for larger directories 
-      git = {
-          enable = false
-          }
-    })
+    },
+    git = {
+        enable = false
+    }
+})
 
-    -- Auto-formatting on save
-    vim.cmd([[
-      augroup FormatAutogroup
+-- Auto format on save
+vim.cmd([[
+    augroup FormatAutogroup
         autocmd!
         autocmd BufWritePre * lua vim.lsp.buf.format({async = false})
-      augroup END
-    ]])
+    augroup END
+]])
+
+-- Render markdown setup
+require("render-markdown").setup({
+    render_modes = { "n", "c", "t" }
+})
 
 EOF
 
