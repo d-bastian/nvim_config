@@ -48,7 +48,7 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'bluz71/vim-moonfly-colors'
 
 call plug#end()
-
+colorscheme moonfly
 
 " Custom mappings 
 let mapleader = ","
@@ -75,18 +75,10 @@ nnoremap <leader>fb :Telescope current_buffer_fuzzy_find<CR>
 
 nnoremap <leader>n :NvimTreeToggle<CR>
 
-" Configurations
+" Vim Airline
 let g:airline#extensions#tabline#enabled = 1  " Show tab line
 let g:airline#extensions#fugitiveline#enabled = 1  " Git branch in status line
-let g:airline#extensions#whitespace#enabled = 1  " Show whitespace characters
-let g:airline#extensions#tabline#formatter = 'default'  " Tab line formatter
-let g:airline#extensions#tabline#left_sep = ' '  " Left separator
-let g:airline#extensions#tabline#left_alt_sep = '|'  " Left alternative separator
-let g:airline#extensions#tabline#right_sep = ' '  " Right separator
-let g:airline#extensions#tabline#right_alt_sep = '|'  " Right alternative separator
-let g:airline_theme='distinguished'  " Airline theme
-
-colorscheme moonfly
+let g:airline_theme='serene'  " Airline theme
 
 " Nvim CMP
 let g:completion_enable_auto_popup = 1  " Enable autocompletion popup by default
@@ -170,9 +162,6 @@ vim.g.loaded_netrwPlugin = 1
 require("nvim-tree").setup({
     sort = {
         sorter = "case_sensitive",
-    },
-    view = {
-        width = 30,
     },
     renderer = {
         group_empty = true,
