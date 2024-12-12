@@ -101,7 +101,7 @@ lua << EOF
     -- mason-lspconfig.nvim setup
     require('mason-lspconfig').setup({
       ensure_installed = { 
-          "pyright", 
+          "pylsp", 
           "html", 
           "gopls", 
           "jsonls",
@@ -136,16 +136,19 @@ lua << EOF
       },
 
       window = {
-          completion = cmp.config.window.bordered("rounded")
-          },
+        -- Documentation window options
+        documentation = cmp.config.window.bordered(),
+        -- Completion menu window options
+        completion = cmp.config.window.bordered({
+            col_offset = -3,
+            side_padding = 0,
+            max_width = 80,
+        }),
+      },
 
       -- Key mappings
       mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-p>'] = cmp.mapping.select_next_item(),
         ['<C-e>'] = cmp.mapping.abort(),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
       },
@@ -203,8 +206,13 @@ lua << EOF
           }
     })
 
-    -- Auto format on save
-    vim.cmd([[autocmd BufWritePre * lua vim.lsp.buf.format()]])
+    -- Auto-formatting on save
+    vim.cmd([[
+      augroup FormatAutogroup
+        autocmd!
+        autocmd BufWritePre * lua vim.lsp.buf.format({async = false})
+      augroup END
+    ]])
 
 EOF
 
