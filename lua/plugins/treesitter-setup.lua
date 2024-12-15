@@ -14,7 +14,9 @@ require("nvim-treesitter").setup({
         "c_sharp",
         "yaml",
         "php" },
+    sync_install = false,
     highlight = {
-        enable = true
+        enable = true,
+        additional_vim_regex_highlighting = false
     }
 })
