@@ -16,6 +16,7 @@ cmp.setup({
     },
     mapping = {
         ["<C-p>"] = cmp.mapping.select_next_item(),
+        ["<C-n>"] = cmp.mapping.select_prev_item(),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
     },
