@@ -17,7 +17,6 @@ vim.cmd('syntax enable')
 vim.cmd('filetype plugin on')
 vim.cmd.colorscheme("moonfly")
 vim.opt.fillchars:append({
-  eob = " ", -- Replace tildes with blank space
+    eob = " ", -- Replace tildes with blank space
 })
 vim.opt.termguicolors = true
-

@@ -6,20 +6,41 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- empty setup using defaults
-require("nvim-tree").setup()
-
--- OR setup with some options
-require("nvim-tree").setup({
-  sort = {
-    sorter = "case_sensitive",
-  },
-  view = {
-    width = 30,
-  },
-  renderer = {
-    group_empty = true,
-  },
-  filters = {
-    dotfiles = true,
-  },
+require('nvim-tree').setup({
+    sort_by = "case_sensitive",          -- Sort files case-sensitively
+    renderer = {
+        add_trailing = true,             -- Add trailing slash to folders
+        highlight_git = true,            -- Highlight Git changes
+        highlight_opened_files = "name", -- Highlight opened files
+        root_folder_label = ":~:s?",     -- Display root folder in custom format
+        icons = {
+            glyphs = {
+                folder = {
+                    default = "",
+                    open = "",
+                },
+                git = {
+                    unstaged = "✗",
+                    staged = "✓",
+                },
+            },
+        },
+    },
+    diagnostics = {
+        enable = true, -- Show diagnostics in the tree
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+        },
+    },
+    filters = {
+        dotfiles = true,                     -- Show hidden files
+        custom = { ".git", "node_modules" }, -- Exclude specific directories
+    },
+    git = {
+        enable = true,  -- Enable Git integration
+        ignore = false, -- Show ignored files
+    },
 })
