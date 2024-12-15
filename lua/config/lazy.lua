@@ -47,4 +47,11 @@ require("lazy").setup({
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+    }
 })
