@@ -22,7 +22,12 @@ require("lazy").setup({
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "nvim-treesitter/nvim-treesitter",
-    "nvim-telescope/telescope.nvim",
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.8',
+        -- or                              , branch = '0.1.x',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
     "nvim-lua/plenary.nvim",
     "preservim/nerdcommenter",
     "sindrets/diffview.nvim",
@@ -31,6 +36,7 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
     "MeanderingProgrammer/render-markdown.nvim",
+    "tpope/vim-fugitive",
     "akinsho/bufferline.nvim",
 
     -- CMP
