@@ -26,7 +26,6 @@ vim.opt.wrap = true
 vim.opt.mouse = 'a'
 vim.opt.clipboard = 'unnamedplus'
 vim.opt.termguicolors = true
-vim.opt.guicursor = ''
 vim.opt.fillchars:append({
     eob = " ", -- Replace tildes with blank space
 })
