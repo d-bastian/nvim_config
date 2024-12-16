@@ -1,6 +1,5 @@
 -- Vim Settings
 vim.g.mapleader = ','
-vim.opt.colorcolumn = '80'
 
 -- Line Numbers
 vim.opt.number = true
