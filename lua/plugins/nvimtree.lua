@@ -40,7 +40,7 @@ require('nvim-tree').setup({
         custom = { ".git", "node_modules" }, -- Exclude specific directories
     },
     git = {
-        enable = true,  -- Enable Git integration
+        enable = false, -- Enable Git integration
         ignore = false, -- Show ignored files
     },
 })
