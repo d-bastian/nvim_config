@@ -1,5 +1,7 @@
 -- Vim Settings
 vim.g.mapleader = ','
+vim.opt.filetype = 'on'
+vim.opt.syntax = 'on'
 
 -- Line Numbers
 vim.opt.number = true
@@ -30,7 +32,5 @@ vim.opt.fillchars:append({
     eob = " ", -- Replace tildes with blank space
 })
 
--- Commands
-vim.cmd('syntax enable')
-vim.cmd('filetype plugin on')
+-- Theme
 vim.cmd.colorscheme("moonfly")
