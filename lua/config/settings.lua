@@ -1,7 +1,7 @@
 -- Vim Settings
 vim.g.mapleader = ','
-vim.opt.filetype = 'on'
-vim.opt.syntax = 'on'
+vim.cmd 'filetype plugin on'
+vim.cmd 'syntax enable'
 
 -- Line Numbers
 vim.opt.number = true
