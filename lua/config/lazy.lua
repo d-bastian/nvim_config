@@ -37,7 +37,13 @@ require("lazy").setup({
     "MeanderingProgrammer/render-markdown.nvim",
     "tpope/vim-fugitive",
     "akinsho/bufferline.nvim",
-
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+    },
     -- CMP
     "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp",
@@ -46,12 +52,5 @@ require("lazy").setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip",
-    {
-        'MeanderingProgrammer/render-markdown.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
-        ---@module 'render-markdown'
-        ---@type render.md.UserConfig
-        opts = {},
-    }
+    "hrsh7th/vim-vsnip"
 })
