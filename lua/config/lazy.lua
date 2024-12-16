@@ -28,7 +28,6 @@ require("lazy").setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     "nvim-lua/plenary.nvim",
-    "preservim/nerdcommenter",
     "sindrets/diffview.nvim",
     "windwp/nvim-autopairs",
     "github/copilot.vim",
@@ -44,6 +43,11 @@ require("lazy").setup({
         ---@type render.md.UserConfig
         opts = {},
     },
+    {
+        'numToStr/Comment.nvim',
+        opts = {}
+    },
+
     -- CMP
     "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp",
