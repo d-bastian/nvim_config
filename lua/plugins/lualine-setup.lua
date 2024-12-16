@@ -1,4 +1,4 @@
-local custom_theme = require("lualine.themes.moonfly")
+local custom_theme = require("lualine.themes.auto")
 custom_theme.normal.c.bg = "#080808"
 require("lualine").setup {
     options = { theme = custom_theme },
