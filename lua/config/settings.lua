@@ -3,6 +3,9 @@ vim.g.mapleader = ','
 vim.cmd 'filetype plugin on'
 vim.cmd 'syntax enable'
 vim.opt.clipboard = 'unnamedplus'
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.opt.termguicolors = true
 
 -- Line Numbers
 vim.opt.number = true
