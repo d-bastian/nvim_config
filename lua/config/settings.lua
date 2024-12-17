@@ -2,6 +2,7 @@
 vim.g.mapleader = ','
 vim.cmd 'filetype plugin on'
 vim.cmd 'syntax enable'
+vim.opt.clipboard = 'unnamedplus'
 
 -- Line Numbers
 vim.opt.number = true
@@ -26,7 +27,6 @@ vim.opt.hlsearch = true
 -- Display
 vim.opt.wrap = true
 vim.opt.mouse = 'a'
-vim.opt.clipboard = 'unnamedplus'
 vim.opt.termguicolors = true
 vim.opt.fillchars:append({
     eob = " ", -- Replace tildes with blank space
