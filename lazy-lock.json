@@ -8,6 +8,7 @@
   "cmp-vsnip": { "branch": "main", "commit": "989a8a73c44e926199bfd05fa7a516d51f2d2752" },
   "copilot.vim": { "branch": "release", "commit": "87038123804796ca7af20d1b71c3428d858a9124" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
+  "kanagawa.nvim": { "branch": "master", "commit": "ad3dddecd606746374ba4807324a08331dfca23c" },
   "lazy.nvim": { "branch": "main", "commit": "7e6c863bc7563efbdd757a310d17ebc95166cef3" },
   "lualine.nvim": { "branch": "master", "commit": "2a5bae925481f999263d6f5ed8361baef8df4f83" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "8e46de9241d3997927af12196bd8faa0ed08c29a" },

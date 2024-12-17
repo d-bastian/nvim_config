@@ -16,7 +16,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     "nvim-lualine/lualine.nvim",
+
+    -- Themes
     "bluz71/vim-moonfly-colors",
+    "rebelot/kanagawa.nvim",
+
     "nvim-treesitter/nvim-treesitter",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -29,6 +33,7 @@ require("lazy").setup({
     },
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
+
     "windwp/nvim-autopairs",
     "github/copilot.vim",
     "nvim-tree/nvim-tree.lua",
