@@ -33,4 +33,4 @@ vim.opt.fillchars:append({
 })
 
 -- Theme
-vim.cmd.colorscheme("PaperColor")
+vim.cmd.colorscheme("kanagawa-wave")
