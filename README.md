@@ -18,7 +18,7 @@ This repository contains a comprehensive NeoVim setup with various plugins and c
 1. Clone this repository to your local machine.
 2. Ensure you have NeoVim installed. If not, you can install it using your package manager.
 3. Copy the contents of this repository to your NeoVim configuration directory (usually `~/.config/nvim`).
-4. Open NeoVim and run `:PackerSync` to install all plugins.
+4. Run nvim Lazy.nvim should do the rest.
 
 ## Plugins
 
