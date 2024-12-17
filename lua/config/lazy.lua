@@ -20,6 +20,8 @@ require("lazy").setup({
     -- Themes
     "bluz71/vim-moonfly-colors",
     "rebelot/kanagawa.nvim",
+    "folke/tokyonight.nvim",
+    "bluz71/vim-nightfly-colors",
 
     "nvim-treesitter/nvim-treesitter",
     "williamboman/mason.nvim",
