@@ -7,9 +7,13 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
+-- Set ttyfast
+vim.opt.updatetime = 120
+vim.opt.lazyredraw = true
+vim.opt.ttyfast = true
+
 -- Set Terminal to pwsh
 vim.o.shell = "pwsh"
-vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
 
 -- Line Numbers
 vim.opt.number = true

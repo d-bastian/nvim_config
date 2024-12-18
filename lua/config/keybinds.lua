@@ -8,6 +8,7 @@ vim.api.nvim_set_keymap('n', '<leader>q', ':tabclose<CR>', { noremap = true, sil
 -- Diffs
 vim.api.nvim_set_keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', ':DiffviewFileHistory<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>df', ':windo diffthis<CR>', { noremap = true, silent = true })
 
 -- NvimTree
 vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
