@@ -35,8 +35,8 @@ vim.keymap.set('n', '<leader>gs', builtin.grep_string, { desc = 'Telescope grep 
 vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { buffer = 0, desc = 'Telescope lsp definitions' })
 
 -- Block Mode
-vim.api.nvim_set_keymap('n', '<C-b>', '<C-v>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('x', '<C-b>', '<C-v>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('x', '<leader>v', '<C-v>', { noremap = true, silent = true })
 
 -- Copying path of current file to clipboard
 vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })

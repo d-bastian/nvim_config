@@ -86,8 +86,8 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 | `<leader>fg`        | `n`    | Telescope git files                         |
 | `<leader>gs`        | `n`    | Telescope grep string                       |
 | `<leader>gd`        | `n`    | Telescope LSP definitions                   |
-| `<C-b>`             | `n`    | Enter block mode                            |
-| `<C-b>`             | `x`    | Enter block mode                            |
+| `<leader>v`             | `n`    | Enter block mode                            |
+| `<leader>v`             | `x`    | Enter block mode                            |
 | `<leader>cp`        | `n`    | Copy the path of the current file to clipboard |
 | `<leader>gd`        | `n`    | Go to the global definition of the word under the cursor |
 
