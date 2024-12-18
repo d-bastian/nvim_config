@@ -3,7 +3,7 @@ require("mason-lspconfig").setup({
     ensure_installed = {
         "pylsp", "html", "gopls", "jsonls",
         "yamlls", "omnisharp", "ts_ls", "markdown_oxide",
-        "cssls", "lua_ls"
+        "cssls", "lua_ls", "phpactor"
     },
     automatic_installation = true,
 })
@@ -30,6 +30,7 @@ require("lspconfig").yamlls.setup {}
 require("lspconfig").omnisharp.setup {}
 require("lspconfig").ts_ls.setup {}
 require("lspconfig").cssls.setup {}
+require("lspconfig").phpactor.setup {}
 require("lspconfig").lua_ls.setup {
     settings = {
         Lua = {
