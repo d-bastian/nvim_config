@@ -105,6 +105,7 @@ The following LSP servers are configured and installed using `mason.nvim` and `n
 - `markdown_oxide` (Markdown)
 - `cssls` (CSS)
 - `lua_ls` (Lua)
+- `phpactor` (PHP)
 
 ## Settings
 
