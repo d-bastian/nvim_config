@@ -69,6 +69,7 @@
     | `<leader>t`         | `n`    | New Tab                                     |
     | `<leader>q`        | `n`    | Close Tab                                   |
     | `<leader>dv`        | `n`    | Open Diffview                               |
+    | `<leader>df`        | `n`    | Open diff view for 2 files in vsplit        |
     | `<leader>fh`        | `n`    | View file history in Diffview               |
     | `<leader>n`         | `n`    | Toggle NvimTree                             |
     | `<C-h>`             | `n`    | Move to the left pane                       |
