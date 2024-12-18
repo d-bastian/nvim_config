@@ -43,3 +43,6 @@ vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { norema
 
 -- Go to global definition of word under cursor
 vim.api.nvim_set_keymap('n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
+
+-- Oil
+vim.api.nvim_set_keymap('n', '<leader>o', ':Oil<CR>', { noremap = true, silent = true })
