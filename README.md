@@ -84,7 +84,6 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 | `<leader>fb`        | `n`    | Telescope current buffer fuzzy find         |
 | `<leader>fc`        | `n`    | Telescope git commits                       |
 | `<leader>fg`        | `n`    | Telescope git files                         |
-| `<leader>gs`        | `n`    | Telescope grep string                       |
 | `<leader>gd`        | `n`    | Telescope LSP definitions                   |
 | `<leader>v`             | `n`    | Enter block mode                            |
 | `<leader>v`             | `x`    | Enter block mode                            |
