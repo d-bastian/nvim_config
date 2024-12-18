@@ -41,6 +41,14 @@ require("lazy").setup({
     "github/copilot.vim",
     "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+    },
     "MeanderingProgrammer/render-markdown.nvim",
     "tpope/vim-fugitive",
     "akinsho/bufferline.nvim",
@@ -55,7 +63,6 @@ require("lazy").setup({
         'numToStr/Comment.nvim',
         opts = {}
     },
-
     -- CMP
     "neovim/nvim-lspconfig",
     "hrsh7th/nvim-cmp",
