@@ -66,9 +66,8 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 |---------------------|--------|---------------------------------------------|
 | `<Esc>`             | `t`    | Exit to normal mode                         |
 | `<leader>b`         | `n`    | Next Buffer                                 |
-| `<leader>bq`        | `n`    | Close Buffer                                |
 | `<leader>t`         | `n`    | New Tab                                     |
-| `<leader>tq`        | `n`    | Close Tab                                   |
+| `<leader>q`        | `n`    | Close Tab                                   |
 | `<leader>dv`        | `n`    | Open Diffview                               |
 | `<leader>fh`        | `n`    | View file history in Diffview               |
 | `<leader>n`         | `n`    | Toggle NvimTree                             |

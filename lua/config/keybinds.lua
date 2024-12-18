@@ -1,10 +1,9 @@
 vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
 
 -- Buffer / Tabs
-vim.api.nvim_set_keymap('n', '<leader>b', ':bn<CR>', { noremap = true, silent = true })        -- Next Buffer
-vim.api.nvim_set_keymap('n', '<leader>bq', ':bd<CR>', { noremap = true, silent = true })       -- Close Buffer
-vim.api.nvim_set_keymap('n', '<leader>t', ':tabnew<CR>', { noremap = true, silent = true })    -- New Tab
-vim.api.nvim_set_keymap('n', '<leader>tq', ':tabclose<CR>', { noremap = true, silent = true }) -- Close Tab
+vim.api.nvim_set_keymap('n', '<leader>b', ':bn<CR>', { noremap = true, silent = true })       -- Next Buffer
+vim.api.nvim_set_keymap('n', '<leader>t', ':tabnew<CR>', { noremap = true, silent = true })   -- New Tab
+vim.api.nvim_set_keymap('n', '<leader>q', ':tabclose<CR>', { noremap = true, silent = true }) -- Close Tab
 
 -- Diffs
 vim.api.nvim_set_keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { noremap = true, silent = true })
