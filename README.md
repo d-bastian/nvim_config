@@ -26,7 +26,6 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 
 - **UI Enhancements**
   - `nvim-lualine/lualine.nvim`: Status line.
-  - `akinsho/bufferline.nvim`: Buffer line.
   - `nvim-tree/nvim-tree.lua`: File explorer.
   - `nvim-tree/nvim-web-devicons`: File icons.
   - `MeanderingProgrammer/render-markdown.nvim`: Markdown rendering.

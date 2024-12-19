@@ -24,6 +24,8 @@ require("lazy").setup({
     "bluz71/vim-nightfly-colors",
     "NLKNguyen/papercolor-theme",
 
+
+    -- Main Plugins
     "nvim-treesitter/nvim-treesitter",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -49,9 +51,7 @@ require("lazy").setup({
         -- Optional dependencies
         dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
     },
-    "MeanderingProgrammer/render-markdown.nvim",
     "tpope/vim-fugitive",
-    "akinsho/bufferline.nvim",
     {
         'MeanderingProgrammer/render-markdown.nvim',
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
