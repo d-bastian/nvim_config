@@ -23,7 +23,7 @@ require("lazy").setup({
     "folke/tokyonight.nvim",
     "bluz71/vim-nightfly-colors",
     "NLKNguyen/papercolor-theme",
-
+    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
 
     -- Main Plugins
     "nvim-treesitter/nvim-treesitter",
