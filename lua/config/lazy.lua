@@ -23,7 +23,7 @@ require("lazy").setup({
     "folke/tokyonight.nvim",
     "bluz71/vim-nightfly-colors",
     "NLKNguyen/papercolor-theme",
-    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true, opts = ... },
+    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true,                               opts = ... },
 
     -- Main Plugins
     "nvim-treesitter/nvim-treesitter",
@@ -71,5 +71,7 @@ require("lazy").setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip"
+    "hrsh7th/vim-vsnip",
+
+    { 'akinsho/bufferline.nvim',  version = "*",   dependencies = 'nvim-tree/nvim-web-devicons' }
 })

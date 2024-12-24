@@ -14,3 +14,4 @@ require("plugins.cmp-setup")
 require("plugins.render-markdown-setup")
 require("plugins.telescope-setup")
 require("plugins.floatterm")
+require("bufferline").setup {}
