@@ -1,6 +1,6 @@
 # NeoVim Configuration
 
-This repository contains a comprehensive NeoVim setup with various plugins and custom configurations to enhance your development experience.
+This repository contains my NeoVim setup with various plugins and custom configurations.
 
 ## Table of Contents
 
@@ -90,7 +90,7 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 | `<leader>cp`        | `n`    | Copy the path of the current file to clipboard |
 | `<leader>gd`        | `n`    | Go to the global definition of the word under the cursor |
 | `<leader>o`         | `n`    | Open Oil in current file buffer dir              |
-| `<space>tt`         | `n, t`    | Open floating terminal buffer              |
+| `<leader>wt`         | `n, t`    | Open floating terminal buffer              |
 
 ## LSP Configuration
 
