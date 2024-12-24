@@ -1,6 +1,6 @@
 # NeoVim Configuration
 
-This repository contains my NeoVim setup with various plugins and custom configurations to enhance development experience.
+This repository contains a comprehensive NeoVim setup with various plugins and custom configurations to enhance your development experience.
 
 ## Table of Contents
 
@@ -36,7 +36,6 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
   - `folke/tokyonight.nvim`
   - `bluz71/vim-nightfly-colors`
   - `NLKNguyen/papercolor-theme`
-  - `elissonleao/gruvbox.nvim`
 
 - **LSP and Autocompletion**
   - `neovim/nvim-lspconfig`: LSP configurations.
@@ -62,35 +61,36 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 
 ## Custom Keybindings
 
-| Mode | Keybind       | Command                                | Description                          |
-|------|---------------|----------------------------------------|--------------------------------------|
-| t    | `<Esc>`       | `<C-\><C-n>`                           | Exit terminal mode                   |
-| n    | `<leader>b`   | `:bn<CR>`                              | Next buffer                          |
-| n    | `<leader>t`   | `:tabnew<CR>`                          | New tab                              |
-| n    | `<leader>q`   | `:tabclose<CR>`                        | Close tab                            |
-| n    | `<leader>dv`  | `:DiffviewOpen<CR>`                    | Open Diffview                        |
-| n    | `<leader>fh`  | `:DiffviewFileHistory<CR>`             | Open Diffview file history           |
-| n    | `<leader>df`  | `:windo diffthis<CR>`                  | Diff this window                     |
-| n    | `<leader>n`   | `:NvimTreeToggle<CR>`                  | Toggle NvimTree                      |
-| n    | `<C-h>`       | `<C-w>h`                               | Move to left pane                    |
-| n    | `<C-j>`       | `<C-w>j`                               | Move to bottom pane                  |
-| n    | `<C-k>`       | `<C-w>k`                               | Move to top pane                     |
-| n    | `<C-l>`       | `<C-w>l`                               | Move to right pane                   |
-| n    | `<leader>do`  | `vim.diagnostic.open_float`            | Open diagnostic float                |
-| n    | `<leader>dp`  | `vim.diagnostic.goto_prev`             | Go to previous diagnostic            |
-| n    | `<leader>dn`  | `vim.diagnostic.goto_next`             | Go to next diagnostic                |
-| n    | `<leader>ff`  | `builtin.find_files`                   | Telescope find files                 |
-| n    | `<leader>f`   | `builtin.live_grep`                    | Telescope live grep                  |
-| n    | `<leader>fb`  | `builtin.current_buffer_fuzzy_find`    | Telescope buffers                    |
-| n    | `<leader>fc`  | `builtin.git_commits`                  | Telescope git commits                |
-| n    | `<leader>fg`  | `builtin.git_files`                    | Telescope git files                  |
-| n    | `<leader>gd`  | `builtin.lsp_definitions`              | Telescope LSP definitions            |
-| n    | `<leader>h`   | `builtin.help_tags`                    | Telescope help tags                  |
-| n    | `<leader>dl`  | `builtin.lsp_document_diagnostics`     | Telescope LSP document diagnostics   |
-| n    | `<leader>v`   | `<C-v>`                                | Enter block mode                     |
-| x    | `<leader>v`   | `<C-v>`                                | Enter block mode                     |
-| n    | `<leader>cp`  | `:let @+=expand("%:p")<CR>`            | Copy current file path to clipboard  |
-| n    | `<leader>o`   | `:Oil<CR>`                             | Open Oil                             |
+| Keybinding          | Mode   | Action                                      |
+|---------------------|--------|---------------------------------------------|
+| `<Esc>`             | `t`    | Exit to normal mode                         |
+| `<leader>b`         | `n`    | Next Buffer                                 |
+| `<leader>t`         | `n`    | New Tab                                     |
+| `<leader>q`        | `n`    | Close Tab                                   |
+| `<leader>dv`        | `n`    | Open Diffview                               |
+| `<leader>df`        | `n`    | Open diff view for 2 files in vsplit        |
+| `<leader>fh`        | `n`    | View file history in Diffview               |
+| `<leader>n`         | `n`    | Toggle NvimTree                             |
+| `<C-h>`             | `n`    | Move to the left pane                       |
+| `<C-j>`             | `n`    | Move to the pane below                      |
+| `<C-k>`             | `n`    | Move to the pane above                      |
+| `<C-l>`             | `n`    | Move to the right pane                      |
+| `<leader>do`        | `n`    | Open diagnostic float                       |
+| `<leader>dp`        | `n`    | Go to the previous diagnostic               |
+| `<leader>dn`        | `n`    | Go to the next diagnostic                   |
+| `<leader>dl`        | `n`    | List diagnostics using Telescope            |
+| `<leader>ff`        | `n`    | Telescope find files                        |
+| `<leader>f`         | `n`    | Telescope live grep                         |
+| `<leader>fb`        | `n`    | Telescope current buffer fuzzy find         |
+| `<leader>fc`        | `n`    | Telescope git commits                       |
+| `<leader>fg`        | `n`    | Telescope git files                         |
+| `<leader>gd`        | `n`    | Telescope LSP definitions                   |
+| `<leader>v`             | `n`    | Enter block mode                            |
+| `<leader>v`             | `x`    | Enter block mode                            |
+| `<leader>cp`        | `n`    | Copy the path of the current file to clipboard |
+| `<leader>gd`        | `n`    | Go to the global definition of the word under the cursor |
+| `<leader>o`         | `n`    | Open Oil in current file buffer dir              |
+| `<space>tt`         | `n, t`    | Open floating terminal buffer              |
 
 ## LSP Configuration
 
