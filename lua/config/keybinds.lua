@@ -23,7 +23,6 @@ vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true 
 vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev)
 vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>")
 
 -- Telescope
 local builtin = require('telescope.builtin')
@@ -33,6 +32,8 @@ vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, { desc = 'T
 vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = 'Telescope git commits' })
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope git files' })
 vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { buffer = 0, desc = 'Telescope lsp definitions' })
+vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>dl', builtin.lsp_document_diagnostics, { desc = 'Telescope lsp document diagnostics' })
 
 -- Block Mode
 vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', { noremap = true, silent = true })
@@ -40,9 +41,6 @@ vim.api.nvim_set_keymap('x', '<leader>v', '<C-v>', { noremap = true, silent = tr
 
 -- Copying path of current file to clipboard
 vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
-
--- Go to global definition of word under cursor
-vim.api.nvim_set_keymap('n', '<leader>gd', ':lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
 
 -- Oil
 vim.api.nvim_set_keymap('n', '<leader>o', ':Oil<CR>', { noremap = true, silent = true })
