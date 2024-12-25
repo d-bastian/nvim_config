@@ -15,17 +15,21 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-    "nvim-lualine/lualine.nvim",
-
     -- Themes
     "bluz71/vim-moonfly-colors",
     "rebelot/kanagawa.nvim",
     "folke/tokyonight.nvim",
     "bluz71/vim-nightfly-colors",
     "NLKNguyen/papercolor-theme",
-    { "ellisonleao/gruvbox.nvim", priority = 1000, config = true,                               opts = ... },
-
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        config = true,
+        opts = ...
+    },
     -- Main Plugins
+    "nvim-lualine/lualine.nvim",
+    { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
     "nvim-treesitter/nvim-treesitter",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -33,7 +37,6 @@ require("lazy").setup({
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
-        -- or                              , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     "nvim-lua/plenary.nvim",
@@ -48,8 +51,7 @@ require("lazy").setup({
         ---@module 'oil'
         ---@type oil.SetupOpts
         opts = {},
-        -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
+        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     "tpope/vim-fugitive",
     {
@@ -71,7 +73,5 @@ require("lazy").setup({
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
     "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip",
-
-    { 'akinsho/bufferline.nvim',  version = "*",   dependencies = 'nvim-tree/nvim-web-devicons' }
+    "hrsh7th/vim-vsnip"
 })
