@@ -12,7 +12,7 @@ require("lspconfig").pylsp.setup {
     settings = {
         pylsp = {
             plugins = {
-                black = { enabled = true, lineLength = 88, ignore = { "E203", "E501" } },
+                black = { enabled = true, lineLength = 120 },
                 pycodeStyle = { enabled = false },
             },
         },
