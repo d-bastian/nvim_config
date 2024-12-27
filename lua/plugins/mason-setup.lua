@@ -12,8 +12,11 @@ require("lspconfig").pylsp.setup {
     settings = {
         pylsp = {
             plugins = {
-                black = { enabled = true, lineLength = 120 },
-                pycodeStyle = { enabled = false },
+                black = { enabled = true },
+                pycodestyle = { enabled = false },
+                pylint = { enabled = true },
+                pyflakes = { enabled = false },
+                yapf = { enabled = true },
             },
         },
     },
