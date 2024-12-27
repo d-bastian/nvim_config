@@ -33,20 +33,17 @@ require("lspconfig").lua_ls.setup {
     settings = {
         Lua = {
             runtime = {
-                -- Tell the language server that you're using LuaJIT (used by Neovim)
-                version = "LuaJIT",
+                version = "LuaJIT", -- Set Lua version
+                path = vim.split(package.path, ";"),
             },
             diagnostics = {
-                -- Recognize the `vim` global
-                globals = { "vim" },
+                globals = { "vim" }, -- Add globals like "vim" to avoid diagnostic warnings
             },
             workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-                checkThirdParty = false,
+                library = vim.api.nvim_get_runtime_file("", true), -- Add Neovim runtime files to LuaLS workspace
             },
             telemetry = {
-                enable = false,
+                enable = false, -- Disable telemetry
             },
         },
     },

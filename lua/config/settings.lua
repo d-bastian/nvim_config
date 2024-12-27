@@ -1,6 +1,7 @@
 -- Vim Settings
 vim.g.mapleader = ','
 vim.cmd 'filetype plugin on'
+vim.cmd 'filetype indent on'
 vim.cmd 'syntax enable'
 vim.opt.clipboard = 'unnamedplus'
 vim.g.loaded_netrw = 1
