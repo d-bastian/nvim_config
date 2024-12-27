@@ -29,7 +29,7 @@ require("lazy").setup({
     },
     -- Main Plugins
     "nvim-lualine/lualine.nvim",
-    { 'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons' },
+    { 'akinsho/bufferline.nvim', version = "*" },
     "nvim-treesitter/nvim-treesitter",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -37,11 +37,9 @@ require("lazy").setup({
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
-        dependencies = { 'nvim-lua/plenary.nvim' }
     },
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
-
     "windwp/nvim-autopairs",
     "github/copilot.vim",
     "nvim-tree/nvim-tree.lua",
@@ -51,12 +49,10 @@ require("lazy").setup({
         ---@module 'oil'
         ---@type oil.SetupOpts
         opts = {},
-        dependencies = { "nvim-tree/nvim-web-devicons" },
     },
     "tpope/vim-fugitive",
     {
         'MeanderingProgrammer/render-markdown.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
         ---@module 'render-markdown'
         ---@type render.md.UserConfig
         opts = {},
