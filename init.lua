@@ -15,3 +15,4 @@ require("plugins.render-markdown-setup")
 require("plugins.telescope-setup")
 require("plugins.floatterm")
 require("bufferline").setup {}
+require("ibl").setup()
