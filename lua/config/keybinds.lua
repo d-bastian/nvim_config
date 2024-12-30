@@ -43,4 +43,4 @@ vim.api.nvim_set_keymap('x', '<leader>v', '<C-v>', { noremap = true, silent = tr
 vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
 
 -- Oil
-vim.api.nvim_set_keymap('n', '<leader>o', ':Oil<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>o', ':Oil --float<CR>', { noremap = true, silent = true })

@@ -8,11 +8,6 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
--- Set ttyfast
-vim.opt.updatetime = 120
-vim.opt.lazyredraw = true
-vim.opt.ttyfast = true
-
 -- Set Terminal to pwsh
 vim.o.shell = "pwsh"
 
@@ -27,6 +22,7 @@ vim.opt.encoding = 'utf-8'
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
 vim.opt.expandtab = true
 
 -- Search
@@ -34,7 +30,7 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
 -- Display
-vim.opt.wrap = true
+vim.opt.wrap = false
 vim.opt.mouse = 'a'
 vim.opt.termguicolors = true
 vim.opt.fillchars:append({
@@ -43,3 +39,11 @@ vim.opt.fillchars:append({
 
 -- Theme
 vim.cmd.colorscheme("kanagawa-wave")
+
+-- Auto format on save
+vim.cmd([[
+    augroup FormatAutogroup
+        autocmd!
+        autocmd BufWritePre * lua vim.lsp.buf.format({async = false})
+    augroup END
+]])

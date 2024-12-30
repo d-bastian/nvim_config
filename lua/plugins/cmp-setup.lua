@@ -57,11 +57,3 @@ cmp.setup.cmdline(':', {
     }),
     matching = { disallow_symbol_nonprefix_matching = false }
 })
-
--- Auto format on save
-vim.cmd([[
-    augroup FormatAutogroup
-        autocmd!
-        autocmd BufWritePre * lua vim.lsp.buf.format({async = false})
-    augroup END
-]])

@@ -1,3 +1,4 @@
+local lspconfig = require("lspconfig")
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
@@ -8,7 +9,7 @@ require("mason-lspconfig").setup({
     automatic_installation = true,
 })
 
-require("lspconfig").pylsp.setup {
+lspconfig.pylsp.setup {
     settings = {
         pylsp = {
             plugins = {
@@ -21,15 +22,15 @@ require("lspconfig").pylsp.setup {
         },
     },
 }
-require("lspconfig").html.setup {}
-require("lspconfig").gopls.setup {}
-require("lspconfig").jsonls.setup {}
-require("lspconfig").yamlls.setup {}
-require("lspconfig").omnisharp.setup {}
-require("lspconfig").ts_ls.setup {}
-require("lspconfig").cssls.setup {}
-require("lspconfig").phpactor.setup {}
-require("lspconfig").lua_ls.setup {
+lspconfig.html.setup {}
+lspconfig.gopls.setup {}
+lspconfig.jsonls.setup {}
+lspconfig.yamlls.setup {}
+lspconfig.omnisharp.setup {}
+lspconfig.ts_ls.setup {}
+lspconfig.cssls.setup {}
+lspconfig.phpactor.setup {}
+lspconfig.lua_ls.setup {
     settings = {
         Lua = {
             runtime = {
@@ -48,4 +49,4 @@ require("lspconfig").lua_ls.setup {
         },
     },
 }
-require("lspconfig").markdown_oxide.setup {}
+lspconfig.markdown_oxide.setup {}

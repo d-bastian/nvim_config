@@ -16,34 +16,25 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
     -- Themes
-    "bluz71/vim-moonfly-colors",
     "rebelot/kanagawa.nvim",
-    "folke/tokyonight.nvim",
-    "bluz71/vim-nightfly-colors",
-    "NLKNguyen/papercolor-theme",
-    {
-        "ellisonleao/gruvbox.nvim",
-        priority = 1000,
-        config = true,
-        opts = ...
-    },
+
     -- Main Plugins
     "nvim-lualine/lualine.nvim",
-    { 'akinsho/bufferline.nvim', version = "*" },
     "nvim-treesitter/nvim-treesitter",
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "nvim-treesitter/nvim-treesitter",
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.8',
-    },
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
     "windwp/nvim-autopairs",
     "github/copilot.vim",
     "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
+    "tpope/vim-fugitive",
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.8',
+    },
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
@@ -57,7 +48,6 @@ require("lazy").setup({
         ---@type oil.SetupOpts
         opts = {},
     },
-    "tpope/vim-fugitive",
     {
         'MeanderingProgrammer/render-markdown.nvim',
         ---@module 'render-markdown'

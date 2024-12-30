@@ -15,7 +15,6 @@ require 'nvim-treesitter.configs'.setup {
         "yaml",
         "php" },
     sync_install = false,
-    ignore_install = {},
     auto_install = true,
     highlight = {
         enable = true,

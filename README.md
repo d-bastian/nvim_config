@@ -31,11 +31,7 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
   - `MeanderingProgrammer/render-markdown.nvim`: Markdown rendering.
 
 - **Themes**
-  - `bluz71/vim-moonfly-colors`
   - `rebelot/kanagawa.nvim`
-  - `folke/tokyonight.nvim`
-  - `bluz71/vim-nightfly-colors`
-  - `NLKNguyen/papercolor-theme`
 
 - **LSP and Autocompletion**
   - `neovim/nvim-lspconfig`: LSP configurations.
@@ -124,3 +120,4 @@ The settings for NeoVim are configured in [lua/config/settings.lua](lua/config/s
 ## Screenshots
 
 ![Preview](resources/preview.png)
+
