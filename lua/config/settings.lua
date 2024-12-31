@@ -1,4 +1,5 @@
 -- Vim Settings
+-- Basic
 vim.g.mapleader = ','
 vim.cmd 'filetype plugin on'
 vim.cmd 'filetype indent on'
@@ -7,8 +8,10 @@ vim.opt.clipboard = 'unnamedplus'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
-
--- Set Terminal to pwsh
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = vim.fn.stdpath('data') .. '/undo'
+vim.opt.undofile = true
 vim.o.shell = "pwsh"
 
 -- Line Numbers
