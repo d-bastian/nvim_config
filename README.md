@@ -4,12 +4,8 @@ This repository contains my NeoVim setup with various plugins and custom configu
 
 ## Table of Contents
 
-- [NeoVim Configuration](#neovim-configuration)
-  - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Plugins](#plugins)
-  - [Custom Keybindings](#custom-keybindings)
-  - [LSP Configuration](#lsp-configuration)
   - [Settings](#settings)
   - [Screenshots](#screenshots)
 
@@ -32,6 +28,7 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 
 - **Themes**
   - `rebelot/kanagawa.nvim`
+  - `bluz71/vim-moonfly-colors`
 
 - **LSP and Autocompletion**
   - `neovim/nvim-lspconfig`: LSP configurations.
@@ -86,7 +83,6 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 | `<leader>cp`        | `n`    | Copy the path of the current file to clipboard |
 | `<leader>gd`        | `n`    | Go to the global definition of the word under the cursor |
 | `<leader>o`         | `n`    | Open Oil in current file buffer dir              |
-| `<leader>wt`         | `n, t`    | Open floating terminal buffer              |
 
 ## LSP Configuration
 
