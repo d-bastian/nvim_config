@@ -4,6 +4,8 @@ vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent =
 vim.api.nvim_set_keymap('n', '<leader>b', ':bn<CR>', { noremap = true, silent = true })       -- Next Buffer
 vim.api.nvim_set_keymap('n', '<leader>t', ':tabnew<CR>', { noremap = true, silent = true })   -- New Tab
 vim.api.nvim_set_keymap('n', '<leader>q', ':tabclose<CR>', { noremap = true, silent = true }) -- Close Tab
+vim.api.nvim_set_keymap('n', '<leader>tn', ':tabn<CR>', { noremap = true, silent = true })    -- Next tab
+vim.api.nvim_set_keymap('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent = true })    -- Previous tab
 
 -- Diffs
 vim.api.nvim_set_keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { noremap = true, silent = true })
@@ -44,9 +46,6 @@ vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { norema
 
 -- Oil
 vim.api.nvim_set_keymap('n', '<leader>o', ':Oil --float<CR>', { noremap = true, silent = true })
-
--- Copy to clipboard
-vim.api.nvim_set_keymap('x', '<leader>p', "\"_dP", { noremap = true, silent = true })
 
 -- Great Remaps
 vim.api.nvim_set_keymap("x", "<leader>p", "\"_dP", { noremap = true, silent = true })
