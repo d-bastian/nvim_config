@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- Themes
     "rebelot/kanagawa.nvim",
-
+    { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
     -- Main Plugins
     "nvim-lualine/lualine.nvim",
     "nvim-treesitter/nvim-treesitter",
