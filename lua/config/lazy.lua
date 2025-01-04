@@ -18,6 +18,16 @@ require("lazy").setup({
     -- Themes
     "rebelot/kanagawa.nvim",
     { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+    {
+        "zootedb0t/citruszest.nvim",
+        lazy = false,
+        priority = 1000,
+    },
+    {
+        "scottmckendry/cyberdream.nvim",
+        lazy = false,
+        priority = 1000,
+    },
     -- Main Plugins
     "nvim-lualine/lualine.nvim",
     "nvim-treesitter/nvim-treesitter",
@@ -31,16 +41,17 @@ require("lazy").setup({
     "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
     "tpope/vim-fugitive",
-    {
-        'nvim-telescope/telescope.nvim',
-        tag = '0.1.8',
-    },
+    "lewis6991/gitsigns.nvim",
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         ---@module "ibl"
         ---@type ibl.config
         opts = {},
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        tag = '0.1.8',
     },
     {
         'stevearc/oil.nvim',
@@ -60,11 +71,11 @@ require("lazy").setup({
     },
     -- CMP
     "neovim/nvim-lspconfig",
-    "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-nvim-lsp",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-cmdline",
+    "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-vsnip",
-    "hrsh7th/vim-vsnip"
+    "hrsh7th/vim-vsnip",
 })

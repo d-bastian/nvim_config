@@ -1,7 +1,5 @@
--- Vim Settings
 -- Basic
 vim.g.mapleader = ','
-vim.cmd 'filetype plugin on'
 vim.cmd 'filetype indent on'
 vim.cmd 'syntax enable'
 vim.opt.clipboard = 'unnamedplus'
@@ -26,6 +24,7 @@ vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
 -- Search
@@ -36,12 +35,13 @@ vim.opt.hlsearch = true
 vim.opt.wrap = false
 vim.opt.mouse = 'a'
 vim.opt.termguicolors = true
+vim.opt.cursorline = true
 vim.opt.fillchars:append({
     eob = " ", -- Replace tildes with blank space
 })
 
 -- Theme
-vim.cmd.colorscheme("moonfly")
+vim.cmd.colorscheme("cyberdream")
 
 -- Auto format on save
 vim.cmd([[

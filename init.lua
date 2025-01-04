@@ -11,6 +11,7 @@ require("plugins.lualine-setup")
 require("plugins.cmp-setup")
 require("plugins.render-markdown-setup")
 require("plugins.telescope-setup")
-require("ibl").setup()
 require("nvim-autopairs").setup {}
 require("plugins.oil-setup")
+require("plugins.indent-blankline-setup")
+require("gitsigns").setup()
