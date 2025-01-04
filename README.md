@@ -25,10 +25,14 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
   - `nvim-tree/nvim-tree.lua`: File explorer.
   - `nvim-tree/nvim-web-devicons`: File icons.
   - `MeanderingProgrammer/render-markdown.nvim`: Markdown rendering.
+  - `lewis6991/gitsigns.nvim`: Git signs.
+  - `lukas-reineke/indent-blankline.nvim`: Indentation lines.
 
 - **Themes**
   - `rebelot/kanagawa.nvim`
   - `bluz71/vim-moonfly-colors`
+  - `zootedb0t/citruszest.nvim`
+  - `scottmckendry/cyberdream.nvim`
 
 - **LSP and Autocompletion**
   - `neovim/nvim-lspconfig`: LSP configurations.
@@ -39,11 +43,11 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
   - `hrsh7th/cmp-cmdline`: Command line source for nvim-cmp.
   - `hrsh7th/cmp-vsnip`: Snippet source for nvim-cmp.
   - `hrsh7th/vim-vsnip`: Snippet plugin.
+  - `williamboman/mason.nvim`: LSP installer.
+  - `williamboman/mason-lspconfig.nvim`: Mason LSP configurations.
 
 - **Utilities**
   - `nvim-treesitter/nvim-treesitter`: Treesitter configurations.
-  - `williamboman/mason.nvim`: LSP installer.
-  - `williamboman/mason-lspconfig.nvim`: Mason LSP configurations.
   - `nvim-telescope/telescope.nvim`: Fuzzy finder.
   - `nvim-lua/plenary.nvim`: Utility functions.
   - `sindrets/diffview.nvim`: Git diff view.
@@ -106,12 +110,13 @@ The settings for NeoVim are configured in [lua/config/settings.lua](lua/config/s
 
 - Leader key set to `,`
 - Clipboard set to `unnamedplus`
+- Mouse enabled
+- Syntax highlighting enabled
 - Line numbers enabled
 - UTF-8 encoding
 - Auto indentation and smart indentation
 - Search settings
 - Display settings
-- Theme set to `kanagawa-wave`
 
 ## Screenshots
 
