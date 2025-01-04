@@ -4,7 +4,7 @@ require("mason-lspconfig").setup({
     ensure_installed = {
         "pylsp", "html", "gopls", "jsonls",
         "yamlls", "omnisharp", "ts_ls", "markdown_oxide",
-        "cssls", "lua_ls", "phpactor"
+        "cssls", "lua_ls", "phpactor", "powershell_es"
     },
     automatic_installation = true,
 })
@@ -23,6 +23,17 @@ lspconfig.pylsp.setup {
     },
 }
 lspconfig.html.setup {}
+lspconfig.powershell_es.setup {
+    settings = {
+        powershell = {
+            scriptAnalysis = true,
+            telemetry = {
+                enable = false,
+            },
+        },
+    },
+    filetypes = { "ps1" },
+}
 lspconfig.gopls.setup {}
 lspconfig.jsonls.setup {}
 lspconfig.yamlls.setup {}
