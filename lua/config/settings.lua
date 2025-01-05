@@ -48,7 +48,7 @@ vim.opt.fillchars:append({
 })
 
 -- Theme
-vim.cmd.colorscheme("cyberdream")
+vim.cmd.colorscheme("modus_vivendi")
 
 -- Auto format on save
 vim.cmd([[
