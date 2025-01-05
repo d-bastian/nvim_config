@@ -7,57 +7,25 @@ require("mason-lspconfig").setup({
         "cssls", "lua_ls", "phpactor", "powershell_es"
     },
     automatic_installation = true,
+    handlers = {
+        function(server_name)
+            lspconfig[server_name].setup({
+                on_attach = function(client, bufnr)
+                    print("LSP started for " .. server_name)
+                end,
+                capabilities = vim.lsp.protocol.make_client_capabilities(),
+            })
+        end,
+        ['lua_ls'] = function()
+            lspconfig['lua_ls'].setup({
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { 'vim' }
+                        }
+                    }
+                }
+            })
+        end
+    }
 })
-
-lspconfig.pylsp.setup {
-    settings = {
-        pylsp = {
-            plugins = {
-                black = { enabled = true },
-                pycodestyle = { enabled = false },
-                pylint = { enabled = true },
-                pyflakes = { enabled = false },
-                yapf = { enabled = true },
-            },
-        },
-    },
-}
-lspconfig.html.setup {}
-lspconfig.powershell_es.setup {
-    settings = {
-        powershell = {
-            scriptAnalysis = true,
-            telemetry = {
-                enable = false,
-            },
-        },
-    },
-    filetypes = { "ps1" },
-}
-lspconfig.gopls.setup {}
-lspconfig.jsonls.setup {}
-lspconfig.yamlls.setup {}
-lspconfig.omnisharp.setup {}
-lspconfig.ts_ls.setup {}
-lspconfig.cssls.setup {}
-lspconfig.phpactor.setup {}
-lspconfig.lua_ls.setup {
-    settings = {
-        Lua = {
-            runtime = {
-                version = "LuaJIT", -- Set Lua version
-                path = vim.split(package.path, ";"),
-            },
-            diagnostics = {
-                globals = { "vim" }, -- Add globals like "vim" to avoid diagnostic warnings
-            },
-            workspace = {
-                library = vim.api.nvim_get_runtime_file("", true), -- Add Neovim runtime files to LuaLS workspace
-            },
-            telemetry = {
-                enable = false, -- Disable telemetry
-            },
-        },
-    },
-}
-lspconfig.markdown_oxide.setup {}

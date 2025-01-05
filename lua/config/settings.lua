@@ -12,6 +12,13 @@ vim.opt.undodir = vim.fn.stdpath('data') .. '/undo'
 vim.opt.undofile = true
 vim.o.shell = "pwsh"
 
+-- Folds
+vim.opt.foldenable = true
+vim.opt.foldmethod = 'indent'
+vim.opt.foldlevel = 99
+vim.opt.foldnestmax = 3
+vim.opt.foldminlines = 1
+
 -- Line Numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
