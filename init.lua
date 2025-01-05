@@ -1,17 +1,18 @@
 -- Settings
 require("config.lazy")
 require("config.settings")
+require("config.keybinds")
 
 -- Plugins
-require("plugins.treesitter-setup")
-require("plugins.mason-setup")
-require("config.keybinds")
-require("plugins.nvimtree")
-require("plugins.lualine-setup")
-require("plugins.cmp-setup")
-require("plugins.render-markdown-setup")
-require("plugins.telescope-setup")
-require("nvim-autopairs").setup {}
-require("plugins.oil-setup")
-require("plugins.indent-blankline-setup")
+require("customize.treesitter-setup")
+require("customize.mason-setup")
+require("customize.nvimtree")
+require("customize.lualine-setup")
+require("customize.cmp-setup")
+require("customize.render-markdown-setup")
+require("customize.telescope-setup")
+require("customize.oil-setup")
+require("customize.indent-blankline-setup")
+
 require("gitsigns").setup()
+require("nvim-autopairs").setup {}
