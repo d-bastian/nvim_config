@@ -48,7 +48,7 @@ vim.opt.fillchars:append({
 })
 
 -- Theme
-vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("moonfly")
 
 -- Auto format on save
 vim.cmd([[
