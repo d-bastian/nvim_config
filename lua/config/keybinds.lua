@@ -34,8 +34,8 @@ vim.keymap.set('n', '<leader>f', builtin.live_grep, { desc = 'Telescope live gre
 vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = 'Telescope git commits' })
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope git files' })
-vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { buffer = 0, desc = 'Telescope lsp definitions' })
 vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Telescope help tags' })
+vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { desc = 'Telescope LSP definitions' })
 vim.keymap.set('n', '<leader>bf', builtin.buffers, { desc = 'Telescope builtin' })
 
 -- Block Mode
