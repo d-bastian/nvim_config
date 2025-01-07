@@ -38,6 +38,26 @@ vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Telescope help tag
 vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { desc = 'Telescope LSP definitions' })
 vim.keymap.set('n', '<leader>bf', builtin.buffers, { desc = 'Telescope builtin' })
 
+-- Custom function to search my notes
+function SearchNotes()
+    builtin.find_files({
+        prompt_title = 'Search Notes',
+        cwd = '~/Documents/Notes',
+        hidden = true,
+    })
+end
+
+function SearchTextNotes()
+    builtin.live_grep({
+        prompt_title = 'Search Text Notes',
+        cwd = '~/Documents/Notes',
+        hidden = true,
+    })
+end
+
+vim.keymap.set('n', '<leader>sn', SearchNotes, { desc = 'Search Notes' })
+vim.keymap.set('n', '<leader>st', SearchTextNotes, { desc = 'Search Text Notes' })
+
 -- Block Mode
 vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', '<leader>v', '<C-v>', { noremap = true, silent = true })
