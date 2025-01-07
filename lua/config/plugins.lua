@@ -1,10 +1,12 @@
 return {
     -- Main Plugins
     "nvim-lualine/lualine.nvim",
-    "nvim-treesitter/nvim-treesitter",
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate"
+    },
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "nvim-treesitter/nvim-treesitter",
     "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
     "windwp/nvim-autopairs",
