@@ -48,7 +48,7 @@ vim.opt.fillchars:append({
 })
 
 -- Theme
-vim.cmd.colorscheme("kanagawa-dragon")
+vim.cmd.colorscheme("gruvbox")
 
 -- Auto format on save
 vim.cmd([[
