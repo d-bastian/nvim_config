@@ -1,4 +1,4 @@
-local custom_theme = require("lualine.themes.auto")
+local custom_theme = require("lualine.themes.modus-vivendi")
 require("lualine").setup {
     options = { theme = custom_theme, component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' }, },

@@ -19,5 +19,7 @@ return {
         lazy = false,
         priority = 1000,
         opts = {},
-    }
+    },
+    "nyoom-engineering/oxocarbon.nvim"
+
 }
