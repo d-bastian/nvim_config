@@ -1,20 +1,23 @@
 local lspconfig = require("lspconfig")
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
         "pylsp", "html", "gopls", "jsonls",
-        "yamlls", "omnisharp", "ts_ls", "markdown_oxide",
+        "yamlls", "omnisharp", "ts_ls", "marksman",
         "cssls", "lua_ls", "phpactor", "powershell_es"
     },
     automatic_installation = true,
     handlers = {
         function(server_name)
-            lspconfig[server_name].setup({
-                on_attach = function(client, bufnr)
-                    print("LSP started for " .. server_name)
-                end,
-                capabilities = vim.lsp.protocol.make_client_capabilities(),
-            })
+            if lspconfig[server_name] then
+                lspconfig[server_name].setup({
+                    on_attach = function(client, bufnr)
+                        print("LSP started for " .. server_name)
+                    end,
+                    capabilities = capabilities
+                })
+            end
         end,
         ['lua_ls'] = function()
             lspconfig['lua_ls'].setup({
@@ -54,6 +57,6 @@ require("mason-lspconfig").setup({
                     }
                 }
             })
-        end
+        end,
     }
 })
