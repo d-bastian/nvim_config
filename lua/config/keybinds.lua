@@ -10,7 +10,6 @@ vim.api.nvim_set_keymap('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent
 -- Diffs
 vim.api.nvim_set_keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', ':DiffviewFileHistory<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>df', ':windo diffthis<CR>', { noremap = true, silent = true })
 
 -- NvimTree
 vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
@@ -29,34 +28,13 @@ vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>")
 
 -- Telescope
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>f', builtin.live_grep, { desc = 'Telescope live grep' }) -- Find text in files
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' }) -- Find files
+vim.keymap.set('n', '<leader>f', builtin.live_grep, { desc = 'Telescope live grep' })    -- Find text in files
 vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = 'Telescope git commits' })
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope git files' })
-vim.keymap.set('n', '<leader>h', builtin.help_tags, { desc = 'Telescope help tags' })
 vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { desc = 'Telescope LSP definitions' })
 vim.keymap.set('n', '<leader>bf', builtin.buffers, { desc = 'Telescope builtin' })
-
--- Custom function to search my notes
-function SearchNotes()
-    builtin.find_files({
-        prompt_title = 'Search Notes',
-        cwd = '~/Documents/Notes',
-        hidden = true,
-    })
-end
-
-function SearchTextNotes()
-    builtin.live_grep({
-        prompt_title = 'Search Text Notes',
-        cwd = '~/Documents/Notes',
-        hidden = true,
-    })
-end
-
-vim.keymap.set('n', '<leader>sn', SearchNotes, { desc = 'Search Notes' })
-vim.keymap.set('n', '<leader>st', SearchTextNotes, { desc = 'Search Text Notes' })
 
 -- Block Mode
 vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', { noremap = true, silent = true })
