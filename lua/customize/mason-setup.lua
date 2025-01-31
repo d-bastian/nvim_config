@@ -5,7 +5,7 @@ require("mason-lspconfig").setup({
     ensure_installed = {
         "pylsp", "html", "gopls", "jsonls",
         "yamlls", "omnisharp", "ts_ls", "marksman",
-        "cssls", "lua_ls", "phpactor", "powershell_es"
+        "cssls", "lua_ls", "phpactor", "powershell_es", "sqls"
     },
     automatic_installation = true,
     handlers = {
