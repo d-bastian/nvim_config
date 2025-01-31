@@ -22,17 +22,7 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 
 - **UI Enhancements**
   - `nvim-lualine/lualine.nvim`: Status line.
-  - `nvim-tree/nvim-tree.lua`: File explorer.
   - `nvim-tree/nvim-web-devicons`: File icons.
-  - `MeanderingProgrammer/render-markdown.nvim`: Markdown rendering.
-  - `lewis6991/gitsigns.nvim`: Git signs.
-  - `lukas-reineke/indent-blankline.nvim`: Indentation lines.
-
-- **Themes**
-  - `rebelot/kanagawa.nvim`
-  - `bluz71/vim-moonfly-colors`
-  - `zootedb0t/citruszest.nvim`
-  - `scottmckendry/cyberdream.nvim`
 
 - **LSP and Autocompletion**
   - `neovim/nvim-lspconfig`: LSP configurations.
@@ -63,11 +53,11 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 | `<Esc>`             | `t`    | Exit to normal mode                         |
 | `<leader>b`         | `n`    | Next Buffer                                 |
 | `<leader>t`         | `n`    | New Tab                                     |
+| `<leader>tn`         | `n`    | Next Tab                                     |
+| `<leader>tp`         | `n`    | Previous Tab                                     |
 | `<leader>q`        | `n`    | Close Tab                                   |
 | `<leader>dv`        | `n`    | Open Diffview                               |
-| `<leader>df`        | `n`    | Open diff view for 2 files in vsplit        |
 | `<leader>fh`        | `n`    | View file history in Diffview               |
-| `<leader>n`         | `n`    | Toggle NvimTree                             |
 | `<C-h>`             | `n`    | Move to the left pane                       |
 | `<C-j>`             | `n`    | Move to the pane below                      |
 | `<C-k>`             | `n`    | Move to the pane above                      |

@@ -1,4 +1,4 @@
-require 'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter'.setup {
     ensure_installed = {
         "c",
         "lua",
@@ -13,7 +13,8 @@ require 'nvim-treesitter.configs'.setup {
         "markdown_inline",
         "c_sharp",
         "yaml",
-        "php" },
+        "php"
+    },
     ignore_install = {},
     sync_install = false,
     auto_install = true,

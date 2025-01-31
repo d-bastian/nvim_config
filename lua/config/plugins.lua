@@ -1,27 +1,18 @@
 return {
     -- Main Plugins
+    "nvim-lua/plenary.nvim", -- Required for some plugins
+    "tpope/vim-fugitive",    -- Git commands in nvim
     "nvim-lualine/lualine.nvim",
     {
         "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate"
+        build = ":TSUpdate",
     },
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
-    "nvim-lua/plenary.nvim",
     "sindrets/diffview.nvim",
     "windwp/nvim-autopairs",
     "github/copilot.vim",
-    "nvim-tree/nvim-tree.lua",
     "nvim-tree/nvim-web-devicons",
-    "tpope/vim-fugitive",
-    "lewis6991/gitsigns.nvim",
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        ---@module "ibl"
-        ---@type ibl.config
-        opts = {},
-    },
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.8',
@@ -31,12 +22,9 @@ return {
         ---@module 'oil'
         ---@type oil.SetupOpts
         opts = {},
-    },
-    {
-        'MeanderingProgrammer/render-markdown.nvim',
-        ---@module 'render-markdown'
-        ---@type render.md.UserConfig
-        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        lazy = false,
     },
     {
         'numToStr/Comment.nvim',

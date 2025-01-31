@@ -11,9 +11,6 @@ vim.api.nvim_set_keymap('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent
 vim.api.nvim_set_keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', ':DiffviewFileHistory<CR>', { noremap = true, silent = true })
 
--- NvimTree
-vim.api.nvim_set_keymap('n', '<leader>n', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-
 -- Pane movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
@@ -44,7 +41,7 @@ vim.api.nvim_set_keymap('x', '<leader>v', '<C-v>', { noremap = true, silent = tr
 vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
 
 -- Oil
-vim.api.nvim_set_keymap('n', '<leader>o', ':Oil --float<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>o', ':Oil<CR>', { noremap = true, silent = true })
 
 -- Great Remaps
 vim.api.nvim_set_keymap("x", "<leader>p", "\"_dP", { noremap = true, silent = true })
