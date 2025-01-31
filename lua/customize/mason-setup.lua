@@ -14,7 +14,6 @@ require("mason-lspconfig").setup({
                 lspconfig[server_name].setup({
                     on_attach = function(client, bufnr)
                         print("LSP started for " .. server_name)
-                        print("bufnr: " .. bufnr)
                     end,
                     capabilities = capabilities
                 })
