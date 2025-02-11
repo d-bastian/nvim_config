@@ -3,10 +3,10 @@ require("telescope").setup({
         layout_config = {
             prompt_position = "bottom"
         },
-        pickers = {
-            find_files = {
-                hidden = true
-            }
-        }
     },
+    pickers = {
+        find_files = {
+            hidden = true
+        }
+    }
 })
