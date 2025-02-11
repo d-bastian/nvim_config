@@ -10,7 +10,7 @@ require('lualine').setup {
         lualine_b = { { 'FugitiveHead' }, 'diff', 'diagnostics' },
         lualine_c = { { 'filename', path = 1 } },
         lualine_x = { 'encoding', 'filetype' },
-        lualine_y = { 'filesize' },
+        lualine_y = {},
         lualine_z = { 'location' }
     },
 }
