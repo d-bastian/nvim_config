@@ -26,12 +26,14 @@ vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>")
 -- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' }) -- Find files
-vim.keymap.set('n', '<leader>f', builtin.live_grep, { desc = 'Telescope live grep' })    -- Find text in files
 vim.keymap.set('n', '<leader>fb', builtin.current_buffer_fuzzy_find, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fc', builtin.git_commits, { desc = 'Telescope git commits' })
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope git files' })
 vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { desc = 'Telescope LSP definitions' })
 vim.keymap.set('n', '<leader>bf', builtin.buffers, { desc = 'Telescope builtin' })
+vim.keymap.set('n', '<leader>f', function()
+    builtin.grep_string({ search = vim.fn.input('Grep > ') })
+end)
 
 -- Block Mode
 vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', { noremap = true, silent = true })

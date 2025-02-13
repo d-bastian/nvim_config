@@ -67,7 +67,7 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 | `<leader>dn`        | `n`    | Go to the next diagnostic                   |
 | `<leader>dl`        | `n`    | List diagnostics using Telescope            |
 | `<leader>ff`        | `n`    | Telescope find files                        |
-| `<leader>f`         | `n`    | Telescope live grep                         |
+| `<leader>f`         | `n`    | Telescope grep string                         |
 | `<leader>fb`        | `n`    | Telescope current buffer fuzzy find         |
 | `<leader>fc`        | `n`    | Telescope git commits                       |
 | `<leader>fg`        | `n`    | Telescope git files                         |
