@@ -45,6 +45,27 @@ vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { norema
 -- Oil
 vim.api.nvim_set_keymap('n', '<leader>o', ':Oil<CR>', { noremap = true, silent = true })
 
+-- Search and Replace in all files
+vim.keymap.set('n', '<leader>sr', function()
+    local search = vim.fn.input('Search Grep > ')
+    if (search == '') then
+        print('Search cannot be empty')
+        vim.cmd('ccl')
+        return
+    end
+    vim.cmd(':vimgrep /' .. search .. '/gj **/*')
+
+    local replace = vim.fn.input('Replace > ')
+    if (replace == '') then
+        print('Replace cannot be empty')
+        vim.cmd('ccl')
+        return
+    end
+
+    vim.cmd('cfdo %s/' .. search .. '/' .. replace .. '/gc | update')
+    vim.cmd('ccl')
+end)
+
 -- Great Remaps
 vim.api.nvim_set_keymap("x", "<leader>p", "\"_dP", { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
