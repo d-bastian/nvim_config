@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent
 -- Diffs
 vim.api.nvim_set_keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', ':DiffviewFileHistory<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>df', ':DiffviewFileHistory %<CR>', { noremap = true, silent = true })
 
 -- Pane movement
 vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
