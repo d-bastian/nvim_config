@@ -13,7 +13,7 @@ require("mason-lspconfig").setup({
             if lspconfig[server_name] then
                 lspconfig[server_name].setup({
                     on_attach = function(client, bufnr)
-                        print("LSP started for " .. server_name)
+                        print("LSP started for " .. server_name, "| No custom handler defined")
                     end,
                     capabilities = capabilities
                 })
