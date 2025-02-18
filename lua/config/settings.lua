@@ -48,7 +48,7 @@ vim.opt.fillchars:append({
 })
 
 -- Theme
-vim.cmd.colorscheme("flexoki-dark")
+vim.cmd.colorscheme("onedark_dark")
 
 -- Auto format on save
 vim.cmd([[
