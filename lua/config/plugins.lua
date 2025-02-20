@@ -2,6 +2,13 @@ return {
     -- Main Plugins
     "nvim-lua/plenary.nvim", -- Required for some plugins
     "tpope/vim-fugitive",    -- Git commands in nvim
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        ---@module "ibl"
+        ---@type ibl.config
+        opts = {},
+    },
     "nvim-lualine/lualine.nvim",
     {
         "nvim-treesitter/nvim-treesitter",
