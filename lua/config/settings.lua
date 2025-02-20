@@ -11,6 +11,7 @@ vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath('data') .. '/undo'
 vim.opt.undofile = true
 vim.o.shell = "pwsh"
+vim.cmd [[autocmd ColorScheme * highlight Normal guibg=NONE ctermbg=NONE]]
 
 -- Folds
 vim.opt.foldenable = true
@@ -48,7 +49,7 @@ vim.opt.fillchars:append({
 })
 
 -- Theme
-vim.cmd.colorscheme("onedark_dark")
+vim.cmd.colorscheme("moonfly")
 
 -- Auto format on save
 vim.cmd([[
