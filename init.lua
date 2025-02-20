@@ -9,5 +9,5 @@ require("customize.lualine-setup")
 require("customize.cmp-setup")
 require("customize.telescope-setup")
 require("customize.oil-setup")
-require("customize.treesitter-setup")
+require("customize.indentlines")
 require("nvim-autopairs").setup {}
