@@ -21,10 +21,6 @@ return {
         config = function()
             require("tairiki").setup {
                 style = "dark",
-                transparent = true,
-                lualine = {
-                    transparent = true,
-                }
             }
         end,
     }
