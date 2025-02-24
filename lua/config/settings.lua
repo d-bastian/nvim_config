@@ -39,7 +39,7 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
 -- Display
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.mouse = 'a'
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
