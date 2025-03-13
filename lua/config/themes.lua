@@ -37,5 +37,6 @@ return {
     },
     {
         "elliotekj/enough.vim"
-    }
+    },
+    { "blazkowolf/gruber-darker.nvim" }
 }
