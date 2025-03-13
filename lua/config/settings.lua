@@ -48,7 +48,7 @@ vim.opt.fillchars:append({
 })
 
 -- Theme
-vim.cmd.colorscheme("bamboo-vulgaris")
+vim.cmd.colorscheme("enough")
 
 -- Auto format on save
 vim.cmd([[

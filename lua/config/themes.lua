@@ -35,4 +35,7 @@ return {
             require('bamboo').load()
         end,
     },
+    {
+        "elliotekj/enough.vim"
+    }
 }
