@@ -39,7 +39,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
     "sindrets/diffview.nvim",
     "windwp/nvim-autopairs",
-    "github/copilot.vim",
     "nvim-tree/nvim-web-devicons",
     {
         'nvim-telescope/telescope.nvim',
