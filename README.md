@@ -7,7 +7,6 @@ This repository contains my NeoVim setup with various plugins and custom configu
   - [Installation](#installation)
   - [Plugins](#plugins)
   - [Settings](#settings)
-  - [Screenshots](#screenshots)
 
 ## Installation
 
@@ -97,18 +96,3 @@ The following LSP servers are configured and installed using `mason.nvim` and `n
 ## Settings
 
 The settings for NeoVim are configured in [lua/config/settings.lua](lua/config/settings.lua). Key settings include:
-
-- Leader key set to `,`
-- Clipboard set to `unnamedplus`
-- Mouse enabled
-- Syntax highlighting enabled
-- Line numbers enabled
-- UTF-8 encoding
-- Auto indentation and smart indentation
-- Search settings
-- Display settings
-
-## Screenshots
-
-![Preview](resources/preview.png)
-
