@@ -2,11 +2,7 @@
 
 This repository contains my NeoVim setup with various plugins and custom configurations.
 
-## Table of Contents
-
-  - [Installation](#installation)
-  - [Plugins](#plugins)
-  - [Settings](#settings)
+> Configuration is made to suit my needs, some settings or keybinds might not work for you.
 
 ## Installation
 
@@ -46,6 +42,8 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
   - `github/copilot.vim`: GitHub Copilot integration.
 
 ## Custom Keybindings
+
+Some keybindings might differ or are not included in this table, since I change them recently.
 
 | Keybinding          | Mode   | Action                                      |
 |---------------------|--------|---------------------------------------------|
@@ -95,4 +93,4 @@ The following LSP servers are configured and installed using `mason.nvim` and `n
 
 ## Settings
 
-The settings for NeoVim are configured in [lua/config/settings.lua](lua/config/settings.lua). Key settings include:
+The settings for NeoVim are configured in `lua/configurations/settings.lua`.
