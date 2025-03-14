@@ -43,7 +43,7 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 
 ## Custom Keybindings
 
-Some keybindings might differ or are not included in this table, since I change them recently.
+Some keybindings might differ or are not included in this table, since I change them regularly.
 
 | Keybinding          | Mode   | Action                                      |
 |---------------------|--------|---------------------------------------------|
