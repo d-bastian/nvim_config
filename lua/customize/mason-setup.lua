@@ -1,6 +1,16 @@
 local lspconfig = require("lspconfig")
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("mason").setup()
+require("mason-nvim-dap").setup({
+    ensure_installed = { "python", "delve", "php" },
+    automatic_installation = true,
+    handlers = {
+        function(config)
+            -- all sources will get passed here
+            require("mason-nvim-dap").default_setup(config)
+        end
+    }
+})
 require("mason-lspconfig").setup({
     ensure_installed = {
         "pylsp", "html", "gopls", "jsonls",
