@@ -48,8 +48,6 @@ return {
         end
     },
     {
-        "mfussenegger/nvim-dap",
-        "jay-babu/mason-nvim-dap.nvim",
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
     },
