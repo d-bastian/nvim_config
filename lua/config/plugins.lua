@@ -2,7 +2,9 @@ return {
     -- Main Plugins
     "nvim-lua/plenary.nvim", -- Required for some plugins
     "tpope/vim-fugitive",    -- Git commands in nvim
+
     "nvim-lualine/lualine.nvim",
+    "numToStr/Comment.nvim",
     "sindrets/diffview.nvim",
     "windwp/nvim-autopairs",
     "nvim-tree/nvim-web-devicons",
@@ -15,6 +17,24 @@ return {
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-vsnip",
     "hrsh7th/vim-vsnip",
+    -- Mason, Lsp
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    -- Telescope, Oil
+    {
+        "nvim-telescope/telescope.nvim",
+        tag = "0.1.8",
+    },
+    {
+        "stevearc/oil.nvim",
+        ---@module "oil"
+        ---@type oil.SetupOpts
+        opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        lazy = false,
+    },
+    --Treesitter
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
@@ -46,26 +66,5 @@ return {
                 }
             }
         end
-    },
-    {
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
-    },
-    {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.8",
-    },
-    {
-        "stevearc/oil.nvim",
-        ---@module "oil"
-        ---@type oil.SetupOpts
-        opts = {},
-        -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        lazy = false,
-    },
-    {
-        "numToStr/Comment.nvim",
-        opts = {}
     },
 }

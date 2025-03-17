@@ -5,7 +5,6 @@ vim.cmd 'syntax enable'
 vim.opt.clipboard = 'unnamedplus'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath('data') .. '/undo'

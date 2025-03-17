@@ -39,57 +39,46 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
   - `windwp/nvim-autopairs`: Autopairs.
   - `tpope/vim-fugitive`: Git integration.
   - `numToStr/Comment.nvim`: Commenting utility.
-  - `github/copilot.vim`: GitHub Copilot integration.
 
 ## Custom Keybindings
 
 Some keybindings might differ or are not included in this table, since I change them regularly.
 
-| Keybinding          | Mode   | Action                                      |
-|---------------------|--------|---------------------------------------------|
-| `<Esc>`             | `t`    | Exit to normal mode                         |
-| `<leader>b`         | `n`    | Next Buffer                                 |
-| `<leader>t`         | `n`    | New Tab                                     |
-| `<leader>tn`         | `n`    | Next Tab                                     |
-| `<leader>tp`         | `n`    | Previous Tab                                     |
-| `<leader>q`        | `n`    | Close Tab                                   |
-| `<leader>dv`        | `n`    | Open Diffview                               |
-| `<leader>fh`        | `n`    | View file history in Diffview               |
-| `<C-h>`             | `n`    | Move to the left pane                       |
-| `<C-j>`             | `n`    | Move to the pane below                      |
-| `<C-k>`             | `n`    | Move to the pane above                      |
-| `<C-l>`             | `n`    | Move to the right pane                      |
-| `<leader>do`        | `n`    | Open diagnostic float                       |
-| `<leader>dp`        | `n`    | Go to the previous diagnostic               |
-| `<leader>dn`        | `n`    | Go to the next diagnostic                   |
-| `<leader>dl`        | `n`    | List diagnostics using Telescope            |
-| `<leader>ff`        | `n`    | Telescope find files                        |
-| `<leader>f`         | `n`    | Telescope grep string                         |
-| `<leader>fb`        | `n`    | Telescope current buffer fuzzy find         |
-| `<leader>fc`        | `n`    | Telescope git commits                       |
-| `<leader>fg`        | `n`    | Telescope git files                         |
-| `<leader>gd`        | `n`    | Telescope LSP definitions                   |
-| `<leader>v`             | `n`    | Enter block mode                            |
-| `<leader>v`             | `x`    | Enter block mode                            |
-| `<leader>cp`        | `n`    | Copy the path of the current file to clipboard |
-| `<leader>gd`        | `n`    | Go to the global definition of the word under the cursor |
-| `<leader>o`         | `n`    | Open Oil in current file buffer dir              |
+| Mode  | Keybinding    | Action                                  |
+|-------|-------------|-----------------------------------------|
+| `t`   | `<Esc>`     | Exit terminal mode                     |
+| `n`   | `<leader>b` | Next buffer                            |
+| `n`   | `<leader>t` | Open new tab                           |
+| `n`   | `<leader>q` | Close current tab                      |
+| `n`   | `<leader>tn`| Switch to next tab                     |
+| `n`   | `<leader>tp`| Switch to previous tab                 |
+| `n`   | `<leader>dv`| Open Diffview                          |
+| `n`   | `<leader>fh`| Open file history in Diffview          |
+| `n`   | `<leader>df`| Show current file history in Diffview  |
+| `n`   | `<C-d>`     | Scroll down and center cursor         |
+| `n`   | `<C-u>`     | Scroll up and center cursor           |
+| `n`   | `<C-h>`     | Move to left window                   |
+| `n`   | `<C-j>`     | Move to below window                  |
+| `n`   | `<C-k>`     | Move to above window                  |
+| `n`   | `<C-l>`     | Move to right window                  |
+| `n`   | `<leader>do`| Open floating diagnostics window      |
+| `n`   | `<leader>dp`| Jump to previous diagnostic           |
+| `n`   | `<leader>dn`| Jump to next diagnostic               |
+| `n`   | `<leader>dl`| Open diagnostics in Telescope        |
+| `n`   | `<leader>ff`| Find files using Telescope           |
+| `n`   | `<leader>gd`| Go to LSP definition via Telescope   |
+| `n`   | `<leader>bf`| List open buffers via Telescope      |
+| `n`   | `<leader>f` | Grep string in project via Telescope |
+| `n/x` | `<leader>v` | Enter visual block mode               |
+| `n`   | `<leader>cp`| Copy file path to clipboard          |
+| `n`   | `<leader>o` | Open Oil file explorer               |
+| `x`   | `<leader>p` | Paste without overwriting register   |
+| `v`   | `J`         | Move selected text down              |
+| `v`   | `K`         | Move selected text up                |
 
 ## LSP Configuration
 
-The following LSP servers are configured and installed using `mason.nvim` and `nvim-lspconfig`:
-
-- `pylsp` (Python)
-- `html` (HTML)
-- `gopls` (Go)
-- `jsonls` (JSON)
-- `yamlls` (YAML)
-- `omnisharp` (C#)
-- `ts_ls` (TypeScript)
-- `markdown_oxide` (Markdown)
-- `cssls` (CSS)
-- `lua_ls` (Lua)
-- `phpactor` (PHP)
+LSP servers are configured and installed using `mason.nvim` and `nvim-lspconfig`.
 
 ## Settings
 
