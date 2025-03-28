@@ -17,7 +17,6 @@ vim.opt.rtp:prepend(lazypath)
 local themes = require("config.themes")
 local plugins = require("config.plugins")
 
-
 require("lazy").setup({
     themes,
     plugins,
