@@ -6,9 +6,7 @@ return {
     "nvim-lualine/lualine.nvim",
     "numToStr/Comment.nvim",
     "sindrets/diffview.nvim",
-    "windwp/nvim-autopairs",
     "nvim-tree/nvim-web-devicons",
-
     -- Completion
     {
         'saghen/blink.cmp',
