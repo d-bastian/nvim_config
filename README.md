@@ -83,6 +83,8 @@ The settings for NeoVim are configured in `lua/configurations/settings.lua`.
 
 ## Powershell prompt
 
+https://github.com/dahlbyk/posh-git
+
 ```powershell
 Import-Module posh-git
 
