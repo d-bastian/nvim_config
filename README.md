@@ -32,7 +32,6 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
   - `nvim-telescope/telescope.nvim`: Fuzzy finder.
   - `nvim-lua/plenary.nvim`: Utility functions.
   - `sindrets/diffview.nvim`: Git diff view.
-  - `windwp/nvim-autopairs`: Autopairs.
   - `tpope/vim-fugitive`: Git integration.
   - `numToStr/Comment.nvim`: Commenting utility.
 
