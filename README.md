@@ -23,15 +23,9 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 
 - **LSP and Autocompletion**
   - `neovim/nvim-lspconfig`: LSP configurations.
-  - `hrsh7th/nvim-cmp`: Autocompletion plugin.
-  - `hrsh7th/cmp-nvim-lsp`: LSP source for nvim-cmp.
-  - `hrsh7th/cmp-buffer`: Buffer source for nvim-cmp.
-  - `hrsh7th/cmp-path`: Path source for nvim-cmp.
-  - `hrsh7th/cmp-cmdline`: Command line source for nvim-cmp.
-  - `hrsh7th/cmp-vsnip`: Snippet source for nvim-cmp.
-  - `hrsh7th/vim-vsnip`: Snippet plugin.
   - `williamboman/mason.nvim`: LSP installer.
   - `williamboman/mason-lspconfig.nvim`: Mason LSP configurations.
+  - `Saghen/blink.cmp`: Autocompletion
 
 - **Utilities**
   - `nvim-treesitter/nvim-treesitter`: Treesitter configurations.
