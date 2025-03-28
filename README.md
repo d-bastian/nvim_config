@@ -11,6 +11,8 @@ This repository contains my NeoVim setup with various plugins and custom configu
 3. Copy the contents of this repository to your NeoVim configuration directory (usually `~/.config/nvim`).
 4. Run nvim Lazy.nvim should do the rest.
 
+Run `:checkhealth` after plugins are installed.  
+
 ## Plugins
 
 This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below is a list of the main plugins included:
@@ -72,13 +74,14 @@ Some keybindings might differ or are not included in this table, since I change 
 | `n/x` | `<leader>v` | Enter visual block mode               |
 | `n`   | `<leader>cp`| Copy file path to clipboard          |
 | `n`   | `<leader>o` | Open Oil file explorer               |
-| `x`   | `<leader>p` | Paste without overwriting register   |
 | `v`   | `J`         | Move selected text down              |
 | `v`   | `K`         | Move selected text up                |
 
 ## LSP Configuration
 
 LSP servers are configured and installed using `mason.nvim` and `nvim-lspconfig`.
+
+You can edit them in lua/customize/mason-setup.lua.
 
 ## Settings
 
