@@ -8,4 +8,3 @@ require("customize.mason-setup")
 require("customize.lualine-setup")
 require("customize.telescope-setup")
 require("customize.oil-setup")
-require("nvim-autopairs").setup {}
