@@ -2,7 +2,6 @@ return {
     -- Main Plugins
     "nvim-lua/plenary.nvim", -- Required for some plugins
     "tpope/vim-fugitive",    -- Git commands in nvim
-
     "nvim-lualine/lualine.nvim",
     "numToStr/Comment.nvim",
     "sindrets/diffview.nvim",
