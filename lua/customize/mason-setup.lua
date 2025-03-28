@@ -1,5 +1,5 @@
 local lspconfig = require("lspconfig")
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = vim.lsp.protocol.make_client_capabilities()
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
@@ -12,7 +12,7 @@ require("mason-lspconfig").setup({
         function(server_name)
             if lspconfig[server_name] then
                 lspconfig[server_name].setup({
-                    on_attach = function(client, bufnr)
+                    on_attach = function()
                         print("LSP started for " .. server_name)
                     end,
                     capabilities = capabilities
@@ -42,22 +42,6 @@ require("mason-lspconfig").setup({
 
                 }
             })
-        end,
-        ['pylsp'] = function()
-            lspconfig['pylsp'].setup({
-                settings = {
-                    pylsp = {
-                        plugins = {
-                            black = { enabled = true },
-                            pycodestyle = {
-                                enabled = true,
-                                ignore = { 'W391', 'E501' },
-                                maxLineLength = 100
-                            },
-                        }
-                    }
-                }
-            })
-        end,
+        end
     }
 })
