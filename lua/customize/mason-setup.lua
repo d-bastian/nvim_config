@@ -3,9 +3,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "pylsp", "html", "gopls", "jsonls",
-        "yamlls", "omnisharp", "ts_ls", "marksman",
-        "cssls", "lua_ls", "phpactor", "powershell_es", "sqls"
+        "pylsp", "gopls", "omnisharp", "marksman",
+        "lua_ls", "phpactor", "powershell_es", "sqls"
     },
     automatic_installation = true,
     handlers = {
