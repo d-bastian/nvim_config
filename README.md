@@ -79,15 +79,3 @@ You can edit them in lua/customize/mason-setup.lua.
 ## Settings
 
 The settings for NeoVim are configured in `lua/configurations/settings.lua`.
-
-## Powershell prompt
-
-https://github.com/dahlbyk/posh-git
-
-```powershell
-Import-Module posh-git
-
-$GitPromptSettings.DefaultPromptPrefix.Text = '$ '
-$GitPromptSettings.DefaultPromptPrefix.ForegroundColor = [ConsoleColor]::Magenta
-$GitPromptSettings.DefaultPromptAbbreviateHomeDirectory = $true
-```
