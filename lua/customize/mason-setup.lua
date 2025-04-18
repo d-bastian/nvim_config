@@ -1,6 +1,12 @@
 local lspconfig = require("lspconfig")
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+local function on_attach(client, bufnr)
+    print("LSP started for " .. client.name)
+end
+
 require("mason").setup()
+
 require("mason-lspconfig").setup({
     ensure_installed = {
         "pylsp", "gopls", "omnisharp", "marksman",
@@ -9,25 +15,24 @@ require("mason-lspconfig").setup({
     automatic_installation = true,
     handlers = {
         function(server_name)
-            if lspconfig[server_name] then
-                lspconfig[server_name].setup({
-                    on_attach = function()
-                        print("LSP started for " .. server_name)
-                    end,
-                    capabilities = capabilities
-                })
-            end
+            lspconfig[server_name].setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+                flags = { debounce_text_changes = 150 },
+            })
         end,
-        ['lua_ls'] = function()
-            lspconfig['lua_ls'].setup({
+        ["lua_ls"] = function()
+            lspconfig["lua_ls"].setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         diagnostics = {
-                            globals = { 'vim' },
-                            disable = { 'missing-fields' }
+                            globals = { "vim" },
+                            disable = { "missing-fields" },
                         },
                         runtime = {
-                            version = "LuaJIT"
+                            version = "LuaJIT",
                         },
                         workspace = {
                             library = vim.api.nvim_get_runtime_file("", true),
@@ -36,11 +41,9 @@ require("mason-lspconfig").setup({
                         telemetry = {
                             enable = false,
                         },
-
                     },
-
-                }
+                },
             })
-        end
-    }
+        end,
+    },
 })

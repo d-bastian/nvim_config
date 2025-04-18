@@ -6,6 +6,7 @@ return {
     "numToStr/Comment.nvim",
     "sindrets/diffview.nvim",
     "nvim-tree/nvim-web-devicons",
+
     -- Completion
     {
         'saghen/blink.cmp',
@@ -44,6 +45,7 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         lazy = false,
     },
+
     --Treesitter
     {
         "nvim-treesitter/nvim-treesitter",

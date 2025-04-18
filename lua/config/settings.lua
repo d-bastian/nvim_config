@@ -1,7 +1,12 @@
 -- Basic
-vim.g.mapleader = ','
-vim.cmd 'filetype indent on'
 local opt = vim.opt
+local sysname = vim.loop.os_uname().sysname
+
+vim.g.mapleader = ','
+vim.filetype.add({})
+
+-- Theme
+vim.cmd.colorscheme("gruber-darker")
 
 vim.cmd 'syntax enable'
 vim.g.loaded_netrw = 1
@@ -14,8 +19,11 @@ opt.undofile = true
 opt.linebreak = true
 opt.shell = "pwsh"
 
--- Theme
-vim.cmd.colorscheme("gruber-darker")
+if sysname == "Linux" then
+    opt.shell = vim.fn.exepath("zsh") or "zsh"
+else
+    opt.shell = "pwsh"
+end
 
 -- Line Numbers
 opt.number = true
@@ -42,7 +50,7 @@ opt.mouse = 'a'
 opt.termguicolors = true
 opt.cursorline = true
 opt.fillchars:append({
-    eob = " ", -- Replace tildes with blank space
+    eob = " ",
 })
 
 -- Auto format on save
