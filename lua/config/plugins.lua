@@ -6,6 +6,7 @@ return {
     "numToStr/Comment.nvim",
     "sindrets/diffview.nvim",
     "nvim-tree/nvim-web-devicons",
+    "HiPhish/rainbow-delimiters.nvim",
 
     -- Completion
     {
