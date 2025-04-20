@@ -19,8 +19,10 @@ opt.undofile = true
 opt.linebreak = true
 opt.shell = "pwsh"
 
+-- Linux specific settings
 if sysname == "Linux" then
     opt.shell = vim.fn.exepath("zsh") or "zsh"
+    vim.cmd(":hi Normal guibg=NONE ctermbg=NONE")
 else
     opt.shell = "pwsh"
 end
