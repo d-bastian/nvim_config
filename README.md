@@ -79,3 +79,4 @@ You can edit them in lua/customize/mason-setup.lua.
 ## Settings
 
 The settings for NeoVim are configured in `lua/configurations/settings.lua`.
+Test
