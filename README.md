@@ -1,6 +1,7 @@
 # NeoVim Configuration
 
 This repository contains my NeoVim setup with various plugins and custom configurations.
+Yes
 
 > Configuration is made to suit my needs, some settings or keybinds might not work for you.
 
