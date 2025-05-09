@@ -1,8 +1,8 @@
 local lspconfig = require("lspconfig")
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-local function on_attach(client, _)
-    print("lsp -> " .. client.name)
+local function on_attach(client, bufnr)
+    print(string.format("lsp %d -> %s", bufnr, client))
 end
 
 require("mason").setup()
