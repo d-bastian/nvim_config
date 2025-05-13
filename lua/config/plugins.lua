@@ -28,12 +28,12 @@ return {
         },
         opts_extend = { "sources.default" }
     },
-
     -- Mason, Lsp
-    "neovim/nvim-lspconfig",
-    "mason-org/mason.nvim",
-    "mason-org/mason-lspconfig.nvim",
-
+    {
+        "mason-org/mason.nvim",
+        "mason-org/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    },
     -- Telescope, Oil
     {
         "nvim-telescope/telescope.nvim",
