@@ -6,7 +6,7 @@ vim.g.mapleader = ','
 vim.filetype.add({})
 
 -- Theme
-vim.cmd.colorscheme("gruber-darker")
+vim.cmd.colorscheme("rose-pine")
 
 vim.cmd 'syntax enable'
 vim.g.loaded_netrw = 1

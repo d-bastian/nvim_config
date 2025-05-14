@@ -1,4 +1,4 @@
-local custom_theme = require('lualine.themes.16color')
+local custom_theme = require('lualine.themes.auto')
 require('lualine').setup {
     options = {
         theme = custom_theme,
