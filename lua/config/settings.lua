@@ -1,6 +1,7 @@
 -- Basic
 local opt = vim.opt
 local sysname = vim.loop.os_uname().sysname
+print(sysname)
 
 vim.g.mapleader = ','
 vim.filetype.add({})
@@ -25,6 +26,7 @@ if sysname == "Linux" then
     vim.cmd(":hi Normal guibg=NONE ctermbg=NONE")
 else
     opt.shell = "pwsh"
+    vim.cmd(":hi Normal guibg=NONE ctermbg=NONE")
 end
 
 -- Line Numbers
