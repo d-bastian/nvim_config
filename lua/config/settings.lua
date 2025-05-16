@@ -1,7 +1,6 @@
 -- Basic
 local opt = vim.opt
 local sysname = vim.loop.os_uname().sysname
-print(sysname)
 
 vim.g.mapleader = ','
 vim.filetype.add({})
@@ -19,14 +18,13 @@ opt.undodir = vim.fn.stdpath('data') .. '/undo'
 opt.undofile = true
 opt.linebreak = true
 opt.shell = "pwsh"
+vim.cmd(":hi Normal guibg=NONE ctermbg=NONE")
 
--- Linux specific settings
+-- Linux
 if sysname == "Linux" then
     opt.shell = vim.fn.exepath("zsh") or "zsh"
-    vim.cmd(":hi Normal guibg=NONE ctermbg=NONE")
-else
+elseif sysname == "Windows_NT" then
     opt.shell = "pwsh"
-    vim.cmd(":hi Normal guibg=NONE ctermbg=NONE")
 end
 
 -- Line Numbers
