@@ -9,8 +9,8 @@ require("mason").setup()
 
 require("mason-lspconfig").setup({
     ensure_installed = {
-        "pylsp", "gopls", "omnisharp", "marksman",
-        "lua_ls", "phpactor", "powershell_es", "sqls"
+        "pylsp", "omnisharp", "marksman",
+        "lua_ls", "powershell_es", "sqls"
     },
     automatic_installation = true,
     handlers = {
