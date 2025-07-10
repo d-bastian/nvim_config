@@ -31,7 +31,17 @@ return {
     -- Mason, Lsp
     {
         "mason-org/mason.nvim",
+        opts = {}
+    },
+    {
         "mason-org/mason-lspconfig.nvim",
+        opts = {},
+        dependencies = {
+            { "mason-org/mason.nvim", opts = {} },
+            "neovim/nvim-lspconfig",
+        },
+    },
+    {
         "neovim/nvim-lspconfig",
     },
     -- Telescope, Oil
@@ -56,7 +66,6 @@ return {
                 ensure_installed = {
                     "c",
                     "lua",
-                    "go",
                     "python",
                     "html",
                     "json",
