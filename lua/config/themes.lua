@@ -1,4 +1,3 @@
 return {
-    { "rose-pine/neovim", name = "rose-pine" },
-    "blazkowolf/gruber-darker.nvim"
+    { "projekt0n/github-nvim-theme", name = "github-theme" }
 }

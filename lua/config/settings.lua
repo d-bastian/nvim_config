@@ -6,7 +6,7 @@ vim.g.mapleader = ','
 vim.filetype.add({})
 
 -- Theme
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("github_dark_default")
 
 vim.cmd 'syntax enable'
 vim.g.loaded_netrw = 1
@@ -18,7 +18,6 @@ opt.undodir = vim.fn.stdpath('data') .. '/undo'
 opt.undofile = true
 opt.linebreak = true
 opt.shell = "pwsh"
-vim.cmd(":hi Normal guibg=NONE ctermbg=NONE")
 
 -- Linux
 if sysname == "Linux" then
