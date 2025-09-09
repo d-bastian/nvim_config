@@ -2,9 +2,6 @@
 local opt = vim.opt
 local sysname = vim.loop.os_uname().sysname
 
-vim.g.mapleader = ','
-vim.filetype.add({})
-
 -- Theme
 vim.cmd.colorscheme("github_dark_default")
 

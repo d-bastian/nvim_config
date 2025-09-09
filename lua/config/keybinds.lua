@@ -31,7 +31,7 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' }) -- Find files
 vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope find files' })  -- Git files
 vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { desc = 'Telescope LSP definitions' })
-vim.keymap.set('n', '<leader>bf', builtin.buffers, { desc = 'Telescope builtin' })
+vim.keymap.set('n', '<leader>bf', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>f', builtin.grep_string, { desc = 'Telescope grep' })
 
 -- Block Mode

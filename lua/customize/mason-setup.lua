@@ -4,9 +4,7 @@ require("mason-lspconfig").setup({
     ensure_installed = {
         "pylsp", "omnisharp", "marksman",
         "lua_ls", "powershell_es", "sqls"
-    },
-    automatic_installation = true,
-    automatic_enable = true
+    }
 })
 
 -- Custom configurations
@@ -42,5 +40,4 @@ vim.lsp.config('lua_ls', {
             },
         },
     },
-
 })
