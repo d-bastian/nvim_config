@@ -3,7 +3,7 @@ local opt = vim.opt
 local sysname = vim.loop.os_uname().sysname
 
 -- Theme
-vim.cmd.colorscheme("github_dark_default")
+vim.cmd.colorscheme("monokai_pro")
 
 vim.cmd 'syntax enable'
 vim.g.loaded_netrw = 1
