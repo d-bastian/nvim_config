@@ -1,11 +1,9 @@
 return {
     -- Main Plugins
-    "nvim-lua/plenary.nvim", -- Required for some plugins
-    "tpope/vim-fugitive",    -- Git commands in nvim
+    "tpope/vim-fugitive", -- Git commands in nvim
     "nvim-lualine/lualine.nvim",
     "numToStr/Comment.nvim",
     "sindrets/diffview.nvim",
-    "nvim-tree/nvim-web-devicons",
     "HiPhish/rainbow-delimiters.nvim",
 
     -- Completion
@@ -44,8 +42,9 @@ return {
     },
     -- Telescope, Oil
     {
-        "nvim-telescope/telescope.nvim",
-        tag = "0.1.8",
+        'nvim-telescope/telescope.nvim',
+        tag = 'v0.1.9',
+        dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
         "stevearc/oil.nvim",

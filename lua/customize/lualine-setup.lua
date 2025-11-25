@@ -1,7 +1,6 @@
-local custom_theme = require('lualine.themes.16color')
 require('lualine').setup {
     options = {
-        theme = custom_theme,
+        theme = 'auto',
         section_separators = { left = '', right = '' },
         component_separators = { left = '|', right = '|' }
     },
