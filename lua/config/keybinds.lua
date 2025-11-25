@@ -7,6 +7,10 @@ vim.api.nvim_set_keymap('n', '<leader>q', ':tabclose<CR>', { noremap = true, sil
 vim.api.nvim_set_keymap('n', '<leader>tn', ':tabn<CR>', { noremap = true, silent = true })    -- Next tab
 vim.api.nvim_set_keymap('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent = true })    -- Previous tab
 
+-- Quickfix
+vim.api.nvim_set_keymap('n', '<leader>qo', ':copen<CR>', { noremap = true, silent = true })  -- Open quickfix list
+vim.api.nvim_set_keymap('n', '<leader>qc', ':cclose<CR>', { noremap = true, silent = true }) -- Close quickfix list
+
 -- Diffs
 vim.api.nvim_set_keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fh', ':DiffviewFileHistory<CR>', { noremap = true, silent = true })

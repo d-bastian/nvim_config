@@ -39,6 +39,8 @@ opt.softtabstop = 4
 opt.expandtab = true
 
 -- Search
+opt.ignorecase = true
+opt.smartcase = true
 opt.incsearch = true
 opt.hlsearch = true
 
