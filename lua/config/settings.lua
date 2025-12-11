@@ -1,5 +1,5 @@
 -- Basic
-local opt = vim.opt
+local o = vim.opt
 local sysname = vim.loop.os_uname().sysname
 
 -- Theme
@@ -8,50 +8,60 @@ vim.cmd.colorscheme("gruvbox")
 vim.cmd 'syntax enable'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-opt.clipboard = 'unnamedplus'
-opt.swapfile = false
-opt.backup = false
-opt.undodir = vim.fn.stdpath('data') .. '/undo'
-opt.undofile = true
-opt.linebreak = true
-opt.shell = "pwsh"
+o.clipboard = 'unnamedplus'
+o.swapfile = false
+o.backup = false
+o.undodir = vim.fn.stdpath('data') .. '/undo'
+o.undofile = true
+o.linebreak = true
 
--- Linux
+-- Linux used for setting terminal inside nvim
 if sysname == "Linux" then
-    opt.shell = vim.fn.exepath("zsh") or "zsh"
+    o.shell = vim.fn.exepath("zsh") or "zsh"
 elseif sysname == "Windows_NT" then
-    opt.shell = "pwsh"
+    o.shell = "pwsh"
 end
 
 -- Line Numbers
-opt.number = true
-opt.relativenumber = true
+o.number = true
+o.relativenumber = true
 
 -- Encoding
-opt.encoding = 'utf-8'
+o.encoding = 'utf-8'
 
 -- Indentation
-opt.autoindent = true
-opt.smartindent = true
-opt.shiftwidth = 4
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.expandtab = true
+o.autoindent = true
+o.smartindent = true
+o.shiftwidth = 4
+o.tabstop = 4
+o.softtabstop = 4
+o.expandtab = true
 
 -- Search
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
-opt.hlsearch = true
+o.ignorecase = true
+o.smartcase = true
+o.incsearch = true
+o.hlsearch = true
 
 -- Display
-opt.wrap = true
-opt.mouse = 'a'
-opt.termguicolors = true
-opt.cursorline = true
-opt.fillchars:append({
+o.wrap = true
+o.mouse = 'a'
+o.termguicolors = true
+o.cursorline = true
+o.fillchars:append({
     eob = " ",
 })
+
+-- Transparency
+vim.cmd([[
+  highlight Normal ctermbg=none guibg=none
+  highlight NormalNC ctermbg=none guibg=none
+  highlight VertSplit ctermbg=none guibg=none
+  highlight StatusLine ctermbg=none guibg=none
+  highlight LineNr ctermbg=none guibg=none
+  highlight NonText ctermbg=none guibg=none
+]])
+
 
 -- Auto format on save
 vim.cmd([[
