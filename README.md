@@ -74,7 +74,7 @@ Some keybindings might differ or are not included in this table, since I change 
 
 LSP servers are configured and installed using `mason.nvim` and `nvim-lspconfig`.
 
-You can edit them in lua/customize/mason-setup.lua.
+You can edit them in `lua/customize/mason-setup.lua`.
 
 ## Settings
 
