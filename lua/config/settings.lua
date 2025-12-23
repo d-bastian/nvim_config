@@ -1,6 +1,5 @@
 -- Basic
 local o = vim.opt
-local sysname = vim.loop.os_uname().sysname
 
 -- Theme
 vim.cmd.colorscheme("gruvbox")
