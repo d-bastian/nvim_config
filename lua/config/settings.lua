@@ -15,11 +15,9 @@ o.undodir = vim.fn.stdpath('data') .. '/undo'
 o.undofile = true
 o.linebreak = true
 
--- Linux used for setting terminal inside nvim
-if sysname == "Linux" then
+-- Not setting shell and defaulting if zsh not found
+if vim.fn.exepath("zsh") then
     o.shell = vim.fn.exepath("zsh") or "zsh"
-elseif sysname == "Windows_NT" then
-    o.shell = "pwsh"
 end
 
 -- Line Numbers
