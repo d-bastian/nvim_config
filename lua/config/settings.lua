@@ -16,8 +16,10 @@ o.undofile = true
 o.linebreak = true
 
 -- Not setting shell and defaulting if zsh not found
-if vim.fn.exepath("zsh") then
+if vim.fn.exepath("zsh") ~= "" then
     o.shell = vim.fn.exepath("zsh") or "zsh"
+else
+    print("Zsh is not found")
 end
 
 -- Line Numbers
