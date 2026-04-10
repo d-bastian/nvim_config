@@ -3,5 +3,6 @@ return {
     "tanvirtin/monokai.nvim",
     "ellisonleao/gruvbox.nvim",
     "p00f/alabaster.nvim",
-    "Mofiqul/dracula.nvim"
+    "Mofiqul/dracula.nvim",
+    "olimorris/onedarkpro.nvim"
 }

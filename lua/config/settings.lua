@@ -2,7 +2,7 @@
 local o = vim.opt
 
 -- Theme
-vim.cmd.colorscheme("dracula")
+vim.cmd.colorscheme("onedark")
 
 vim.cmd 'syntax enable'
 vim.g.loaded_netrw = 1
