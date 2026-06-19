@@ -53,12 +53,4 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         lazy = false,
     },
-
-    --Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        branch = "master",
-        lazy = false,
-        build = ":TSUpdate",
-    },
 }
