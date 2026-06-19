@@ -15,8 +15,6 @@ return {
                 transparent = false,
                 terminal_colors = true,
             })
-
-            vim.cmd.colorscheme("gruber-dark")
         end,
     }
 
