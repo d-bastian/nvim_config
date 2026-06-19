@@ -36,7 +36,7 @@ This setup uses the `lazy.nvim` plugin manager to manage various plugins. Below 
 
 ## Custom Keybindings
 
-Defined keybinds can be found in /lua/config/keybinds.lua.
+Defined keybinds can be found in `lua/config/keybinds.lua`.
 
 ## LSP Configuration
 
