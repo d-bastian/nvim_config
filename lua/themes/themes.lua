@@ -12,13 +12,11 @@ return {
         priority = 1000,
         config = function()
             require("gruber-dark").setup({
-                transparent = true,
+                transparent = false,
                 terminal_colors = true,
-                styles = {
-                    comments = { italic = true },
-                    keywords = { bold = true },
-                },
             })
+
+            vim.cmd.colorscheme("gruber-dark")
         end,
     }
 
