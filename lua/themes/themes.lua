@@ -12,7 +12,7 @@ return {
         priority = 1000,
         config = function()
             require("gruber-dark").setup({
-                transparent = false,
+                transparent = true,
                 terminal_colors = true,
             })
         end,

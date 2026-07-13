@@ -25,18 +25,47 @@ vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true 
 vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- Diagnostics
-vim.keymap.set('n', '<leader>do', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev)
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>")
+vim.keymap.set("n", "do", vim.diagnostic.open_float, {
+    desc = "Open diagnostic float",
+})
 
--- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' }) -- Find files
-vim.keymap.set('n', '<leader>fg', builtin.git_files, { desc = 'Telescope find files' })  -- Git files
-vim.keymap.set('n', '<leader>gd', builtin.lsp_definitions, { desc = 'Telescope LSP definitions' })
-vim.keymap.set('n', '<leader>bf', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>f', builtin.grep_string, { desc = 'Telescope grep' })
+vim.keymap.set("n", "dp", function()
+    vim.diagnostic.jump({ count = -1, float = true })
+end, {
+    desc = "Previous diagnostic",
+})
+
+vim.keymap.set("n", "dn", function()
+    vim.diagnostic.jump({ count = 1, float = true })
+end, {
+    desc = "Next diagnostic",
+})
+
+local builtin = require("telescope.builtin")
+
+vim.keymap.set("n", "dl", builtin.diagnostics, {
+    desc = "Telescope diagnostics",
+})
+
+vim.keymap.set("n", "ff", builtin.find_files, {
+    desc = "Telescope find files",
+})
+
+vim.keymap.set("n", "fg", builtin.git_files, {
+    desc = "Telescope Git files",
+})
+
+vim.keymap.set("n", "gd", builtin.lsp_definitions, {
+    desc = "Telescope LSP definitions",
+})
+
+vim.keymap.set("n", "bf", builtin.buffers, {
+    desc = "Telescope buffers",
+})
+
+vim.keymap.set("n", "f", builtin.grep_string, {
+    desc = "Telescope grep word under cursor",
+})
 
 -- Block Mode
 vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', { noremap = true, silent = true })

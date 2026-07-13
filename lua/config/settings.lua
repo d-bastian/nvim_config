@@ -1,16 +1,7 @@
 -- Basic Option Alias
 local o = vim.opt
 
--- Theme & Transparency Configuration (Using the theme's native API)
-require("gruber-dark").setup({
-    transparent = true,
-    terminal_colors = true,
-})
 vim.cmd.colorscheme("gruber-dark")
-
--- Netrw Disabling (Best practice)
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
 
 -- Clipboard & Backups
 o.clipboard = 'unnamedplus'
@@ -51,15 +42,25 @@ o.mouse = 'a'
 o.cursorline = true
 o.fillchars:append({ eob = " " })
 
--- Native LSP Auto-format on Save (0.11 / 0.12 Native Lua API)
-local lsp_fmt_group = vim.api.nvim_create_augroup("LspAutoFormat", { clear = true })
+local lsp_fmt_group =
+    vim.api.nvim_create_augroup("LspAutoFormat", { clear = true })
+
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = lsp_fmt_group,
-    pattern = "*",
     callback = function(args)
+        local clients = vim.lsp.get_clients({
+            bufnr = args.buf,
+            method = "textDocument/formatting",
+        })
+
+        if #clients == 0 then
+            return
+        end
+
         vim.lsp.buf.format({
             bufnr = args.buf,
-            async = false, -- Keeps save operations synchronous
+            async = false,
+            timeout_ms = 3000,
         })
     end,
 })
