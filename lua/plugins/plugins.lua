@@ -26,6 +26,11 @@ return {
         },
         opts_extend = { "sources.default" }
     },
+    {
+        "echasnovski/mini.pairs",
+        version = false,
+        opts = {},
+    },
     -- Mason, Lsp
     {
         "neovim/nvim-lspconfig",

@@ -1,6 +1,7 @@
 require("mason").setup()
 
 require("mason-lspconfig").setup({
+    ensure_installed = { "gopls", "lua_ls", "pylsp", "jsonls" },
     automatic_enable = true
 })
 
@@ -48,3 +49,12 @@ vim.lsp.config('gopls', {
 })
 
 vim.lsp.config('ast_grep', {})
+
+vim.lsp.config("jsonls", {
+    settings = {
+        json = {
+            validate = { enable = true },
+            format = { enable = true },
+        },
+    },
+})
