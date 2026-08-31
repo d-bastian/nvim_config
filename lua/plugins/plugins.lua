@@ -14,7 +14,10 @@ return {
         ---@module "blink.cmp"
         ---@type blink.cmp.Config
         opts = {
-            keymap = { preset = "default" },
+            keymap = {
+                preset = "default",
+                ['<C-e>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
+            },
             appearance = {
                 nerd_font_variant = "mono"
             },
@@ -49,7 +52,7 @@ return {
     {
         'nvim-telescope/telescope.nvim',
         tag = 'v0.2.1',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        dependencies = { 'nvim-lua/plenary.nvim' },
     },
     {
         "stevearc/oil.nvim",
