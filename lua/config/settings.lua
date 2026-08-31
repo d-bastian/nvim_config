@@ -36,6 +36,10 @@ o.smartcase = true
 o.incsearch = true
 o.hlsearch = true
 
+-- Folds
+vim.wo.foldmethod = "indent"
+vim.wo.foldlevel = 99
+
 -- Display
 o.wrap = true
 o.mouse = 'a'
