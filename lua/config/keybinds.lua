@@ -71,6 +71,10 @@ vim.keymap.set("n", "<leader>gf", builtin.live_grep, {
     desc = "Telescope grep",
 })
 
+vim.keymap.set("n", "<leader>gg", builtin.git_commits, {
+    desc = "Telescope grep git commits",
+})
+
 -- Block Mode
 vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', '<leader>v', '<C-v>', { noremap = true, silent = true })
