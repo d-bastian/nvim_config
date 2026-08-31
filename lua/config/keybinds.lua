@@ -67,6 +67,10 @@ vim.keymap.set("n", "<leader>f", builtin.grep_string, {
     desc = "Telescope grep word under cursor",
 })
 
+vim.keymap.set("n", "<leader>gf", builtin.live_grep, {
+    desc = "Telescope grep",
+})
+
 -- Block Mode
 vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('x', '<leader>v', '<C-v>', { noremap = true, silent = true })
