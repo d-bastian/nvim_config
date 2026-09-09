@@ -79,7 +79,6 @@ return {
                 "ts_ls",
                 "omnisharp",
                 "docker_compose_language_service",
-                "ast_grep",
             },
         },
 
