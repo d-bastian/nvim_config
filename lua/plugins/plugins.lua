@@ -77,7 +77,6 @@ return {
                 "pylsp",
                 "jsonls",
                 "ts_ls",
-                "omnisharp",
                 "docker_compose_language_service",
                 "roslyn_ls"
             },
