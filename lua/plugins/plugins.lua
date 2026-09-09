@@ -68,6 +68,7 @@ return {
     -- Mason / LSP
     {
         "mason-org/mason-lspconfig.nvim",
+        lazy = false,
 
         opts = {
             ensure_installed = {
@@ -76,7 +77,7 @@ return {
                 "pylsp",
                 "jsonls",
                 "ts_ls",
-                "csharp_ls",
+                "omnisharp",
                 "docker_compose_language_service",
                 "ast_grep",
             },
@@ -85,10 +86,14 @@ return {
         dependencies = {
             {
                 "mason-org/mason.nvim",
+                lazy = false,
                 opts = {},
             },
 
-            "neovim/nvim-lspconfig",
+            {
+                "neovim/nvim-lspconfig",
+                lazy = false,
+            },
         },
     },
 
