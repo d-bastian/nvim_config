@@ -9,56 +9,105 @@ return {
     -- Completion
     {
         "saghen/blink.cmp",
-        dependencies = { "rafamadriz/friendly-snippets" },
+        dependencies = {
+            "rafamadriz/friendly-snippets",
+        },
         version = "1.*",
+
         ---@module "blink.cmp"
         ---@type blink.cmp.Config
         opts = {
             keymap = {
                 preset = "default",
-                ['<C-e>'] = { function(cmp) cmp.show({ providers = { 'snippets' } }) end },
+
+                ["<C-e>"] = {
+                    function(cmp)
+                        cmp.show({
+                            providers = { "snippets" },
+                        })
+                    end,
+                },
             },
+
             appearance = {
-                nerd_font_variant = "mono"
+                nerd_font_variant = "mono",
             },
-            completion = { documentation = { auto_show = false } },
+
+            completion = {
+                documentation = {
+                    auto_show = false,
+                },
+            },
+
             sources = {
-                default = { "lsp", "path", "snippets", "buffer" },
+                default = {
+                    "lsp",
+                    "path",
+                    "snippets",
+                    "buffer",
+                },
             },
-            fuzzy = { implementation = "prefer_rust_with_warning" }
+
+            fuzzy = {
+                implementation = "prefer_rust_with_warning",
+            },
         },
-        opts_extend = { "sources.default" }
+
+        opts_extend = {
+            "sources.default",
+        },
     },
+
+    -- Auto pairs
     {
         "echasnovski/mini.pairs",
         version = false,
         opts = {},
     },
-    -- Mason, Lsp
+
+    -- Mason / LSP
     {
-        "neovim/nvim-lspconfig",
+        "mason-org/mason-lspconfig.nvim",
+
+        opts = {
+            ensure_installed = {
+                "gopls",
+                "lua_ls",
+                "pylsp",
+                "jsonls",
+                "ts_ls",
+                "csharp_ls",
+                "docker_compose_language_service",
+                "ast_grep",
+            },
+        },
+
         dependencies = {
             {
                 "mason-org/mason.nvim",
-                opts = {}
-            },
-            {
-                "mason-org/mason-lspconfig.nvim",
                 opts = {},
             },
-        }
+
+            "neovim/nvim-lspconfig",
+        },
     },
-    -- Telescope, Oil
+
+    -- Telescope
     {
-        'nvim-telescope/telescope.nvim',
-        tag = 'v0.2.1',
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        "nvim-telescope/telescope.nvim",
+        tag = "v0.2.1",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
     },
+
+    -- File browser
     {
         "stevearc/oil.nvim",
-        ---@module "oil"
-        ---@type oil.SetupOpts
-        dependencies = { "nvim-tree/nvim-web-devicons" },
+        dependencies = {
+            "nvim-tree/nvim-web-devicons",
+        },
+        opts = {},
         lazy = false,
     },
 }

@@ -1,90 +1,196 @@
-vim.api.nvim_set_keymap('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })
+local map = vim.keymap.set
 
--- Buffer / Tabs
-vim.api.nvim_set_keymap('n', '<leader>b', ':bn<CR>', { noremap = true, silent = true })       -- Next Buffer
-vim.api.nvim_set_keymap('n', '<leader>t', ':tabnew<CR>', { noremap = true, silent = true })   -- New Tab
-vim.api.nvim_set_keymap('n', '<leader>q', ':tabclose<CR>', { noremap = true, silent = true }) -- Close Tab
-vim.api.nvim_set_keymap('n', '<leader>tn', ':tabn<CR>', { noremap = true, silent = true })    -- Next tab
-vim.api.nvim_set_keymap('n', '<leader>tp', ':tabp<CR>', { noremap = true, silent = true })    -- Previous tab
+local opts = {
+    silent = true,
+    noremap = true,
+}
+
+-- Terminal
+map("t", "<Esc>", [[<C-\><C-n>]], {
+    desc = "Exit terminal mode",
+    silent = true,
+})
+
+-- Format buffer
+map("n", "<leader>fm", function()
+    vim.lsp.buf.format({
+        async = true,
+        timeout_ms = 3000,
+    })
+end, {
+    desc = "Format buffer",
+})
+
+-- Buffers / Tabs
+map("n", "<leader>b", "<cmd>bnext<CR>", {
+    desc = "Next buffer",
+    silent = true,
+})
+
+map("n", "<leader>t", "<cmd>tabnew<CR>", {
+    desc = "New tab",
+    silent = true,
+})
+
+map("n", "<leader>q", "<cmd>tabclose<CR>", {
+    desc = "Close tab",
+    silent = true,
+})
+
+map("n", "<leader>tn", "<cmd>tabnext<CR>", {
+    desc = "Next tab",
+    silent = true,
+})
+
+map("n", "<leader>tp", "<cmd>tabprevious<CR>", {
+    desc = "Previous tab",
+    silent = true,
+})
 
 -- Quickfix
-vim.api.nvim_set_keymap('n', '<leader>qo', ':copen<CR>', { noremap = true, silent = true })  -- Open quickfix list
-vim.api.nvim_set_keymap('n', '<leader>qc', ':cclose<CR>', { noremap = true, silent = true }) -- Close quickfix list
+map("n", "<leader>qo", "<cmd>copen<CR>", {
+    desc = "Open quickfix",
+    silent = true,
+})
 
--- Diffs
-vim.api.nvim_set_keymap('n', '<leader>dv', ':DiffviewOpen<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fh', ':DiffviewFileHistory<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>df', ':DiffviewFileHistory %<CR>', { noremap = true, silent = true })
+map("n", "<leader>qc", "<cmd>cclose<CR>", {
+    desc = "Close quickfix",
+    silent = true,
+})
 
--- Movements
-vim.api.nvim_set_keymap('n', '<C-d>', '<C-d>zz', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-u>', '<C-u>zz', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+-- Diffview
+map("n", "<leader>dv", "<cmd>DiffviewOpen<CR>", {
+    desc = "Open Diffview",
+    silent = true,
+})
+
+map("n", "<leader>fh", "<cmd>DiffviewFileHistory<CR>", {
+    desc = "File history",
+    silent = true,
+})
+
+map("n", "<leader>df", "<cmd>DiffviewFileHistory %<CR>", {
+    desc = "Current file history",
+    silent = true,
+})
+
+-- Movement
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "<C-u>", "<C-u>zz", opts)
+
+map("n", "<C-h>", "<C-w>h", {
+    desc = "Move to left window",
+    silent = true,
+})
+
+map("n", "<C-j>", "<C-w>j", {
+    desc = "Move to lower window",
+    silent = true,
+})
+
+map("n", "<C-k>", "<C-w>k", {
+    desc = "Move to upper window",
+    silent = true,
+})
+
+map("n", "<C-l>", "<C-w>l", {
+    desc = "Move to right window",
+    silent = true,
+})
 
 -- Diagnostics
-vim.keymap.set("n", "<leader>do", vim.diagnostic.open_float, {
+map("n", "<leader>do", vim.diagnostic.open_float, {
     desc = "Open diagnostic float",
 })
 
-vim.keymap.set("n", "<leader>dp", function()
-    vim.diagnostic.jump({ count = -1, float = true })
+map("n", "<leader>dp", function()
+    vim.diagnostic.jump({
+        count = -1,
+        float = true,
+    })
 end, {
     desc = "Previous diagnostic",
 })
 
-vim.keymap.set("n", "<leader>dn", function()
-    vim.diagnostic.jump({ count = 1, float = true })
+map("n", "<leader>dn", function()
+    vim.diagnostic.jump({
+        count = 1,
+        float = true,
+    })
 end, {
     desc = "Next diagnostic",
 })
 
-local builtin = require("telescope.builtin")
-
-vim.keymap.set("n", "<leader>dl", builtin.diagnostics, {
-    desc = "Telescope diagnostics",
+-- Telescope
+map("n", "<leader>fd", function()
+    require("telescope.builtin").diagnostics()
+end, {
+    desc = "Find diagnostics",
 })
 
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {
-    desc = "Telescope find files",
+map("n", "<leader>ff", function()
+    require("telescope.builtin").find_files()
+end, {
+    desc = "Find files",
 })
 
-vim.keymap.set("n", "<leader>fg", builtin.git_files, {
-    desc = "Telescope Git files",
+map("n", "<leader>fg", function()
+    require("telescope.builtin").git_files()
+end, {
+    desc = "Find Git files",
 })
 
-vim.keymap.set("n", "<leader>gd", builtin.lsp_definitions, {
-    desc = "Telescope LSP definitions",
+map("n", "<leader>fw", function()
+    require("telescope.builtin").grep_string()
+end, {
+    desc = "Find word under cursor",
 })
 
-vim.keymap.set("n", "<leader>bf", builtin.buffers, {
-    desc = "Telescope buffers",
+map("n", "<leader>fl", function()
+    require("telescope.builtin").live_grep()
+end, {
+    desc = "Find text",
 })
 
-vim.keymap.set("n", "<leader>f", builtin.grep_string, {
-    desc = "Telescope grep word under cursor",
+map("n", "<leader>fb", function()
+    require("telescope.builtin").buffers()
+end, {
+    desc = "Find buffers",
 })
 
-vim.keymap.set("n", "<leader>gf", builtin.live_grep, {
-    desc = "Telescope grep",
+map("n", "<leader>gd", function()
+    require("telescope.builtin").lsp_definitions()
+end, {
+    desc = "Go to definition",
 })
 
-vim.keymap.set("n", "<leader>gg", builtin.git_commits, {
-    desc = "Telescope grep git commits",
+map("n", "<leader>gc", function()
+    require("telescope.builtin").git_commits()
+end, {
+    desc = "Git commits",
 })
 
--- Block Mode
-vim.api.nvim_set_keymap('n', '<leader>v', '<C-v>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('x', '<leader>v', '<C-v>', { noremap = true, silent = true })
-
--- Copying path of current file to clipboard
-vim.api.nvim_set_keymap('n', '<leader>cp', ':let @+=expand("%:p")<CR>', { noremap = true, silent = true })
+-- Copy current file path
+map("n", "<leader>cp", function()
+    vim.fn.setreg("+", vim.fn.expand("%:p"))
+    vim.notify("Copied file path")
+end, {
+    desc = "Copy file path",
+})
 
 -- Oil
-vim.api.nvim_set_keymap('n', '<leader>o', ':Oil<CR>', { noremap = true, silent = true })
+map("n", "<leader>o", "<cmd>Oil<CR>", {
+    desc = "Open Oil",
+    silent = true,
+})
 
--- Great Remaps
-vim.api.nvim_set_keymap('v', 'J', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', 'K', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
+-- Move selected lines
+map("v", "J", ":m '>+1<CR>gv=gv", {
+    desc = "Move selection down",
+    silent = true,
+})
+
+map("v", "K", ":m '<-2<CR>gv=gv", {
+    desc = "Move selection up",
+    silent = true,
+})

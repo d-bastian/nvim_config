@@ -1,10 +1,3 @@
-require("mason").setup()
-
-require("mason-lspconfig").setup({
-    ensure_installed = { "gopls", "lua_ls", "pylsp", "jsonls", "ts_ls", "csharp_ls", "docker_compose_language_service" },
-    automatic_enable = true
-})
-
 -- Custom configurations
 vim.lsp.config('pylsp', {
     settings = {
@@ -47,8 +40,6 @@ vim.lsp.config('gopls', {
         },
     },
 })
-
-vim.lsp.config('ast_grep', {})
 
 vim.lsp.config("jsonls", {
     settings = {
