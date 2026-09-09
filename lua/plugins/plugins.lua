@@ -13,6 +13,7 @@ return {
             "rafamadriz/friendly-snippets",
             "mikavilpas/blink-ripgrep.nvim",
         },
+
         version = "1.*",
 
         ---@module "blink.cmp"
@@ -29,6 +30,7 @@ return {
                     end,
                 },
             },
+
             appearance = {
                 nerd_font_variant = "mono",
             },
@@ -38,6 +40,7 @@ return {
                     auto_show = false,
                 },
             },
+
             sources = {
                 default = {
                     "lsp",
