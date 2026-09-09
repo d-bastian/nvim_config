@@ -11,6 +11,7 @@ return {
         "saghen/blink.cmp",
         dependencies = {
             "rafamadriz/friendly-snippets",
+            "mikavilpas/blink-ripgrep.nvim",
         },
         version = "1.*",
 
@@ -28,7 +29,6 @@ return {
                     end,
                 },
             },
-
             appearance = {
                 nerd_font_variant = "mono",
             },
@@ -38,16 +38,24 @@ return {
                     auto_show = false,
                 },
             },
-
             sources = {
                 default = {
                     "lsp",
                     "path",
                     "snippets",
                     "buffer",
+                    "ripgrep",
+                },
+                providers = {
+                    ripgrep = {
+                        module = "blink-ripgrep",
+                        name = "Ripgrep",
+                        ---@module "blink-ripgrep"
+                        ---@type blink-ripgrep.Options
+                        opts = {},
+                    },
                 },
             },
-
             fuzzy = {
                 implementation = "prefer_rust_with_warning",
             },
