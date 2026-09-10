@@ -1,13 +1,16 @@
 return {
     -- Main Plugins
     "tpope/vim-fugitive", -- Git commands in nvim
-    "nvim-lualine/lualine.nvim",
-    "numToStr/Comment.nvim",
     "sindrets/diffview.nvim",
     "HiPhish/rainbow-delimiters.nvim",
     "lewis6991/gitsigns.nvim",
 
-    { "nvim-mini/mini.surround", version = '*' },
+    -- Mini.nvim plugins
+
+    { "nvim-mini/mini.pairs",      version = "*", },
+    { "nvim-mini/mini.comment",    version = "*" },
+    { "nvim-mini/mini.surround",   version = "*" },
+    { 'nvim-mini/mini.statusline', version = '*' },
 
     -- Completion
     {
@@ -72,13 +75,6 @@ return {
         },
     },
 
-    -- Auto pairs
-    {
-        "echasnovski/mini.pairs",
-        version = false,
-        opts = {},
-    },
-
     -- Mason / LSP
     {
         "mason-org/mason-lspconfig.nvim",
@@ -122,11 +118,12 @@ return {
 
     -- File browser
     {
-        "stevearc/oil.nvim",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
         opts = {},
+        -- Optional dependencies
+        dependencies = { { "nvim-mini/mini.icons", opts = {} } },
         lazy = false,
-    },
+    }
 }

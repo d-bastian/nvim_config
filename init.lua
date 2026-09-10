@@ -7,8 +7,7 @@ require("config.lazy")
 require("config.settings")
 require("config.keybinds")
 
--- Plugins
+-- Plugins customizations
 require("customize.mason-setup")
-require("customize.lualine-setup")
 require("customize.oil-setup")
-require('mini.surround').setup()
+require("customize.mini-setup")
