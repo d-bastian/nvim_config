@@ -184,6 +184,18 @@ map("n", "<leader>o", "<cmd>Oil<CR>", {
     silent = true,
 })
 
+
+-- Gitsigns
+local gitsigns = require("gitsigns")
+map("n", "<leader>tb", function()
+    gitsigns.toggle_current_line_blame()
+end
+)
+map("n", "<leader>hd", function()
+    gitsigns.diffthis()
+end
+)
+
 -- Move selected lines
 map("v", "J", ":m '>+1<CR>gv=gv", {
     desc = "Move selection down",
