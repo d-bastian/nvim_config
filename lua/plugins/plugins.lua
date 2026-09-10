@@ -88,6 +88,7 @@ return {
                 "gopls",
                 "lua_ls",
                 "pylsp",
+                "yamlls",
                 "jsonls",
                 "ts_ls",
                 "docker_compose_language_service",
