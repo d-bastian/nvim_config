@@ -5,8 +5,9 @@ return {
     "numToStr/Comment.nvim",
     "sindrets/diffview.nvim",
     "HiPhish/rainbow-delimiters.nvim",
-    { "nvim-mini/mini.surround", version = '*' },
+    "lewis6991/gitsigns.nvim",
 
+    { "nvim-mini/mini.surround", version = '*' },
 
     -- Completion
     {
