@@ -21,6 +21,12 @@ end, {
     desc = "Format buffer",
 })
 
+map("n", "<leader>fc", function()
+    require("conform").format({
+        bufnr = 0,
+    })
+end, { desc = "Format buffer with conform" })
+
 -- Buffers / Tabs
 map("n", "<leader>b", "<cmd>bnext<CR>", {
     desc = "Next buffer",

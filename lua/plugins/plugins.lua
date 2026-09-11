@@ -12,6 +12,12 @@ return {
     { "nvim-mini/mini.surround",   version = "*" },
     { 'nvim-mini/mini.statusline', version = '*' },
 
+    -- Formatting
+    {
+        'stevearc/conform.nvim',
+        opts = {},
+    },
+
     -- Completion
     {
         "saghen/blink.cmp",
