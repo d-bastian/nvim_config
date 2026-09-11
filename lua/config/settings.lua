@@ -95,18 +95,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     group = lsp_format_group,
 
     callback = function(args)
-        local clients = vim.lsp.get_clients({
+        require("conform").format({
             bufnr = args.buf,
-            method = "textDocument/formatting",
-        })
-
-        if #clients == 0 then
-            return
-        end
-
-        vim.lsp.buf.format({
-            bufnr = args.buf,
-            async = false,
+            lsp_format = "fallback",
             timeout_ms = 3000,
         })
     end,
