@@ -7,14 +7,14 @@ return {
 
     -- Mini.nvim plugins
 
-    { "nvim-mini/mini.pairs",      version = "*", },
-    { "nvim-mini/mini.comment",    version = "*" },
-    { "nvim-mini/mini.surround",   version = "*" },
-    { 'nvim-mini/mini.statusline', version = '*' },
+    { "nvim-mini/mini.pairs", version = "*" },
+    { "nvim-mini/mini.comment", version = "*" },
+    { "nvim-mini/mini.surround", version = "*" },
+    { "nvim-mini/mini.statusline", version = "*" },
 
     -- Formatting
     {
-        'stevearc/conform.nvim',
+        "stevearc/conform.nvim",
         opts = {},
     },
 
@@ -95,7 +95,7 @@ return {
                 "jsonls",
                 "ts_ls",
                 "docker_compose_language_service",
-                "roslyn_ls"
+                "roslyn_ls",
             },
         },
 
@@ -124,12 +124,12 @@ return {
 
     -- File browser
     {
-        'stevearc/oil.nvim',
+        "stevearc/oil.nvim",
         ---@module 'oil'
         ---@type oil.SetupOpts
         opts = {},
         -- Optional dependencies
         dependencies = { { "nvim-mini/mini.icons", opts = {} } },
         lazy = false,
-    }
+    },
 }

@@ -16,6 +16,5 @@ return {
                 terminal_colors = true,
             })
         end,
-    }
-
+    },
 }
