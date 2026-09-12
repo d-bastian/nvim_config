@@ -85,24 +85,7 @@ opt.completeopt = {
     "noselect",
 }
 
--- Auto format on save
-local lsp_format_group = vim.api.nvim_create_augroup(
-    "LspAutoFormat",
-    { clear = true }
-)
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = lsp_format_group,
-
-    callback = function(args)
-        require("conform").format({
-            bufnr = args.buf,
-            lsp_format = "fallback",
-            timeout_ms = 3000,
-        })
-    end,
-})
-
+-- Fixing yaml using wrong identation
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "yaml", "yaml.ansible" },
     callback = function()
