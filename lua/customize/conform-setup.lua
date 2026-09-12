@@ -8,6 +8,7 @@ require("conform").setup({
         nginx = { "nginxfmt" },
         javascript = { "prettier" },
         python = { "black" },
+        markdown = { "prettier" },
     },
     formatters = {
         nginxfmt = {
@@ -34,6 +35,7 @@ vim.api.nvim_create_user_command("FormatWorkspace", function()
                 bufnr = bufnr,
                 async = false,
                 timeout_ms = 2000,
+                lsp_format = "fallback",
             })
 
             if vim.bo[bufnr].modified then
