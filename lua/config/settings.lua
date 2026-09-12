@@ -19,7 +19,7 @@ opt.undodir = vim.fn.stdpath("data") .. "/undo"
 local zsh = vim.fn.exepath("zsh")
 
 if zsh ~= "" then
-    opt.shell = zsh
+	opt.shell = zsh
 end
 
 -- Line numbers
@@ -54,7 +54,7 @@ opt.cursorline = true
 opt.mouse = "a"
 
 opt.fillchars:append({
-    eob = " ",
+	eob = " ",
 })
 
 -- UI
@@ -69,29 +69,29 @@ opt.splitright = true
 
 -- Editing
 opt.backspace = {
-    "indent",
-    "eol",
-    "start",
+	"indent",
+	"eol",
+	"start",
 }
 
 -- Faster updates
 opt.updatetime = 250
-opt.timeoutlen = 300
+opt.timeoutlen = 1000
 
 -- Completion menu
 opt.completeopt = {
-    "menu",
-    "menuone",
-    "noselect",
+	"menu",
+	"menuone",
+	"noselect",
 }
 
 -- Fixing yaml using wrong identation
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "yaml", "yaml.ansible" },
-    callback = function()
-        vim.opt_local.tabstop = 4
-        vim.opt_local.shiftwidth = 4
-        vim.opt_local.softtabstop = 4
-        vim.opt_local.expandtab = true
-    end,
+	pattern = { "yaml", "yaml.ansible" },
+	callback = function()
+		vim.opt_local.tabstop = 4
+		vim.opt_local.shiftwidth = 4
+		vim.opt_local.softtabstop = 4
+		vim.opt_local.expandtab = true
+	end,
 })

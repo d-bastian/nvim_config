@@ -4,9 +4,14 @@ require("conform").setup({
         lsp_format = "fallback",
     },
     formatters_by_ft = {
-        nginx = { "nginxfmt" },
         lua = { "stylua" },
+        nginx = { "nginxfmt" },
         javascript = { "prettier" },
         python = { "black" }
     },
+    formatters = {
+        nginxfmt = {
+            extra_args = { "-i", "4", "--max-empty-lines", "1" },
+        },
+    }
 })
