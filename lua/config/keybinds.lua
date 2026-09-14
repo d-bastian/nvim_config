@@ -199,6 +199,9 @@ map("n", "<leader>hd", function()
     gitsigns.diffthis()
 end)
 
+-- Block Mode
+map({ "n", "x" }, "<leader>v", "<C-v>", { desc = "Use block selection", silent = true, noremap = true })
+
 -- Move selected lines
 map("v", "J", ":m '>+1<CR>gv=gv", {
     desc = "Move selection down",
