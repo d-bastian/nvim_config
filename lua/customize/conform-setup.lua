@@ -8,6 +8,7 @@ require("conform").setup({
         nginx = { "nginxfmt" },
         javascript = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettierd", "prettier", stop_after_first = true },
+        json = { "prettierd", "prettier", stop_after_first = true },
         python = { "black" },
         markdown = { "prettier" },
         go = { "gofmt" },
@@ -18,6 +19,9 @@ require("conform").setup({
         },
         stylua = {
             prepend_args = { "--indent-type", "Spaces", "--indent-width", "4" },
+        },
+        prettier = {
+            args = { "--stdin-filepath", "$FILENAME", "--tab-width", "4" },
         },
     },
 })
