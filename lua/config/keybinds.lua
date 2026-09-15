@@ -194,10 +194,14 @@ map("n", "<leader>o", "<cmd>Oil<CR>", {
 local gitsigns = require("gitsigns")
 map("n", "<leader>tb", function()
     gitsigns.toggle_current_line_blame()
-end)
+end, {
+    desc = "Toggle current line git blame",
+})
 map("n", "<leader>hd", function()
     gitsigns.diffthis()
-end)
+end, {
+    desc = "Toggle current buffer diff",
+})
 
 -- Block Mode
 map({ "n", "x" }, "<leader>v", "<C-v>", { desc = "Use block selection", silent = true, noremap = true })
