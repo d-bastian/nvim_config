@@ -38,7 +38,7 @@ map("n", "<leader>t", "<cmd>tabnew<CR>", {
     silent = true,
 })
 
-map("n", "<leader>qt", "<cmd>tabclose<CR>", {
+map("n", "<leader>tq", "<cmd>tabclose<CR>", {
     desc = "Close tab",
     silent = true,
 })
