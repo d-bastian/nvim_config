@@ -3,6 +3,7 @@
 This repository contains my personal NeoVim setup, built around `lazy.nvim` and tuned for fast file navigation, LSP-based editing, and git workflows.
 
 > This config is tailored to my workflow, so some defaults and keymaps may not match yours exactly.
+> Works only with NeoVim version >= 0.11.
 
 ## Installation
 
@@ -109,7 +110,7 @@ The main shortcuts are defined in `lua/config/keybinds.lua`.
 - `<leader>fm`: format current buffer
 - `<leader>b`: next buffer
 - `<leader>t`: new tab
-- `<leader>q`: close tab
+- `<leader>tq`: close tab
 - `<leader>tn`: next tab
 - `<leader>tp`: previous tab
 - `<leader>qo`: open quickfix

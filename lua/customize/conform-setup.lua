@@ -6,45 +6,18 @@ require("conform").setup({
     formatters_by_ft = {
         lua = { "stylua" },
         nginx = { "nginxfmt" },
-        javascript = { "prettier" },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "prettierd", "prettier", stop_after_first = true },
         python = { "black" },
         markdown = { "prettier" },
+        go = { "gofmt" },
     },
     formatters = {
         nginxfmt = {
-            extra_args = { "-i", "4", "--max-empty-lines", "1" },
+            append_args = { "-i", "4", "--max-empty-lines", "1" },
         },
         stylua = {
             prepend_args = { "--indent-type", "Spaces", "--indent-width", "4" },
         },
     },
 })
-
-vim.api.nvim_create_user_command("FormatWorkspace", function()
-    local conform = require("conform")
-    local files = vim.fn.split(vim.fn.system("git ls-files || fd --type f || find . -type f"), "\n")
-
-    print("Formatting workspace files...")
-
-    for _, file in ipairs(files) do
-        if not file:match("node_modules/") and not file:match("%.git/") then
-            local bufnr = vim.fn.bufadd(file)
-            vim.fn.bufload(bufnr)
-
-            conform.format({
-                bufnr = bufnr,
-                async = false,
-                timeout_ms = 2000,
-                lsp_format = "fallback",
-            })
-
-            if vim.bo[bufnr].modified then
-                vim.api.nvim_buf_call(bufnr, function()
-                    vim.cmd("silent update")
-                end)
-            end
-        end
-    end
-
-    print("Workspace formatting complete!")
-end, {})
