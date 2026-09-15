@@ -84,14 +84,3 @@ opt.completeopt = {
     "menuone",
     "noselect",
 }
-
--- Fixing yaml using wrong identation
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "yaml", "yaml.ansible" },
-    callback = function()
-        vim.opt_local.tabstop = 4
-        vim.opt_local.shiftwidth = 4
-        vim.opt_local.softtabstop = 4
-        vim.opt_local.expandtab = true
-    end,
-})
