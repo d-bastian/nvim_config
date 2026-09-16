@@ -11,6 +11,7 @@ return {
     { "nvim-mini/mini.comment", version = "*" },
     { "nvim-mini/mini.surround", version = "*" },
     { "nvim-mini/mini.statusline", version = "*" },
+    { "nvim-mini/mini.tabline", version = "*" },
 
     -- Formatting
     {
