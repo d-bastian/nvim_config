@@ -10,6 +10,8 @@ require("conform").setup({
         json = { "prettierd", "prettier", stop_after_first = true },
         yaml = { "prettierd", "prettier", stop_after_first = true },
         html = { "prettierd", "prettier", stop_after_first = true },
+        xml = { "xmlformatter" },
+        xaml = { "xmlformatter" },
         css = { "prettierd", "prettier", stop_after_first = true },
         javascript = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettierd", "prettier", stop_after_first = true },
@@ -31,6 +33,9 @@ require("conform").setup({
         },
         prettierd = {
             prepend_args = { "--tab-width", "4" },
+        },
+        xmlformatter = {
+            args = { "--indent", "4", "--indent-char", " ", "--blanks", "-" },
         },
     },
 })
