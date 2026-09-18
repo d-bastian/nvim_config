@@ -17,6 +17,7 @@ require("conform").setup({
         typescriptreact = { "prettierd", "prettier", stop_after_first = true },
         python = { "black" },
         go = { "gofmt" },
+        sh = { "shfmt" },
     },
     formatters = {
         nginxfmt = {
