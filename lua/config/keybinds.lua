@@ -203,6 +203,12 @@ end, {
     desc = "Toggle current buffer diff",
 })
 
+map("n", "<leader>tg", function()
+    gitsigns.blame()
+end, {
+    desc = "Toggle current buffer diff",
+})
+
 -- Block Mode
 map({ "n", "x" }, "<leader>v", "<C-v>", { desc = "Use block selection", silent = true, noremap = true })
 
