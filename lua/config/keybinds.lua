@@ -206,7 +206,7 @@ end, {
 map("n", "<leader>tg", function()
     gitsigns.blame()
 end, {
-    desc = "Toggle current buffer diff",
+    desc = "Toggle current buffer full blame",
 })
 
 -- Block Mode
