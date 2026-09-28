@@ -35,6 +35,7 @@ require("conform").setup({
             prepend_args = { "--tab-width", "4" },
         },
         xmlformatter = {
+            prepend_args = { "--selfclose", "--selfclose-space" },
             args = { "--indent", "4", "--indent-char", " ", "--blanks", "-" },
         },
     },
