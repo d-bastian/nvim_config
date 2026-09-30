@@ -2,7 +2,7 @@
 local opt = vim.opt
 
 -- Colorscheme
-vim.cmd.colorscheme("gruber-dark")
+vim.cmd.colorscheme("gruvbox")
 
 -- Clipboard
 opt.clipboard = "unnamedplus"
@@ -50,6 +50,7 @@ opt.foldlevelstart = 99
 opt.wrap = false
 opt.linebreak = true
 opt.cursorline = true
+opt.colorcolumn = "160"
 
 opt.mouse = "a"
 
