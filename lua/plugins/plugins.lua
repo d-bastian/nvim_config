@@ -4,7 +4,21 @@ return {
     "sindrets/diffview.nvim",
     "HiPhish/rainbow-delimiters.nvim",
     "lewis6991/gitsigns.nvim",
-
+    {
+        "saghen/blink.indent",
+        --- @module 'blink.indent'
+        --- @type blink.indent.Config
+        opts = {
+            static = {
+                enabled = true,
+                char = "│", -- Solid vertical line for standard indent guides
+            },
+            scope = {
+                enabled = true,
+                char = "┃", -- Thicker vertical line to visually pop the active context block
+            },
+        },
+    },
     -- Mini.nvim plugins
 
     { "nvim-mini/mini.pairs", version = "*" },
