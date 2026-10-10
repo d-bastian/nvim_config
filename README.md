@@ -1,9 +1,9 @@
 # NeoVim Configuration
 
-This repository contains my personal NeoVim setup, built around `lazy.nvim` and tuned for fast file navigation, LSP-based editing, and git workflows.
+This repository is my personal NeoVim setup, built around `lazy.nvim` and tuned for fast navigation, LSP-driven editing, and Git-heavy development.
 
 > This config is tailored to my workflow, so some defaults and keymaps may not match yours exactly.
-> Works only with NeoVim version >= 0.11.
+> The config expects NeoVim 0.10 or newer.
 
 ## Installation
 
@@ -11,17 +11,18 @@ This repository contains my personal NeoVim setup, built around `lazy.nvim` and 
 2. Make sure Neovim and Git are installed.
 3. Copy the repository contents into your Neovim config directory, typically `~/.config/nvim`.
 4. Launch Neovim and let `lazy.nvim` install the plugins.
-5. Run `:checkhealth` and `:Lazy sync` if needed.
+5. Run `:checkhealth` and `:Lazy sync` if anything is missing or outdated.
 
-## Main features
+## Current setup
 
-- `lazy.nvim` plugin manager
-- `gruber-dark` colorscheme
-- `mini.nvim` utilities for pairs, comments, surrounds, and statusline
-- completion with `blink.cmp`
-- LSP setup via `mason.nvim`, `mason-lspconfig.nvim`, and `nvim-lspconfig`
+- `lazy.nvim` for plugin management
+- `gruvbox.nvim` as the active default colorscheme
+- `mini.nvim` utilities for pairs, comments, surrounds, statusline, and tabline
+- completion with `blink.cmp` and `blink-ripgrep`
+- formatting with `conform.nvim`
+- LSP and tool installation via `mason.nvim` + `mason-lspconfig.nvim` + `nvim-lspconfig`
 - file browsing with `oil.nvim`
-- fuzzy finding with `telescope.nvim`
+- fuzzy finding and search with `telescope.nvim`
 - git integration with `vim-fugitive`, `diffview.nvim`, and `gitsigns.nvim`
 
 ## Plugins in use
@@ -29,9 +30,10 @@ This repository contains my personal NeoVim setup, built around `lazy.nvim` and 
 ### Core utilities
 
 - `tpope/vim-fugitive` — Git commands from inside Neovim
-- `sindrets/diffview.nvim` — Git diff and file history views
+- `sindrets/diffview.nvim` — git diff and file history views
 - `HiPhish/rainbow-delimiters.nvim` — colored bracket pairs
 - `lewis6991/gitsigns.nvim` — git markers and inline blame
+- `saghen/blink.indent` — indentation guides with active scope highlighting
 
 ### Mini.nvim
 
@@ -39,18 +41,21 @@ This repository contains my personal NeoVim setup, built around `lazy.nvim` and 
 - `nvim-mini/mini.comment` — comment toggling
 - `nvim-mini/mini.surround` — surround operations
 - `nvim-mini/mini.statusline` — compact statusline
+- `nvim-mini/mini.tabline` — lightweight tab labels
+- `nvim-mini/mini.icons` — icons for other plugins such as Oil
 
-### Completion and snippets
+### Completion, snippets, and formatting
 
 - `saghen/blink.cmp` — completion engine
 - `rafamadriz/friendly-snippets` — snippet library
 - `mikavilpas/blink-ripgrep.nvim` — ripgrep-powered completion source
+- `stevearc/conform.nvim` — formatting wrapper for code formatters
 
 ### LSP and tooling
 
-- `mason-org/mason.nvim` — LSP/tool installer
+- `mason-org/mason.nvim` — tool installer
 - `mason-org/mason-lspconfig.nvim` — installs and manages LSP servers
-- `neovim/nvim-lspconfig` — LSP configs
+- `neovim/nvim-lspconfig` — LSP configuration layer
 
 Installed LSPs currently include:
 
@@ -65,14 +70,13 @@ Installed LSPs currently include:
 
 ### Navigation and file browsing
 
-- `nvim-telescope/telescope.nvim` — file search, grep, diagnostics, and more
+- `nvim-telescope/telescope.nvim` — file search, diagnostics, and grep
 - `nvim-lua/plenary.nvim` — dependency for Telescope
-- `stevearc/oil.nvim` — file explorer in the style of a buffer-based tree
-- `nvim-mini/mini.icons` — icon support for Oil
+- `stevearc/oil.nvim` — file explorer in a buffer-based style
 
 ### Themes
 
-The theme set includes several options, with the active default being `gruber-dark`:
+The repo ships with several theme options, while the active default is currently `gruvbox`:
 
 - `projekt0n/github-nvim-theme`
 - `tanvirtin/monokai.nvim`
@@ -97,8 +101,9 @@ The config is defined in `lua/config/settings.lua` and includes:
 - splits open below/right by default
 - persistent undo enabled
 - `termguicolors` enabled
-- auto-format on save when an LSP supports formatting
-- YAML files use 4-space indentation for consistency
+- `colorcolumn` set to 160
+- mouse support enabled
+- `zsh` used as the shell when available
 
 ## Keybindings
 
@@ -107,7 +112,8 @@ The main shortcuts are defined in `lua/config/keybinds.lua`.
 ### General
 
 - `<Esc>` in terminal mode: exit terminal mode
-- `<leader>fm`: format current buffer
+- `<leader>fm`: format buffer via LSP
+- `<leader>fc`: format buffer via `conform.nvim`
 - `<leader>b`: next buffer
 - `<leader>t`: new tab
 - `<leader>tq`: close tab
@@ -120,6 +126,7 @@ The main shortcuts are defined in `lua/config/keybinds.lua`.
 
 - `<C-d>` / `<C-u>`: half-page movement with centering
 - `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>`: move between windows
+- `<leader>v`: block selection mode (`Ctrl+V`)
 
 ### Diagnostics
 
@@ -145,6 +152,7 @@ The main shortcuts are defined in `lua/config/keybinds.lua`.
 - `<leader>df`: current file history
 - `<leader>tb`: toggle current line blame
 - `<leader>hd`: diff current file
+- `<leader>tg`: full blame for current buffer
 - `<leader>cp`: copy current file path
 - `<leader>o`: open Oil
 
@@ -156,17 +164,19 @@ The main shortcuts are defined in `lua/config/keybinds.lua`.
 
 Additional LSP customization lives in `lua/customize/mason-setup.lua`, including:
 
-- Python lint settings for `pylsp` with max line length 120 and ignoring `W391`
+- Python lint settings for `pylsp` with a max line length of 120 and ignoring `W391`
 - Lua diagnostics tuning for `lua_ls`
 - Go formatting with `gofumpt`
 - JSON validation and formatting
 
 ## Notes
 
-This setup is designed to be clean, practical, and fast for day-to-day editing. If you want to tweak the layout, colors, or keymaps, the relevant files are:
+This setup is built to be clean, practical, and fast for everyday editing. If you want to tweak the layout, colors, or keymaps, the relevant files are:
 
+- `init.lua`
 - `lua/config/settings.lua`
 - `lua/config/keybinds.lua`
+- `lua/config/lazy.lua`
 - `lua/plugins/plugins.lua`
 - `lua/themes/themes.lua`
 
