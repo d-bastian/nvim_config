@@ -126,7 +126,6 @@ The main shortcuts are defined in `lua/config/keybinds.lua`.
 
 - `<C-d>` / `<C-u>`: half-page movement with centering
 - `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>`: move between windows
-- `<leader>v`: block selection mode (`Ctrl+V`)
 
 ### Diagnostics
 
