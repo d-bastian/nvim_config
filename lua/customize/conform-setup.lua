@@ -16,17 +16,21 @@ require("conform").setup({
         python = { "black" },
         go = { "gofmt" },
         sh = { "shfmt" },
+        sql = { "sqlfluff" },
     },
     formatters = {
+        sqlfluff = {
+            args = { "format" },
+        },
         nginxfmt = {
             append_args = { "-i", "4", "--max-empty-lines", "1" },
         },
         stylua = {
             prepend_args = { "--indent-type", "Spaces", "--indent-width", "4" },
         },
-        prettier = {
-            prepend_args = { "--tab-width", "4" },
-        },
+        -- prettier = {
+        --     prepend_args = { "--tab-width", "4" },
+        -- },
         prettierd = {
             prepend_args = { "--tab-width", "4" },
         },
