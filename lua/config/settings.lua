@@ -2,7 +2,7 @@
 local opt = vim.opt
 
 -- Colorscheme
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("catppuccin")
 
 -- Clipboard
 opt.clipboard = "unnamedplus"
