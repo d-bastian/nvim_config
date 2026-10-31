@@ -16,7 +16,6 @@ This repository is my personal NeoVim setup, built around `lazy.nvim` and tuned 
 ## Current setup
 
 - `lazy.nvim` for plugin management
-- `gruvbox.nvim` as the active default colorscheme
 - `mini.nvim` utilities for pairs, comments, surrounds, statusline, and tabline
 - completion with `blink.cmp` and `blink-ripgrep`
 - formatting with `conform.nvim`
@@ -76,7 +75,7 @@ Installed LSPs currently include:
 
 ### Themes
 
-The repo ships with several theme options, while the active default is currently `gruvbox`:
+The repo ships with several theme options.
 
 - `projekt0n/github-nvim-theme`
 - `tanvirtin/monokai.nvim`
