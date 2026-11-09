@@ -24,9 +24,9 @@ require("conform").setup({
         stylua = {
             prepend_args = { "--indent-type", "Spaces", "--indent-width", "4" },
         },
-        -- prettier = {
-        --     prepend_args = { "--tab-width", "4" },
-        -- },
+        prettier = {
+            prepend_args = { "--tab-width", "4" },
+        },
         xmlformatter = {
             prepend_args = { "--selfclose", "--selfclose-space" },
             args = { "--indent", "4", "--indent-char", " ", "--blanks", "-" },
