@@ -27,6 +27,9 @@ map("n", "<leader>fc", function()
     })
 end, { desc = "Format buffer with conform" })
 
+-- Search & Replace
+map("n", "<leader>sr", "<cmd>GrugFar<CR>", { desc = "Search and replace via Grug" })
+
 -- Buffers / Tabs
 map("n", "<leader>b", "<cmd>bnext<CR>", {
     desc = "Next buffer",

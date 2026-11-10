@@ -33,6 +33,14 @@ return {
         opts = {},
     },
 
+    -- Editor
+    {
+        "MagicDuck/grug-far.nvim",
+        config = function()
+            require("grug-far").setup()
+        end,
+    },
+
     -- Completion
     {
         "saghen/blink.cmp",
