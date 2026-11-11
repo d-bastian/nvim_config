@@ -1,5 +1,6 @@
 require("conform").setup({
     formatters_by_ft = {
+        ["_"] = { "trim_whitespace", "trim_newlines" },
         lua = { "stylua" },
         nginx = { "nginxfmt" },
         markdown = { "prettierd", "prettier", stop_after_first = true },
@@ -23,9 +24,6 @@ require("conform").setup({
         },
         stylua = {
             prepend_args = { "--indent-type", "Spaces", "--indent-width", "4" },
-        },
-        prettier = {
-            prepend_args = { "--tab-width", "4" },
         },
         xmlformatter = {
             prepend_args = { "--selfclose", "--selfclose-space" },
