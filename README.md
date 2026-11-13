@@ -75,15 +75,7 @@ Installed LSPs currently include:
 
 ### Themes
 
-The repo ships with several theme options.
-
-- `projekt0n/github-nvim-theme`
-- `tanvirtin/monokai.nvim`
-- `ellisonleao/gruvbox.nvim`
-- `p00f/alabaster.nvim`
-- `Mofiqul/dracula.nvim`
-- `olimorris/onedarkpro.nvim`
-- `d-bastian/gruber-dark.nvim`
+The repo ships with several theme options, please find them at `lua/themes/themes.lua`
 
 ## Editor settings
 
@@ -160,12 +152,7 @@ The main shortcuts are defined in `lua/config/keybinds.lua`.
 
 ## LSP configuration
 
-Additional LSP customization lives in `lua/customize/mason-setup.lua`, including:
-
-- Python lint settings for `pylsp` with a max line length of 120 and ignoring `W391`
-- Lua diagnostics tuning for `lua_ls`
-- Go formatting with `gofumpt`
-- JSON validation and formatting
+Additional LSP customization lives in `lua/customize/mason-setup.lua`.
 
 ## Notes
 
@@ -177,5 +164,3 @@ This setup is built to be clean, practical, and fast for everyday editing. If yo
 - `lua/config/lazy.lua`
 - `lua/plugins/plugins.lua`
 - `lua/themes/themes.lua`
-
-![Preview](preview.png)
